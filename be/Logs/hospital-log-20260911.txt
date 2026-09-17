@@ -1,0 +1,90 @@
+2026-09-11 08:33:10.320 +07:00 [INF] Hospital is running...
+2026-09-11 08:33:10.825 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-11 08:33:11.019 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-11 08:33:11.020 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-11 08:33:11.184 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-11 08:33:11.202 +07:00 [INF] Hosting environment: Development
+2026-09-11 08:33:11.204 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-11 08:33:12.776 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-11 08:33:12.989 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 222.0416ms
+2026-09-11 08:33:13.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-11 08:33:13.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-11 08:33:13.337 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.8733ms
+2026-09-11 08:33:13.397 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.9115ms
+2026-09-11 08:33:13.829 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-11 08:33:13.860 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.2453ms
+2026-09-11 08:41:13.830 +07:00 [INF] Hospital is running...
+2026-09-11 08:41:14.283 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-11 08:41:14.549 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-11 08:41:14.564 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-11 08:41:14.740 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-11 08:41:14.741 +07:00 [INF] Hosting environment: Development
+2026-09-11 08:41:14.742 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-11 08:41:15.118 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-11 08:41:15.310 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 202.0481ms
+2026-09-11 08:41:15.634 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-11 08:41:15.634 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-11 08:41:15.642 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.1696ms
+2026-09-11 08:41:15.684 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.6076ms
+2026-09-11 08:41:16.088 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-11 08:41:16.122 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 33.5309ms
+2026-09-11 08:53:02.898 +07:00 [INF] Hospital is running...
+2026-09-11 08:53:03.418 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-11 08:53:03.594 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-11 08:53:03.596 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-11 08:53:03.711 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-11 08:53:03.712 +07:00 [INF] Hosting environment: Development
+2026-09-11 08:53:03.714 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-11 08:53:04.105 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-11 08:53:04.345 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 252.748ms
+2026-09-11 08:53:04.358 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-11 08:53:04.372 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.3946ms
+2026-09-11 08:53:04.556 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-11 08:53:04.590 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.591ms
+2026-09-11 08:53:04.634 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-11 08:53:04.700 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 65.285ms
+2026-09-11 09:11:58.125 +07:00 [INF] Hospital is running...
+2026-09-11 09:11:58.586 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-11 09:11:58.881 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-11 09:11:58.883 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-11 09:11:58.982 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-11 09:11:58.983 +07:00 [INF] Hosting environment: Development
+2026-09-11 09:11:58.985 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-11 09:11:59.699 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-11 09:11:59.908 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 220.0705ms
+2026-09-11 09:12:00.134 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-11 09:12:00.134 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-11 09:12:00.144 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.4208ms
+2026-09-11 09:12:00.175 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 41.427ms
+2026-09-11 09:12:00.247 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-11 09:12:00.305 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 57.6718ms
+2026-09-11 10:53:07.802 +07:00 [INF] Hospital is running...
+2026-09-11 10:53:08.518 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-11 10:53:08.717 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-11 10:53:08.720 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-11 10:53:08.825 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-11 10:53:08.827 +07:00 [INF] Hosting environment: Development
+2026-09-11 10:53:08.828 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-11 10:53:09.098 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-11 10:53:09.286 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 198.9856ms
+2026-09-11 10:53:09.292 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-11 10:53:09.302 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.2638ms
+2026-09-11 10:53:09.468 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-11 10:53:09.501 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 33.5285ms
+2026-09-11 10:53:09.545 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-11 10:53:09.598 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.8501ms
+2026-09-11 11:17:51.847 +07:00 [INF] Hospital is running...
+2026-09-11 11:17:52.336 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-11 11:17:52.508 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-11 11:17:52.510 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-11 11:17:52.662 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-11 11:17:52.663 +07:00 [INF] Hosting environment: Development
+2026-09-11 11:17:52.664 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-11 11:17:53.252 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-11 11:17:53.465 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 223.7802ms
+2026-09-11 11:17:53.473 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-11 11:17:53.481 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.2312ms
+2026-09-11 11:17:53.659 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-11 11:17:53.699 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.5799ms
+2026-09-11 11:17:53.740 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-11 11:17:53.806 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 66.1918ms

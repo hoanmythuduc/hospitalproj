@@ -1,0 +1,1073 @@
+2026-08-27 09:43:42.851 +07:00 [INF] Hospital is running...
+2026-08-27 09:43:43.488 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 09:43:43.661 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 09:43:43.663 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 09:43:43.749 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 09:43:43.750 +07:00 [INF] Hosting environment: Development
+2026-08-27 09:43:43.751 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 09:43:44.698 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 09:43:44.975 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 291.9969ms
+2026-08-27 09:43:45.217 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 09:43:45.217 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 09:43:45.227 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 11.2396ms
+2026-08-27 09:43:45.372 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 155.3957ms
+2026-08-27 09:43:46.525 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 09:43:46.564 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.4751ms
+2026-08-27 09:44:58.552 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments/4/export-word - multipart/form-data; boundary=----WebKitFormBoundaryyQSaHGARwa5Dkf5b 73462
+2026-08-27 09:44:58.590 +07:00 [INF] CORS policy execution successful.
+2026-08-27 09:44:58.758 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 09:44:58.786 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-27 09:44:59.442 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 09:44:59.559 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 09:44:59.946 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-27 09:45:00.295 +07:00 [INF] Executed DbCommand (62ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerSignature], [t4].[equipmentId], [t4].[isActive], [t4].[isCompleted], [t4].[isEngineerArrived], [t4].[isIncident], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 09:45:00.324 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 09:45:00.336 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP) in 1545.6311ms
+2026-08-27 09:45:00.337 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 09:45:00.349 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments/4/export-word - 404 null application/json; charset=utf-8 1798.0797ms
+2026-08-27 09:45:07.907 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - multipart/form-data; boundary=----WebKitFormBoundaryiwgRUDBDqWDNymW0 73462
+2026-08-27 09:45:07.912 +07:00 [INF] CORS policy execution successful.
+2026-08-27 09:45:07.914 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 09:45:07.915 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-27 09:45:07.938 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerSignature], [t4].[equipmentId], [t4].[isActive], [t4].[isCompleted], [t4].[isEngineerArrived], [t4].[isIncident], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 09:45:09.493 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-XN-01_20260827094509.docx' ...
+2026-08-27 09:45:09.504 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP) in 1587.6125ms
+2026-08-27 09:45:09.506 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 09:45:09.507 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - 200 72329 application/vnd.openxmlformats-officedocument.wordprocessingml.document 1600.6093ms
+2026-08-27 10:11:53.149 +07:00 [INF] Hospital is running...
+2026-08-27 10:11:53.624 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 10:11:53.948 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 10:11:53.950 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 10:11:54.072 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 10:11:54.074 +07:00 [INF] Hosting environment: Development
+2026-08-27 10:11:54.075 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 10:11:54.569 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 10:11:54.749 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 186.3286ms
+2026-08-27 10:11:54.763 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 10:11:54.777 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 14.1836ms
+2026-08-27 10:11:54.947 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 10:11:54.980 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.3775ms
+2026-08-27 10:11:55.030 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 10:11:55.070 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.5475ms
+2026-08-27 10:12:12.958 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report?id=1 - multipart/form-data; boundary=----WebKitFormBoundaryGrgWbqkz0OkO4HAj 73462
+2026-08-27 10:12:13.005 +07:00 [INF] CORS policy execution successful.
+2026-08-27 10:12:13.165 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:12:13.195 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 10:12:13.857 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 10:12:14.093 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 10:12:14.648 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-27 10:12:14.965 +07:00 [INF] Executed DbCommand (62ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerSignature], [t4].[equipmentId], [t4].[isActive], [t4].[isCompleted], [t4].[isEngineerArrived], [t4].[isIncident], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 10:12:16.619 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-XN-01_20260827101216.docx' ...
+2026-08-27 10:12:16.638 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 3438.2218ms
+2026-08-27 10:12:16.640 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:12:16.649 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report?id=1 - 200 72329 application/vnd.openxmlformats-officedocument.wordprocessingml.document 3691.4309ms
+2026-08-27 10:29:16.898 +07:00 [INF] Hospital is running...
+2026-08-27 10:29:17.024 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 125
+2026-08-27 10:29:40.965 +07:00 [INF] Hospital is running...
+2026-08-27 10:29:41.114 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 125
+2026-08-27 10:35:59.736 +07:00 [INF] Hospital is running...
+2026-08-27 10:36:00.227 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 10:36:00.445 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 10:36:00.446 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 10:36:00.565 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 10:36:00.566 +07:00 [INF] Hosting environment: Development
+2026-08-27 10:36:00.567 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 10:36:00.900 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 10:36:01.071 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 182.8253ms
+2026-08-27 10:36:01.345 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 10:36:01.345 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 10:36:01.355 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.4718ms
+2026-08-27 10:36:01.403 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 58.008ms
+2026-08-27 10:36:01.647 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 10:36:01.681 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 33.4402ms
+2026-08-27 10:36:22.313 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report?id=1 - multipart/form-data; boundary=----WebKitFormBoundaryIaKDijHSBGAf2A17 73462
+2026-08-27 10:36:22.356 +07:00 [INF] CORS policy execution successful.
+2026-08-27 10:36:22.501 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:36:22.527 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 10:36:23.187 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 10:36:23.333 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 10:36:23.778 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-27 10:36:24.128 +07:00 [INF] Executed DbCommand (70ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 10:36:25.369 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-XN-01_20260827103625.docx' ...
+2026-08-27 10:36:25.388 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 2856.544ms
+2026-08-27 10:36:25.390 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:36:25.397 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report?id=1 - 200 72327 application/vnd.openxmlformats-officedocument.wordprocessingml.document 3084.7613ms
+2026-08-27 10:38:00.476 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report?id=1 - multipart/form-data; boundary=----WebKitFormBoundaryckJJ8xsG23asmlsC 73501
+2026-08-27 10:38:00.487 +07:00 [INF] CORS policy execution successful.
+2026-08-27 10:38:00.491 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:38:00.493 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 10:38:00.541 +07:00 [INF] Executed DbCommand (17ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 10:38:00.735 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-XN-01_20260827103800.docx' ...
+2026-08-27 10:38:00.741 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 246.3365ms
+2026-08-27 10:38:00.742 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:38:00.744 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report?id=1 - 200 72397 application/vnd.openxmlformats-officedocument.wordprocessingml.document 268.8386ms
+2026-08-27 10:39:47.614 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report?id=1 - multipart/form-data; boundary=----WebKitFormBoundarydfB6P4SD2BupDJCr 73672
+2026-08-27 10:39:47.629 +07:00 [INF] CORS policy execution successful.
+2026-08-27 10:39:47.637 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:39:47.638 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 10:39:47.708 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 10:39:47.843 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-XN-01_20260827103947.docx' ...
+2026-08-27 10:39:47.850 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 210.3559ms
+2026-08-27 10:39:47.852 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:39:47.854 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report?id=1 - 200 72609 application/vnd.openxmlformats-officedocument.wordprocessingml.document 240.4526ms
+2026-08-27 10:41:01.127 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report?id=1 - multipart/form-data; boundary=----WebKitFormBoundary7wWT74M2K5gkwh1B 73525
+2026-08-27 10:41:01.133 +07:00 [INF] CORS policy execution successful.
+2026-08-27 10:41:01.136 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:41:01.137 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 10:41:01.161 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-27 10:41:01.230 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-XN-01_20260827104101.docx' ...
+2026-08-27 10:41:01.233 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 93.6384ms
+2026-08-27 10:41:01.236 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-27 10:41:01.237 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report?id=1 - 200 72424 application/vnd.openxmlformats-officedocument.wordprocessingml.document 110.7081ms
+2026-08-27 14:09:31.095 +07:00 [INF] Hospital is running...
+2026-08-27 14:09:31.256 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-08-27 14:09:42.273 +07:00 [INF] Hospital is running...
+2026-08-27 14:09:42.407 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-08-27 14:11:09.514 +07:00 [INF] Hospital is running...
+2026-08-27 14:11:09.654 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-08-27 14:13:42.252 +07:00 [INF] Hospital is running...
+2026-08-27 14:13:42.863 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 14:13:43.169 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 14:13:43.171 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 14:13:43.327 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 14:13:43.329 +07:00 [INF] Hosting environment: Development
+2026-08-27 14:13:43.330 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 14:13:44.039 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 14:13:44.355 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 330.4625ms
+2026-08-27 14:13:44.408 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 14:13:44.418 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.0504ms
+2026-08-27 14:13:44.630 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 14:13:44.722 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 91.9267ms
+2026-08-27 14:13:44.933 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 14:13:44.980 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.3293ms
+2026-08-27 14:18:40.673 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/9/inspect - application/json 22
+2026-08-27 14:18:40.712 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:18:40.872 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:18:40.902 +07:00 [INF] Route matched with {action = "Inspect", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Inspect(Int32, THUCTAP.ViewModels.InspectLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:18:41.565 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 14:18:41.567 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 14:18:41.737 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 14:18:42.663 +07:00 [INF] Executed DbCommand (79ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:18:42.881 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:18:42.890 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP) in 1984.4042ms
+2026-08-27 14:18:42.891 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:18:42.898 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/9/inspect - 400 null application/json; charset=utf-8 2225.4023ms
+2026-08-27 14:18:48.568 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/1/inspect - application/json 22
+2026-08-27 14:18:48.572 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:18:48.575 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:18:48.576 +07:00 [INF] Route matched with {action = "Inspect", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Inspect(Int32, THUCTAP.ViewModels.InspectLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:18:48.599 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:18:48.603 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:18:48.604 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP) in 26.5192ms
+2026-08-27 14:18:48.605 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:18:48.606 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/1/inspect - 400 null application/json; charset=utf-8 38.6666ms
+2026-08-27 14:18:55.991 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/2/inspect - application/json 22
+2026-08-27 14:18:55.993 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:18:55.999 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:18:56.000 +07:00 [INF] Route matched with {action = "Inspect", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Inspect(Int32, THUCTAP.ViewModels.InspectLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:18:56.052 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:18:56.055 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:18:56.057 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP) in 54.8456ms
+2026-08-27 14:18:56.057 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:18:56.058 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/2/inspect - 400 null application/json; charset=utf-8 67.6963ms
+2026-08-27 14:19:24.981 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/8/inspect - application/json 22
+2026-08-27 14:19:24.986 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:19:24.988 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:19:24.989 +07:00 [INF] Route matched with {action = "Inspect", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Inspect(Int32, THUCTAP.ViewModels.InspectLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:19:25.007 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:19:25.011 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:19:25.012 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP) in 21.7602ms
+2026-08-27 14:19:25.013 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:19:25.013 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/8/inspect - 400 null application/json; charset=utf-8 32.8429ms
+2026-08-27 14:19:36.922 +07:00 [INF] Hospital is running...
+2026-08-27 14:19:37.317 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 14:19:37.511 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 14:19:37.513 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 14:19:37.659 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 14:19:37.661 +07:00 [INF] Hosting environment: Development
+2026-08-27 14:19:37.663 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 14:19:38.315 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 14:19:38.528 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 224.0886ms
+2026-08-27 14:19:38.539 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 14:19:38.550 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.7915ms
+2026-08-27 14:19:38.732 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 14:19:38.771 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.1512ms
+2026-08-27 14:19:38.819 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 14:19:38.864 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 45.2798ms
+2026-08-27 14:19:54.825 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/8/review - application/json 21
+2026-08-27 14:19:54.867 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:19:55.009 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Review (THUCTAP)'
+2026-08-27 14:19:55.044 +07:00 [INF] Route matched with {action = "Review", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Review(Int32, THUCTAP.ViewModels.ReviewLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:19:55.744 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 14:19:55.747 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 14:19:55.886 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 14:19:56.670 +07:00 [INF] Executed DbCommand (65ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:19:57.008 +07:00 [INF] Executed DbCommand (8ms) [Parameters=[@p18='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = DateTime2), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [EquipmentMaintenanceLogs] SET [equipmentId] = @p0, [executorId] = @p1, [inspectionDate] = @p2, [inspectorId] = @p3, [isActive] = @p4, [isAsNeeded] = @p5, [isDaily] = @p6, [isMonthly] = @p7, [isQuarterly] = @p8, [isWeekly] = @p9, [logDate] = @p10, [note] = @p11, [relatedMaintenanceId] = @p12, [reviewDate] = @p13, [reviewerId] = @p14, [status] = @p15, [updatedAt] = @p16, [updatedBy] = @p17
+OUTPUT 1
+WHERE [id] = @p18;
+2026-08-27 14:19:57.025 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:19:57.036 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Review (THUCTAP) in 1986.4945ms
+2026-08-27 14:19:57.038 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Review (THUCTAP)'
+2026-08-27 14:19:57.044 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/8/review - 200 null application/json; charset=utf-8 2219.5745ms
+2026-08-27 14:20:07.347 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/8/inspect - application/json 22
+2026-08-27 14:20:07.352 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:20:07.358 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:20:07.367 +07:00 [INF] Route matched with {action = "Inspect", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Inspect(Int32, THUCTAP.ViewModels.InspectLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:20:07.408 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:20:07.412 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:20:07.413 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP) in 44.3469ms
+2026-08-27 14:20:07.414 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:20:07.415 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/8/inspect - 400 null application/json; charset=utf-8 68.4136ms
+2026-08-27 14:20:55.619 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/15/inspect - application/json 22
+2026-08-27 14:20:55.623 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:20:55.628 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:20:55.629 +07:00 [INF] Route matched with {action = "Inspect", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Inspect(Int32, THUCTAP.ViewModels.InspectLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:20:55.696 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:20:55.705 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@p18='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = DateTime2), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [EquipmentMaintenanceLogs] SET [equipmentId] = @p0, [executorId] = @p1, [inspectionDate] = @p2, [inspectorId] = @p3, [isActive] = @p4, [isAsNeeded] = @p5, [isDaily] = @p6, [isMonthly] = @p7, [isQuarterly] = @p8, [isWeekly] = @p9, [logDate] = @p10, [note] = @p11, [relatedMaintenanceId] = @p12, [reviewDate] = @p13, [reviewerId] = @p14, [status] = @p15, [updatedAt] = @p16, [updatedBy] = @p17
+OUTPUT 1
+WHERE [id] = @p18;
+2026-08-27 14:20:55.709 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:20:55.710 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP) in 79.4397ms
+2026-08-27 14:20:55.711 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Inspect (THUCTAP)'
+2026-08-27 14:20:55.711 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/15/inspect - 200 null application/json; charset=utf-8 93.1051ms
+2026-08-27 14:21:09.383 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/15/review - application/json 21
+2026-08-27 14:21:09.385 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:21:09.386 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Review (THUCTAP)'
+2026-08-27 14:21:09.387 +07:00 [INF] Route matched with {action = "Review", controller = "MaintenanceLogs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Review(Int32, THUCTAP.ViewModels.ReviewLogRequest) on controller THUCTAP.Controllers.MaintenanceLogsController (THUCTAP).
+2026-08-27 14:21:09.403 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[id] = @__id_0
+2026-08-27 14:21:09.412 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p18='?' (DbType = Int32), @p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTime2), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = DateTime2), @p14='?' (DbType = Int32), @p15='?' (DbType = Int32), @p16='?' (DbType = DateTime2), @p17='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [EquipmentMaintenanceLogs] SET [equipmentId] = @p0, [executorId] = @p1, [inspectionDate] = @p2, [inspectorId] = @p3, [isActive] = @p4, [isAsNeeded] = @p5, [isDaily] = @p6, [isMonthly] = @p7, [isQuarterly] = @p8, [isWeekly] = @p9, [logDate] = @p10, [note] = @p11, [relatedMaintenanceId] = @p12, [reviewDate] = @p13, [reviewerId] = @p14, [status] = @p15, [updatedAt] = @p16, [updatedBy] = @p17
+OUTPUT 1
+WHERE [id] = @p18;
+2026-08-27 14:21:09.414 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-27 14:21:09.415 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceLogsController.Review (THUCTAP) in 20.6523ms
+2026-08-27 14:21:09.416 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceLogsController.Review (THUCTAP)'
+2026-08-27 14:21:09.417 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/MaintenanceLogs/15/review - 200 null application/json; charset=utf-8 35.0663ms
+2026-08-27 14:34:40.927 +07:00 [INF] Hospital is running...
+2026-08-27 14:34:41.366 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 14:34:41.597 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 14:34:41.598 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 14:34:41.715 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 14:34:41.717 +07:00 [INF] Hosting environment: Development
+2026-08-27 14:34:41.719 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 14:34:42.094 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 14:34:42.350 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 270.4126ms
+2026-08-27 14:34:42.455 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 14:34:42.463 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.8716ms
+2026-08-27 14:34:42.549 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 14:34:42.597 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.8546ms
+2026-08-27 14:34:42.653 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 14:34:42.691 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.5765ms
+2026-08-27 14:54:38.884 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - multipart/form-data; boundary=----WebKitFormBoundarySaC3hBH5QEIXclzW 71991
+2026-08-27 14:54:38.920 +07:00 [INF] CORS policy execution successful.
+2026-08-27 14:54:39.070 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 14:54:39.099 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 14:54:39.963 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 14:54:39.965 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 14:54:40.102 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 14:54:40.930 +07:00 [INF] Executed DbCommand (82ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-27 14:54:46.313 +07:00 [INF] Executing FileContentResult, sending file with download name 'NhatKyBaoDuong_TB-XN-01_Thang08_2026.docx' ...
+2026-08-27 14:54:46.329 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 7226.0398ms
+2026-08-27 14:54:46.331 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 14:54:46.339 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 70921 application/vnd.openxmlformats-officedocument.wordprocessingml.document 7455.0951ms
+2026-08-27 15:11:40.531 +07:00 [INF] Hospital is running...
+2026-08-27 15:11:40.970 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 15:11:41.153 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 15:11:41.155 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 15:11:41.275 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 15:11:41.276 +07:00 [INF] Hosting environment: Development
+2026-08-27 15:11:41.277 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 15:11:41.651 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 15:11:41.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 267.2504ms
+2026-08-27 15:11:42.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 15:11:42.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 15:11:42.158 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 15.0448ms
+2026-08-27 15:11:42.195 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.1385ms
+2026-08-27 15:11:42.412 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 15:11:42.443 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.4195ms
+2026-08-27 15:11:42.447 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/favicon-32x32.png - null null
+2026-08-27 15:11:42.468 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-08-27 15:11:42.473 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/favicon-32x32.png - 200 628 image/png 25.7878ms
+2026-08-27 15:25:44.817 +07:00 [INF] Hospital is running...
+2026-08-27 15:25:45.300 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 15:25:45.468 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 15:25:45.470 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 15:25:45.553 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 15:25:45.554 +07:00 [INF] Hosting environment: Development
+2026-08-27 15:25:45.555 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 15:25:46.222 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 15:25:46.461 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 251.061ms
+2026-08-27 15:25:46.506 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 15:25:46.514 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.0176ms
+2026-08-27 15:25:46.675 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 15:25:46.714 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.2058ms
+2026-08-27 15:25:46.839 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 15:25:46.886 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.578ms
+2026-08-27 15:26:04.979 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - multipart/form-data; boundary=----WebKitFormBoundaryVIQ43HlpSPBhx9tQ 70337
+2026-08-27 15:26:05.017 +07:00 [INF] CORS policy execution successful.
+2026-08-27 15:26:05.148 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:26:05.174 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 15:26:06.056 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 15:26:06.058 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 15:26:06.199 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 15:26:07.078 +07:00 [INF] Executed DbCommand (81ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-27 15:26:10.743 +07:00 [INF] Executing FileContentResult, sending file with download name 'NhatKyBaoDuong_TB-XN-01_Thang08_2026.docx' ...
+2026-08-27 15:26:10.761 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 5581.6847ms
+2026-08-27 15:26:10.762 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:26:10.770 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 68787 application/vnd.openxmlformats-officedocument.wordprocessingml.document 5790.3987ms
+2026-08-27 15:28:07.144 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - multipart/form-data; boundary=----WebKitFormBoundarywBvhOPBbEnrzfBJA 70363
+2026-08-27 15:28:07.150 +07:00 [INF] CORS policy execution successful.
+2026-08-27 15:28:07.153 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:28:07.154 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 15:28:07.196 +07:00 [INF] Executed DbCommand (19ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-27 15:28:08.234 +07:00 [INF] Executing FileContentResult, sending file with download name 'NhatKyBaoDuong_TB-XN-01_Thang08_2026.docx' ...
+2026-08-27 15:28:08.238 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 1082.7577ms
+2026-08-27 15:28:08.241 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:28:08.242 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 68740 application/vnd.openxmlformats-officedocument.wordprocessingml.document 1099.4425ms
+2026-08-27 15:48:17.847 +07:00 [INF] Hospital is running...
+2026-08-27 15:48:18.352 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-27 15:48:18.583 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-27 15:48:18.588 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-27 15:48:18.713 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-27 15:48:18.715 +07:00 [INF] Hosting environment: Development
+2026-08-27 15:48:18.716 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-27 15:48:19.619 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-27 15:48:19.813 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 202.1903ms
+2026-08-27 15:48:20.053 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-27 15:48:20.053 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-27 15:48:20.067 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.8259ms
+2026-08-27 15:48:20.110 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.6257ms
+2026-08-27 15:48:20.329 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-27 15:48:20.374 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 45.3883ms
+2026-08-27 15:48:46.167 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=4&year=2026 - multipart/form-data; boundary=----WebKitFormBoundaryDTI72vImtkZ68PSQ 70363
+2026-08-27 15:48:46.199 +07:00 [INF] CORS policy execution successful.
+2026-08-27 15:48:46.352 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:48:46.382 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 15:48:47.106 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 15:48:47.108 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-27 15:48:47.261 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-27 15:48:48.084 +07:00 [INF] Executed DbCommand (75ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-27 15:48:51.279 +07:00 [INF] Executing FileContentResult, sending file with download name 'NhatKyBaoDuong__Thang04_2026.docx' ...
+2026-08-27 15:48:51.300 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 4914.6125ms
+2026-08-27 15:48:51.302 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:48:51.310 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=4&year=2026 - 200 68372 application/vnd.openxmlformats-officedocument.wordprocessingml.document 5143.6292ms
+2026-08-27 15:49:21.492 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - multipart/form-data; boundary=----WebKitFormBoundaryH0Wkrtyb0zIBn5Eb 70363
+2026-08-27 15:49:21.510 +07:00 [INF] CORS policy execution successful.
+2026-08-27 15:49:21.516 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:49:21.517 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-27 15:49:21.576 +07:00 [INF] Executed DbCommand (31ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-27 15:49:23.013 +07:00 [INF] Executing FileContentResult, sending file with download name 'NhatKyBaoDuong_TB-XN-01_Thang08_2026.docx' ...
+2026-08-27 15:49:23.019 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 1497.9605ms
+2026-08-27 15:49:23.020 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-27 15:49:23.021 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 68740 application/vnd.openxmlformats-officedocument.wordprocessingml.document 1530.9062ms
