@@ -1,0 +1,78 @@
+2026-08-14 11:07:35.012 +07:00 [INF] Bắt đầu khởi chạy hệ thống Hospital API...
+2026-08-14 11:07:35.658 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-14 11:07:35.873 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-14 11:07:35.875 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-14 11:07:35.956 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-14 11:07:35.957 +07:00 [INF] Hosting environment: Development
+2026-08-14 11:07:35.965 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-14 11:07:36.522 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-14 11:07:36.726 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 212.0093ms
+2026-08-14 11:07:36.940 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-14 11:07:36.940 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-14 11:07:36.950 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.022ms
+2026-08-14 11:07:36.993 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.6841ms
+2026-08-14 11:07:37.206 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-14 11:07:37.242 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.4229ms
+2026-08-14 13:42:52.588 +07:00 [INF] Bắt đầu khởi chạy hệ thống Hospital API...
+2026-08-14 13:42:53.032 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-14 13:42:53.233 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-14 13:42:53.235 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-14 13:42:53.314 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-14 13:42:53.316 +07:00 [INF] Hosting environment: Development
+2026-08-14 13:42:53.318 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-14 13:42:54.376 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-14 13:42:54.657 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 294.3626ms
+2026-08-14 13:42:54.991 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-14 13:42:54.991 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-14 13:42:55.006 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 15.2239ms
+2026-08-14 13:42:55.129 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 138.6073ms
+2026-08-14 13:42:56.650 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-14 13:42:56.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 43.8478ms
+2026-08-14 13:43:05.739 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/Integration/fetch-external-data - null null
+2026-08-14 13:43:05.917 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.IntegrationController.FetchExternalData (THUCTAP)'
+2026-08-14 13:43:05.940 +07:00 [INF] Route matched with {action = "FetchExternalData", controller = "Integration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FetchExternalData() on controller THUCTAP.Controllers.IntegrationController (THUCTAP).
+2026-08-14 13:43:05.948 +07:00 [INF] Executed action THUCTAP.Controllers.IntegrationController.FetchExternalData (THUCTAP) in 2.666ms
+2026-08-14 13:43:05.951 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.IntegrationController.FetchExternalData (THUCTAP)'
+2026-08-14 13:43:05.995 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/Integration/fetch-external-data - 400 null application/json 255.6269ms
+2026-08-14 13:43:32.905 +07:00 [INF] Application is shutting down...
+2026-08-14 13:43:55.688 +07:00 [INF] Bắt đầu khởi chạy hệ thống Hospital API...
+2026-08-14 13:43:56.112 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-14 13:43:56.268 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-14 13:43:56.270 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-14 13:43:56.354 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-14 13:43:56.356 +07:00 [INF] Hosting environment: Development
+2026-08-14 13:43:56.357 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-14 13:43:56.814 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-14 13:43:57.032 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 233.8307ms
+2026-08-14 13:43:57.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-14 13:43:57.256 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-14 13:43:57.265 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.0085ms
+2026-08-14 13:43:57.311 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.351ms
+2026-08-14 13:43:57.512 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-14 13:43:57.545 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 32.4237ms
+2026-08-14 13:44:01.827 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/Integration/fetch-external-data - null null
+2026-08-14 13:44:02.004 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.IntegrationController.FetchExternalData (THUCTAP)'
+2026-08-14 13:44:02.025 +07:00 [INF] Route matched with {action = "FetchExternalData", controller = "Integration"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] FetchExternalData() on controller THUCTAP.Controllers.IntegrationController (THUCTAP).
+2026-08-14 13:44:02.041 +07:00 [INF] Start processing HTTP request GET https://jsonplaceholder.typicode.com/posts/1
+2026-08-14 13:44:02.046 +07:00 [INF] Sending HTTP request GET https://jsonplaceholder.typicode.com/posts/1
+2026-08-14 13:44:02.288 +07:00 [INF] Received HTTP response headers after 238.5382ms - 200
+2026-08-14 13:44:02.290 +07:00 [INF] End processing HTTP request after 252.9338ms - 200
+2026-08-14 13:44:02.301 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType2`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-14 13:44:02.316 +07:00 [INF] Executed action THUCTAP.Controllers.IntegrationController.FetchExternalData (THUCTAP) in 285.4435ms
+2026-08-14 13:44:02.318 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.IntegrationController.FetchExternalData (THUCTAP)'
+2026-08-14 13:44:02.322 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/Integration/fetch-external-data - 200 null application/json; charset=utf-8 494.4975ms
+2026-08-14 15:20:58.060 +07:00 [INF] Bắt đầu khởi chạy hệ thống Hospital API...
+2026-08-14 15:20:58.463 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-14 15:20:58.636 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-14 15:20:58.638 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-14 15:20:58.759 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-14 15:20:58.760 +07:00 [INF] Hosting environment: Development
+2026-08-14 15:20:58.761 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-14 15:20:59.338 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-14 15:20:59.559 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 238.135ms
+2026-08-14 15:20:59.809 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-14 15:20:59.809 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-14 15:20:59.822 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.6389ms
+2026-08-14 15:20:59.868 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 59.2641ms
+2026-08-14 15:21:00.103 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-14 15:21:00.151 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.6213ms

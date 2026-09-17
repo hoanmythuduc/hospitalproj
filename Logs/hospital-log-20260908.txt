@@ -1,0 +1,398 @@
+2026-09-08 08:46:29.479 +07:00 [INF] Hospital is running...
+2026-09-08 08:46:30.114 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 08:46:30.448 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 08:46:30.453 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 08:46:30.607 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 08:46:30.609 +07:00 [INF] Hosting environment: Development
+2026-09-08 08:46:30.613 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 08:46:31.512 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 08:46:31.770 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 269.1059ms
+2026-09-08 08:46:31.774 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 08:46:31.785 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 11.688ms
+2026-09-08 08:46:31.972 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 08:46:32.083 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.2087ms
+2026-09-08 08:46:32.292 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 08:46:32.344 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.1708ms
+2026-09-08 10:55:07.151 +07:00 [INF] Hospital is running...
+2026-09-08 10:55:07.552 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 10:55:07.747 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 10:55:07.749 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 10:55:07.865 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 10:55:07.867 +07:00 [INF] Hosting environment: Development
+2026-09-08 10:55:07.868 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 10:55:08.295 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 10:55:08.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 227.5983ms
+2026-09-08 10:55:08.896 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 10:55:08.896 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 10:55:08.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.7916ms
+2026-09-08 10:55:08.947 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.9699ms
+2026-09-08 10:55:09.431 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 10:55:09.465 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 34.405ms
+2026-09-08 11:11:57.210 +07:00 [INF] Hospital is running...
+2026-09-08 11:11:57.344 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-09-08 11:12:08.395 +07:00 [INF] Hospital is running...
+2026-09-08 11:12:08.526 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-09-08 11:26:19.126 +07:00 [INF] Hospital is running...
+2026-09-08 11:26:19.623 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 11:26:19.842 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 11:26:19.844 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 11:26:19.960 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 11:26:19.962 +07:00 [INF] Hosting environment: Development
+2026-09-08 11:26:19.964 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 11:26:20.265 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 11:26:20.509 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 259.707ms
+2026-09-08 11:26:20.779 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 11:26:20.779 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 11:26:20.792 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.4915ms
+2026-09-08 11:26:20.849 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 70.635ms
+2026-09-08 11:26:21.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 11:26:21.145 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.6612ms
+2026-09-08 11:26:51.472 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-plan/export-word?year=2026 - application/json 68
+2026-09-08 11:26:51.511 +07:00 [INF] CORS policy execution successful.
+2026-09-08 11:26:51.659 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportYearlyPlan (THUCTAP)'
+2026-09-08 11:26:51.685 +07:00 [INF] Route matched with {action = "ExportYearlyPlan", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportYearlyPlan(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-09-08 11:26:52.510 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 11:26:52.512 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 11:26:52.695 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-09-08 11:26:53.566 +07:00 [INF] Executed DbCommand (84ms) [Parameters=[@__year_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[approverId], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[isActive], [e].[m1], [e].[m10], [e].[m11], [e].[m12], [e].[m2], [e].[m3], [e].[m4], [e].[m5], [e].[m6], [e].[m7], [e].[m8], [e].[m9], [e].[note], [e].[preparerId], [e].[status], [e].[task], [e].[updatedAt], [e].[updatedBy], [e].[year], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName]
+FROM [EquipmentMaintenanceSchedules] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+LEFT JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[preparerId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[approverId] = [t2].[id]
+WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[isActive] = CAST(1 AS bit) AND [e].[year] = @__year_0 AND [e].[status] = 2
+ORDER BY [t0].[equipmentName]
+2026-09-08 11:26:55.310 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-08 11:26:55.331 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportYearlyPlan (THUCTAP) in 3641.981ms
+2026-09-08 11:26:55.333 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportYearlyPlan (THUCTAP)'
+2026-09-08 11:26:55.340 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-plan/export-word?year=2026 - 200 null application/json; charset=utf-8 3868.3859ms
+2026-09-08 13:22:42.054 +07:00 [INF] Hospital is running...
+2026-09-08 13:22:42.451 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 13:22:42.648 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 13:22:42.650 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 13:22:42.758 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 13:22:42.760 +07:00 [INF] Hosting environment: Development
+2026-09-08 13:22:42.765 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 13:22:43.337 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 13:22:43.585 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 259.1562ms
+2026-09-08 13:22:43.592 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 13:22:43.607 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 14.8618ms
+2026-09-08 13:22:43.809 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 13:22:43.848 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.7249ms
+2026-09-08 13:22:43.904 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 13:22:43.956 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.313ms
+2026-09-08 14:20:24.239 +07:00 [INF] Hospital is running...
+2026-09-08 14:20:24.822 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 14:20:24.993 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 14:20:24.995 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 14:20:25.095 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 14:20:25.097 +07:00 [INF] Hosting environment: Development
+2026-09-08 14:20:25.098 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 14:20:25.364 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 14:20:25.570 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 217.8632ms
+2026-09-08 14:20:25.581 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 14:20:25.588 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.4257ms
+2026-09-08 14:20:25.772 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 14:20:25.812 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.4026ms
+2026-09-08 14:20:25.865 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 14:20:25.909 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.7976ms
+2026-09-08 14:29:06.567 +07:00 [INF] Hospital is running...
+2026-09-08 14:29:07.025 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 14:29:07.216 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 14:29:07.217 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 14:29:07.326 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 14:29:07.327 +07:00 [INF] Hosting environment: Development
+2026-09-08 14:29:07.328 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 14:29:07.589 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 14:29:07.801 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 224.739ms
+2026-09-08 14:29:08.052 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 14:29:08.052 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 14:29:08.065 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 14.1559ms
+2026-09-08 14:29:08.112 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.6296ms
+2026-09-08 14:29:08.325 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 14:29:08.370 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.91ms
+2026-09-08 14:29:23.190 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/MaintenanceSchedules/1 - null null
+2026-09-08 14:29:23.393 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP)'
+2026-09-08 14:29:23.419 +07:00 [INF] Route matched with {action = "GetById", controller = "MaintenanceSchedules"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller THUCTAP.Controllers.MaintenanceSchedulesController (THUCTAP).
+2026-09-08 14:29:24.190 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 14:29:24.192 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 14:29:24.394 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-09-08 14:29:25.263 +07:00 [INF] Executed DbCommand (77ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[approverId], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[isActive], [e].[m1], [e].[m10], [e].[m11], [e].[m12], [e].[m2], [e].[m3], [e].[m4], [e].[m5], [e].[m6], [e].[m7], [e].[m8], [e].[m9], [e].[note], [e].[preparerId], [e].[status], [e].[task], [e].[updatedAt], [e].[updatedBy], [e].[year], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName]
+FROM [EquipmentMaintenanceSchedules] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+LEFT JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[preparerId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[approverId] = [t2].[id]
+WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+2026-09-08 14:29:25.464 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.MaintenanceScheduleResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-08 14:29:25.484 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP) in 2059.1873ms
+2026-09-08 14:29:25.487 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP)'
+2026-09-08 14:29:25.498 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/MaintenanceSchedules/1 - 200 null application/json; charset=utf-8 2307.8719ms
+2026-09-08 14:29:31.635 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/MaintenanceSchedules/4 - null null
+2026-09-08 14:29:31.643 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP)'
+2026-09-08 14:29:31.649 +07:00 [INF] Route matched with {action = "GetById", controller = "MaintenanceSchedules"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller THUCTAP.Controllers.MaintenanceSchedulesController (THUCTAP).
+2026-09-08 14:29:31.677 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[approverId], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[isActive], [e].[m1], [e].[m10], [e].[m11], [e].[m12], [e].[m2], [e].[m3], [e].[m4], [e].[m5], [e].[m6], [e].[m7], [e].[m8], [e].[m9], [e].[note], [e].[preparerId], [e].[status], [e].[task], [e].[updatedAt], [e].[updatedBy], [e].[year], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName]
+FROM [EquipmentMaintenanceSchedules] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+LEFT JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[preparerId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[approverId] = [t2].[id]
+WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+2026-09-08 14:29:31.680 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-09-08 14:29:31.683 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP) in 31.2541ms
+2026-09-08 14:29:31.684 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP)'
+2026-09-08 14:29:31.685 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/MaintenanceSchedules/4 - 404 null application/json; charset=utf-8 50.6059ms
+2026-09-08 14:29:35.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/MaintenanceSchedules/3 - null null
+2026-09-08 14:29:35.149 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP)'
+2026-09-08 14:29:35.150 +07:00 [INF] Route matched with {action = "GetById", controller = "MaintenanceSchedules"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetById(Int32) on controller THUCTAP.Controllers.MaintenanceSchedulesController (THUCTAP).
+2026-09-08 14:29:35.251 +07:00 [INF] Executed DbCommand (21ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [e].[id], [e].[approverId], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[isActive], [e].[m1], [e].[m10], [e].[m11], [e].[m12], [e].[m2], [e].[m3], [e].[m4], [e].[m5], [e].[m6], [e].[m7], [e].[m8], [e].[m9], [e].[note], [e].[preparerId], [e].[status], [e].[task], [e].[updatedAt], [e].[updatedBy], [e].[year], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName]
+FROM [EquipmentMaintenanceSchedules] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+LEFT JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[preparerId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[approverId] = [t2].[id]
+WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+2026-09-08 14:29:35.254 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.MaintenanceScheduleResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-08 14:29:35.256 +07:00 [INF] Executed action THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP) in 103.7877ms
+2026-09-08 14:29:35.258 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MaintenanceSchedulesController.GetById (THUCTAP)'
+2026-09-08 14:29:35.259 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/MaintenanceSchedules/3 - 200 null application/json; charset=utf-8 116.1405ms
+2026-09-08 14:41:01.407 +07:00 [INF] Hospital is running...
+2026-09-08 14:41:01.898 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 14:41:02.047 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 14:41:02.048 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 14:41:02.162 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 14:41:02.164 +07:00 [INF] Hosting environment: Development
+2026-09-08 14:41:02.165 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 14:41:02.719 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 14:41:02.941 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 232.9915ms
+2026-09-08 14:41:03.175 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 14:41:03.175 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 14:41:03.183 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.4205ms
+2026-09-08 14:41:03.230 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.1054ms
+2026-09-08 14:41:03.442 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 14:41:03.478 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.0677ms
+2026-09-08 15:20:20.598 +07:00 [INF] Hospital is running...
+2026-09-08 15:20:21.018 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 15:20:21.177 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 15:20:21.179 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 15:20:21.272 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 15:20:21.275 +07:00 [INF] Hosting environment: Development
+2026-09-08 15:20:21.277 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 15:20:21.932 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 15:20:22.130 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 212.8463ms
+2026-09-08 15:20:22.141 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 15:20:22.154 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.5133ms
+2026-09-08 15:20:22.334 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 15:20:22.372 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.7568ms
+2026-09-08 15:20:22.423 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 15:20:22.472 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.37ms
+2026-09-08 15:25:05.466 +07:00 [INF] Hospital is running...
+2026-09-08 15:25:05.888 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 15:25:06.041 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 15:25:06.043 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 15:25:06.175 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 15:25:06.177 +07:00 [INF] Hosting environment: Development
+2026-09-08 15:25:06.178 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 15:25:06.948 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 15:25:07.163 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 230.0685ms
+2026-09-08 15:25:07.377 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 15:25:07.377 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 15:25:07.387 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.6746ms
+2026-09-08 15:25:07.429 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.439ms
+2026-09-08 15:25:07.643 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 15:25:07.687 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.6054ms
+2026-09-08 15:34:07.135 +07:00 [INF] Hospital is running...
+2026-09-08 15:34:07.564 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 15:34:07.822 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 15:34:07.823 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 15:34:07.915 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 15:34:07.967 +07:00 [INF] Hosting environment: Development
+2026-09-08 15:34:07.994 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 15:34:08.688 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 15:34:08.883 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 206.4709ms
+2026-09-08 15:34:08.889 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 15:34:08.898 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.9413ms
+2026-09-08 15:34:09.067 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 15:34:09.101 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 34.5275ms
+2026-09-08 15:34:09.153 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 15:34:09.201 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.0364ms
+2026-09-08 15:44:01.943 +07:00 [INF] Hospital is running...
+2026-09-08 15:44:02.379 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 15:44:02.573 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 15:44:02.583 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 15:44:02.729 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 15:44:02.731 +07:00 [INF] Hosting environment: Development
+2026-09-08 15:44:02.731 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 15:44:03.202 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 15:44:03.379 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 192.8511ms
+2026-09-08 15:44:03.615 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 15:44:03.615 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 15:44:03.624 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.3279ms
+2026-09-08 15:44:03.681 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 67.2834ms
+2026-09-08 15:44:03.899 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 15:44:03.947 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.7185ms
+2026-09-08 15:44:08.445 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/CustomerCategory?pageIndex=1&pageSize=10 - null null
+2026-09-08 15:44:08.887 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.CustomerCategoryController.GetAll (THUCTAP)'
+2026-09-08 15:44:08.932 +07:00 [INF] Route matched with {action = "GetAll", controller = "CustomerCategory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(THUCTAP.ViewModels.CustomerCategoryFilterRequest) on controller THUCTAP.Controllers.CustomerCategoryController (THUCTAP).
+2026-09-08 15:44:09.851 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 15:44:09.852 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 15:44:10.020 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-09-08 15:44:10.785 +07:00 [ERR] Failed executing DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [CustomerCategories] AS [c]
+WHERE [c].[isActive] = CAST(1 AS bit)
+2026-09-08 15:44:10.822 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'THUCTAP.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'CustomerCategories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a891c019-ed89-4816-8a21-495386345d0c
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'CustomerCategories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:a891c019-ed89-4816-8a21-495386345d0c
+Error Number:208,State:1,Class:16
+2026-09-08 15:44:10.968 +07:00 [INF] Executed action THUCTAP.Controllers.CustomerCategoryController.GetAll (THUCTAP) in 2029.4061ms
+2026-09-08 15:44:10.971 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.CustomerCategoryController.GetAll (THUCTAP)'
+2026-09-08 15:44:11.051 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/CustomerCategory?pageIndex=1&pageSize=10 - 400 null application/json 2606.44ms
+2026-09-08 16:00:50.287 +07:00 [INF] Hospital is running...
+2026-09-08 16:00:50.734 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-08 16:00:50.967 +07:00 [INF] Now listening on: https://localhost:7270
+2026-09-08 16:00:50.968 +07:00 [INF] Now listening on: http://localhost:5165
+2026-09-08 16:00:51.081 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-08 16:00:51.082 +07:00 [INF] Hosting environment: Development
+2026-09-08 16:00:51.083 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-09-08 16:00:51.857 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-09-08 16:00:52.032 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 185.6768ms
+2026-09-08 16:00:52.039 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-08 16:00:52.048 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.5873ms
+2026-09-08 16:00:52.219 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-09-08 16:00:52.253 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.0629ms
+2026-09-08 16:00:52.303 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-09-08 16:00:52.350 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.7123ms
+2026-09-08 16:00:55.485 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/CustomerCategory?pageIndex=1&pageSize=10 - null null
+2026-09-08 16:00:55.662 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.CustomerCategoryController.GetAll (THUCTAP)'
+2026-09-08 16:00:55.691 +07:00 [INF] Route matched with {action = "GetAll", controller = "CustomerCategory"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(THUCTAP.ViewModels.CustomerCategoryFilterRequest) on controller THUCTAP.Controllers.CustomerCategoryController (THUCTAP).
+2026-09-08 16:00:56.405 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 16:00:56.407 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-09-08 16:00:56.615 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-09-08 16:00:57.440 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [CustomerCategory] AS [c]
+WHERE [c].[isActive] = CAST(1 AS bit)
+2026-09-08 16:00:57.564 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[createdAt], [c].[createdBy], [c].[discount], [c].[groupName], [c].[isActive], [c].[updatedAt], [c].[updatedBy]
+FROM [CustomerCategory] AS [c]
+WHERE [c].[isActive] = CAST(1 AS bit)
+ORDER BY [c].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-09-08 16:00:57.579 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.PagedResult`1[[THUCTAP.ViewModels.CustomerCategoryResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-09-08 16:00:57.600 +07:00 [INF] Executed action THUCTAP.Controllers.CustomerCategoryController.GetAll (THUCTAP) in 1902.6338ms
+2026-09-08 16:00:57.601 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.CustomerCategoryController.GetAll (THUCTAP)'
+2026-09-08 16:00:57.609 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/CustomerCategory?pageIndex=1&pageSize=10 - 200 null application/json; charset=utf-8 2124.6403ms

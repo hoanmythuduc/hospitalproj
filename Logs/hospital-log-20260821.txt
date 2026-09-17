@@ -1,0 +1,713 @@
+2026-08-21 09:14:09.726 +07:00 [INF] Hospital is running...
+2026-08-21 09:14:10.372 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 09:14:10.611 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 09:14:10.613 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 09:14:10.701 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 09:14:10.703 +07:00 [INF] Hosting environment: Development
+2026-08-21 09:14:10.704 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 09:14:12.316 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 09:14:12.645 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 342.2979ms
+2026-08-21 09:14:12.651 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 09:14:12.662 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 11.1994ms
+2026-08-21 09:14:12.845 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 09:14:12.911 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 66.6984ms
+2026-08-21 09:14:12.985 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 09:14:13.035 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 50.29ms
+2026-08-21 09:14:32.807 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - null null
+2026-08-21 09:14:33.092 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-21 09:14:33.127 +07:00 [INF] Route matched with {action = "GetAll", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(THUCTAP.ViewModels.EquipmentFilterRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 09:14:34.587 +07:00 [INF] Executed DbCommand (50ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Equipments] AS [e]
+WHERE [e].[isActive] = CAST(1 AS bit)
+2026-08-21 09:14:34.697 +07:00 [INF] Executed DbCommand (22ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+FROM [Equipments] AS [e]
+WHERE [e].[isActive] = CAST(1 AS bit)
+ORDER BY [e].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-08-21 09:14:34.713 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.PagedResult`1[[THUCTAP.ViewModels.EquipmentResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-21 09:14:34.734 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP) in 1602.8274ms
+2026-08-21 09:14:34.736 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-21 09:14:34.742 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - 200 null application/json; charset=utf-8 1935.5406ms
+2026-08-21 09:23:47.252 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments - application/json 953
+2026-08-21 09:23:47.262 +07:00 [INF] CORS policy execution successful.
+2026-08-21 09:23:47.266 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Create (THUCTAP)'
+2026-08-21 09:23:47.272 +07:00 [INF] Route matched with {action = "Create", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 09:23:47.667 +07:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (DbType = DateTime2), @p20='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Equipments] ([conditionWhenReceived], [conditionWhenStarted], [countryOfOrigin], [createdAt], [createdBy], [engineerInCharge], [equipmentCode], [equipmentName], [isActive], [location], [manufacturer], [model], [receivedDate], [serialNumber], [startDateOfUse], [supplierAddress], [supplierEmail], [supplierName], [supplierPhone], [updatedAt], [updatedBy])
+OUTPUT INSERTED.[id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+2026-08-21 09:23:47.702 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@p21='?' (Size = 4000), @p22='?' (Size = 4000), @p23='?' (DbType = DateTime2), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (DbType = Int32), @p27='?' (DbType = Boolean), @p28='?' (DbType = Boolean), @p29='?' (DbType = Boolean), @p30='?' (DbType = Boolean), @p31='?' (Size = 4000), @p32='?' (DbType = DateTime2), @p33='?' (Size = 4000), @p34='?' (DbType = DateTime2), @p35='?' (Size = 4000), @p36='?' (DbType = DateTime2), @p37='?' (Size = 4000), @p38='?' (DbType = Int32), @p39='?' (DbType = DateTime2), @p40='?' (DbType = Boolean), @p41='?' (DbType = DateTime2), @p42='?' (Size = 4000), @p43='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [EquipmentMaintenances] ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy])
+OUTPUT INSERTED.[id]
+VALUES (@p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35);
+INSERT INTO [EquipmentManagers] ([createdAt], [createdBy], [equipmentId], [fromDate], [isActive], [updatedAt], [updatedBy], [userId])
+OUTPUT INSERTED.[id]
+VALUES (@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43);
+2026-08-21 09:23:47.741 +07:00 [ERR] An exception occurred in the database while saving changes for context type 'THUCTAP.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_EquipmentManagers_Users_userId". The conflict occurred in database "HOSPITAL_DB", table "dbo.Users", column 'id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:8c0056db-ab87-4b89-857f-5d4aa67fecb4
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_EquipmentManagers_Users_userId". The conflict occurred in database "HOSPITAL_DB", table "dbo.Users", column 'id'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:8c0056db-ab87-4b89-857f-5d4aa67fecb4
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-08-21 09:23:47.824 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Create (THUCTAP) in 549.3376ms
+2026-08-21 09:23:47.826 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Create (THUCTAP)'
+2026-08-21 09:23:47.905 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments - 400 null application/json 652.7083ms
+2026-08-21 09:23:54.812 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments - application/json 1571
+2026-08-21 09:23:54.815 +07:00 [INF] CORS policy execution successful.
+2026-08-21 09:23:54.820 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Create (THUCTAP)'
+2026-08-21 09:23:54.821 +07:00 [INF] Route matched with {action = "Create", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create(THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 09:23:54.873 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (Size = 4000), @p19='?' (DbType = DateTime2), @p20='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Equipments] ([conditionWhenReceived], [conditionWhenStarted], [countryOfOrigin], [createdAt], [createdBy], [engineerInCharge], [equipmentCode], [equipmentName], [isActive], [location], [manufacturer], [model], [receivedDate], [serialNumber], [startDateOfUse], [supplierAddress], [supplierEmail], [supplierName], [supplierPhone], [updatedAt], [updatedBy])
+OUTPUT INSERTED.[id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20);
+2026-08-21 09:23:54.899 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@p21='?' (Size = 4000), @p22='?' (Size = 4000), @p23='?' (DbType = DateTime2), @p24='?' (Size = 4000), @p25='?' (Size = 4000), @p26='?' (DbType = Int32), @p27='?' (DbType = Boolean), @p28='?' (DbType = Boolean), @p29='?' (DbType = Boolean), @p30='?' (DbType = Boolean), @p31='?' (Size = 4000), @p32='?' (DbType = DateTime2), @p33='?' (Size = 4000), @p34='?' (DbType = DateTime2), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (Size = 4000), @p38='?' (DbType = DateTime2), @p39='?' (Size = 4000), @p40='?' (Size = 4000), @p41='?' (DbType = Int32), @p42='?' (DbType = Boolean), @p43='?' (DbType = Boolean), @p44='?' (DbType = Boolean), @p45='?' (DbType = Boolean), @p46='?' (Size = 4000), @p47='?' (DbType = DateTime2), @p48='?' (Size = 4000), @p49='?' (DbType = DateTime2), @p50='?' (Size = 4000), @p51='?' (DbType = DateTime2), @p52='?' (Size = 4000), @p53='?' (DbType = Int32), @p54='?' (DbType = DateTime2), @p55='?' (DbType = Boolean), @p56='?' (DbType = DateTime2), @p57='?' (Size = 4000), @p58='?' (DbType = Int32), @p59='?' (DbType = DateTime2), @p60='?' (Size = 4000), @p61='?' (DbType = Int32), @p62='?' (DbType = DateTime2), @p63='?' (DbType = Boolean), @p64='?' (DbType = DateTime2), @p65='?' (Size = 4000), @p66='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+MERGE [EquipmentMaintenances] USING (
+VALUES (@p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, 0),
+(@p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, @p47, @p48, @p49, @p50, 1)) AS i ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy])
+VALUES (i.[actionType], i.[content], i.[createdAt], i.[createdBy], i.[engineerSignature], i.[equipmentId], i.[isActive], i.[isCompleted], i.[isEngineerArrived], i.[isIncident], i.[labSignature], i.[maintenanceDate], i.[purpose], i.[updatedAt], i.[updatedBy])
+OUTPUT INSERTED.[id], i._Position;
+MERGE [EquipmentManagers] USING (
+VALUES (@p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, 0),
+(@p59, @p60, @p61, @p62, @p63, @p64, @p65, @p66, 1)) AS i ([createdAt], [createdBy], [equipmentId], [fromDate], [isActive], [updatedAt], [updatedBy], [userId], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([createdAt], [createdBy], [equipmentId], [fromDate], [isActive], [updatedAt], [updatedBy], [userId])
+VALUES (i.[createdAt], i.[createdBy], i.[equipmentId], i.[fromDate], i.[isActive], i.[updatedAt], i.[updatedBy], i.[userId])
+OUTPUT INSERTED.[id], i._Position;
+2026-08-21 09:23:54.916 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.EquipmentResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-21 09:23:54.918 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Create (THUCTAP) in 95.9531ms
+2026-08-21 09:23:54.919 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Create (THUCTAP)'
+2026-08-21 09:23:54.920 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments - 200 null application/json; charset=utf-8 109.1404ms
+2026-08-21 11:12:14.154 +07:00 [INF] Hospital is running...
+2026-08-21 11:12:14.631 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 11:12:14.792 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 11:12:14.794 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 11:12:14.893 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 11:12:14.894 +07:00 [INF] Hosting environment: Development
+2026-08-21 11:12:14.895 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 11:12:15.548 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 11:12:15.742 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 208.5054ms
+2026-08-21 11:12:16.049 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 11:12:16.049 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 11:12:16.056 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.3811ms
+2026-08-21 11:12:16.086 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.3712ms
+2026-08-21 11:12:16.165 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 11:12:16.209 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.1901ms
+2026-08-21 11:12:30.726 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - null null
+2026-08-21 11:12:30.897 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-21 11:12:30.928 +07:00 [INF] Route matched with {action = "GetAll", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(THUCTAP.ViewModels.EquipmentFilterRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 11:12:32.552 +07:00 [INF] Executed DbCommand (227ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Equipments] AS [e]
+WHERE [e].[isActive] = CAST(1 AS bit)
+2026-08-21 11:12:32.645 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+FROM [Equipments] AS [e]
+WHERE [e].[isActive] = CAST(1 AS bit)
+ORDER BY [e].[id] DESC
+OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+2026-08-21 11:12:32.666 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.PagedResult`1[[THUCTAP.ViewModels.EquipmentResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-21 11:12:32.692 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP) in 1758.9451ms
+2026-08-21 11:12:32.695 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-21 11:12:32.704 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - 200 null application/json; charset=utf-8 1977.6375ms
+2026-08-21 11:13:13.299 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Equipments/4 - application/json 1571
+2026-08-21 11:13:13.313 +07:00 [INF] CORS policy execution successful.
+2026-08-21 11:13:13.318 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 11:13:13.327 +07:00 [INF] Route matched with {action = "Update", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 11:13:13.499 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-21 11:13:13.525 +07:00 [ERR] Failed executing DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 11:13:13.554 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'THUCTAP.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'userName'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:ad92b895-e63c-420f-aa85-37bfd0924966
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'userName'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:ad92b895-e63c-420f-aa85-37bfd0924966
+Error Number:207,State:1,Class:16
+2026-08-21 11:13:13.614 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Update (THUCTAP) in 285.3057ms
+2026-08-21 11:13:13.616 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 11:13:13.677 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Equipments/4 - 400 null application/json 378.119ms
+2026-08-21 11:14:33.479 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Equipments/4 - application/json 1625
+2026-08-21 11:14:33.482 +07:00 [INF] CORS policy execution successful.
+2026-08-21 11:14:33.487 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 11:14:33.488 +07:00 [INF] Route matched with {action = "Update", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 11:14:33.502 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-08-21 11:14:33.523 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Update (THUCTAP) in 32.9916ms
+2026-08-21 11:14:33.525 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 11:14:33.526 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Equipments/4 - 400 null application/problem+json; charset=utf-8 48.1436ms
+2026-08-21 11:16:10.718 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Equipments/4 - application/json 1627
+2026-08-21 11:16:10.724 +07:00 [INF] CORS policy execution successful.
+2026-08-21 11:16:10.726 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 11:16:10.727 +07:00 [INF] Route matched with {action = "Update", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 11:16:10.780 +07:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 11:16:10.784 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'THUCTAP.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'userName'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:ad92b895-e63c-420f-aa85-37bfd0924966
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'userName'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:ad92b895-e63c-420f-aa85-37bfd0924966
+Error Number:207,State:1,Class:16
+2026-08-21 11:16:10.825 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Update (THUCTAP) in 96.9814ms
+2026-08-21 11:16:10.826 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 11:16:10.868 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Equipments/4 - 400 null application/json 150.4816ms
+2026-08-21 11:18:35.926 +07:00 [INF] Hospital is running...
+2026-08-21 11:18:36.065 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 122
+2026-08-21 11:18:43.640 +07:00 [INF] Hospital is running...
+2026-08-21 11:18:43.774 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 122
+2026-08-21 11:39:50.875 +07:00 [INF] Hospital is running...
+2026-08-21 11:39:51.313 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 11:39:51.522 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 11:39:51.524 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 11:39:51.653 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 11:39:51.655 +07:00 [INF] Hosting environment: Development
+2026-08-21 11:39:51.656 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 11:39:52.330 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 11:39:52.517 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 202.5331ms
+2026-08-21 11:39:52.529 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 11:39:52.537 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.8784ms
+2026-08-21 11:39:52.740 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 11:39:52.779 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.6223ms
+2026-08-21 11:39:52.832 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 11:39:52.869 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.2572ms
+2026-08-21 14:13:03.545 +07:00 [INF] Hospital is running...
+2026-08-21 14:13:04.764 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 14:13:05.079 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 14:13:05.081 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 14:13:05.217 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 14:13:05.219 +07:00 [INF] Hosting environment: Development
+2026-08-21 14:13:05.222 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 14:13:05.984 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 14:13:06.336 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 371.9979ms
+2026-08-21 14:13:06.362 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 14:13:06.379 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 16.4282ms
+2026-08-21 14:13:06.623 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 14:13:06.724 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 101.1336ms
+2026-08-21 14:13:08.698 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 14:13:08.748 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 50.2695ms
+2026-08-21 14:13:18.978 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Equipments/1 - application/json 1599
+2026-08-21 14:13:19.033 +07:00 [INF] CORS policy execution successful.
+2026-08-21 14:13:19.283 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 14:13:19.325 +07:00 [INF] Route matched with {action = "Update", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 14:13:20.908 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-21 14:13:21.341 +07:00 [INF] Executed DbCommand (81ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 14:13:21.987 +07:00 [INF] Executed DbCommand (48ms) [Parameters=[@p15='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (DbType = DateTime2), @p12='?' (Size = 4000), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p31='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = Int32), @p22='?' (DbType = Boolean), @p23='?' (DbType = Boolean), @p24='?' (DbType = Boolean), @p25='?' (DbType = Boolean), @p26='?' (Size = 4000), @p27='?' (DbType = DateTime2), @p28='?' (Size = 4000), @p29='?' (DbType = DateTime2), @p30='?' (Size = 4000), @p32='?' (Size = 4000), @p33='?' (Size = 4000), @p34='?' (DbType = DateTime2), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (DbType = Int32), @p38='?' (DbType = Boolean), @p39='?' (DbType = Boolean), @p40='?' (DbType = Boolean), @p41='?' (DbType = Boolean), @p42='?' (Size = 4000), @p43='?' (DbType = DateTime2), @p44='?' (Size = 4000), @p45='?' (DbType = DateTime2), @p46='?' (Size = 4000), @p47='?' (Size = 4000), @p48='?' (Size = 4000), @p49='?' (DbType = DateTime2), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (DbType = Int32), @p53='?' (DbType = Boolean), @p54='?' (DbType = Boolean), @p55='?' (DbType = Boolean), @p56='?' (DbType = Boolean), @p57='?' (Size = 4000), @p58='?' (DbType = DateTime2), @p59='?' (Size = 4000), @p60='?' (DbType = DateTime2), @p61='?' (Size = 4000), @p71='?' (DbType = Int32), @p62='?' (DbType = DateTime2), @p63='?' (Size = 4000), @p64='?' (DbType = Int32), @p65='?' (DbType = DateTime2), @p66='?' (DbType = Boolean), @p67='?' (DbType = DateTime2), @p68='?' (Size = 4000), @p69='?' (DbType = Int32), @p70='?' (Size = 4000), @p81='?' (DbType = Int32), @p72='?' (DbType = DateTime2), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (DbType = DateTime2), @p76='?' (DbType = Boolean), @p77='?' (DbType = DateTime2), @p78='?' (Size = 4000), @p79='?' (DbType = Int32), @p80='?' (Size = 4000), @p82='?' (DbType = DateTime2), @p83='?' (Size = 4000), @p84='?' (DbType = Int32), @p85='?' (DbType = DateTime2), @p86='?' (DbType = Boolean), @p87='?' (DbType = DateTime2), @p88='?' (Size = 4000), @p89='?' (DbType = Int32), @p90='?' (Size = 4000), @p110='?' (DbType = Int32), @p91='?' (Size = 4000), @p92='?' (Size = 4000), @p93='?' (Size = 4000), @p94='?' (Size = 4000), @p95='?' (Size = 4000), @p96='?' (Size = 4000), @p97='?' (DbType = Boolean), @p98='?' (Size = 4000), @p99='?' (Size = 4000), @p100='?' (Size = 4000), @p101='?' (DbType = DateTime2), @p102='?' (Size = 4000), @p103='?' (DbType = DateTime2), @p104='?' (Size = 4000), @p105='?' (Size = 4000), @p106='?' (Size = 4000), @p107='?' (Size = 4000), @p108='?' (DbType = DateTime2), @p109='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [EquipmentMaintenances] SET [actionType] = @p0, [content] = @p1, [createdAt] = @p2, [createdBy] = @p3, [engineerSignature] = @p4, [equipmentId] = @p5, [isActive] = @p6, [isCompleted] = @p7, [isEngineerArrived] = @p8, [isIncident] = @p9, [labSignature] = @p10, [maintenanceDate] = @p11, [purpose] = @p12, [updatedAt] = @p13, [updatedBy] = @p14
+OUTPUT 1
+WHERE [id] = @p15;
+UPDATE [EquipmentMaintenances] SET [actionType] = @p16, [content] = @p17, [createdAt] = @p18, [createdBy] = @p19, [engineerSignature] = @p20, [equipmentId] = @p21, [isActive] = @p22, [isCompleted] = @p23, [isEngineerArrived] = @p24, [isIncident] = @p25, [labSignature] = @p26, [maintenanceDate] = @p27, [purpose] = @p28, [updatedAt] = @p29, [updatedBy] = @p30
+OUTPUT 1
+WHERE [id] = @p31;
+MERGE [EquipmentMaintenances] USING (
+VALUES (@p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, 0),
+(@p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, 1)) AS i ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy])
+VALUES (i.[actionType], i.[content], i.[createdAt], i.[createdBy], i.[engineerSignature], i.[equipmentId], i.[isActive], i.[isCompleted], i.[isEngineerArrived], i.[isIncident], i.[labSignature], i.[maintenanceDate], i.[purpose], i.[updatedAt], i.[updatedBy])
+OUTPUT INSERTED.[id], i._Position;
+UPDATE [EquipmentManagers] SET [createdAt] = @p62, [createdBy] = @p63, [equipmentId] = @p64, [fromDate] = @p65, [isActive] = @p66, [updatedAt] = @p67, [updatedBy] = @p68, [userId] = @p69, [userName] = @p70
+OUTPUT 1
+WHERE [id] = @p71;
+UPDATE [EquipmentManagers] SET [createdAt] = @p72, [createdBy] = @p73, [equipmentId] = @p74, [fromDate] = @p75, [isActive] = @p76, [updatedAt] = @p77, [updatedBy] = @p78, [userId] = @p79, [userName] = @p80
+OUTPUT 1
+WHERE [id] = @p81;
+INSERT INTO [EquipmentManagers] ([createdAt], [createdBy], [equipmentId], [fromDate], [isActive], [updatedAt], [updatedBy], [userId], [userName])
+OUTPUT INSERTED.[id]
+VALUES (@p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90);
+UPDATE [Equipments] SET [conditionWhenReceived] = @p91, [conditionWhenStarted] = @p92, [countryOfOrigin] = @p93, [engineerInCharge] = @p94, [equipmentCode] = @p95, [equipmentName] = @p96, [isActive] = @p97, [location] = @p98, [manufacturer] = @p99, [model] = @p100, [receivedDate] = @p101, [serialNumber] = @p102, [startDateOfUse] = @p103, [supplierAddress] = @p104, [supplierEmail] = @p105, [supplierName] = @p106, [supplierPhone] = @p107, [updatedAt] = @p108, [updatedBy] = @p109
+OUTPUT 1
+WHERE [id] = @p110;
+2026-08-21 14:13:22.054 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.EquipmentResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-21 14:13:22.083 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Update (THUCTAP) in 2751.8839ms
+2026-08-21 14:13:22.086 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 14:13:22.094 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Equipments/1 - 200 null application/json; charset=utf-8 3116.4789ms
+2026-08-21 14:13:41.977 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Equipments/4 - application/json 1627
+2026-08-21 14:13:41.983 +07:00 [INF] CORS policy execution successful.
+2026-08-21 14:13:41.986 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 14:13:41.988 +07:00 [INF] Route matched with {action = "Update", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Update(Int32, THUCTAP.ViewModels.EquipmentRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 14:13:42.014 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 14:13:42.053 +07:00 [INF] Executed DbCommand (30ms) [Parameters=[@p15='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (DbType = DateTime2), @p12='?' (Size = 4000), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p31='?' (DbType = Int32), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000), @p20='?' (Size = 4000), @p21='?' (DbType = Int32), @p22='?' (DbType = Boolean), @p23='?' (DbType = Boolean), @p24='?' (DbType = Boolean), @p25='?' (DbType = Boolean), @p26='?' (Size = 4000), @p27='?' (DbType = DateTime2), @p28='?' (Size = 4000), @p29='?' (DbType = DateTime2), @p30='?' (Size = 4000), @p32='?' (Size = 4000), @p33='?' (Size = 4000), @p34='?' (DbType = DateTime2), @p35='?' (Size = 4000), @p36='?' (Size = 4000), @p37='?' (DbType = Int32), @p38='?' (DbType = Boolean), @p39='?' (DbType = Boolean), @p40='?' (DbType = Boolean), @p41='?' (DbType = Boolean), @p42='?' (Size = 4000), @p43='?' (DbType = DateTime2), @p44='?' (Size = 4000), @p45='?' (DbType = DateTime2), @p46='?' (Size = 4000), @p47='?' (Size = 4000), @p48='?' (Size = 4000), @p49='?' (DbType = DateTime2), @p50='?' (Size = 4000), @p51='?' (Size = 4000), @p52='?' (DbType = Int32), @p53='?' (DbType = Boolean), @p54='?' (DbType = Boolean), @p55='?' (DbType = Boolean), @p56='?' (DbType = Boolean), @p57='?' (Size = 4000), @p58='?' (DbType = DateTime2), @p59='?' (Size = 4000), @p60='?' (DbType = DateTime2), @p61='?' (Size = 4000), @p71='?' (DbType = Int32), @p62='?' (DbType = DateTime2), @p63='?' (Size = 4000), @p64='?' (DbType = Int32), @p65='?' (DbType = DateTime2), @p66='?' (DbType = Boolean), @p67='?' (DbType = DateTime2), @p68='?' (Size = 4000), @p69='?' (DbType = Int32), @p70='?' (Size = 4000), @p81='?' (DbType = Int32), @p72='?' (DbType = DateTime2), @p73='?' (Size = 4000), @p74='?' (DbType = Int32), @p75='?' (DbType = DateTime2), @p76='?' (DbType = Boolean), @p77='?' (DbType = DateTime2), @p78='?' (Size = 4000), @p79='?' (DbType = Int32), @p80='?' (Size = 4000), @p82='?' (DbType = DateTime2), @p83='?' (Size = 4000), @p84='?' (DbType = Int32), @p85='?' (DbType = DateTime2), @p86='?' (DbType = Boolean), @p87='?' (DbType = DateTime2), @p88='?' (Size = 4000), @p89='?' (DbType = Int32), @p90='?' (Size = 4000), @p91='?' (DbType = DateTime2), @p92='?' (Size = 4000), @p93='?' (DbType = Int32), @p94='?' (DbType = DateTime2), @p95='?' (DbType = Boolean), @p96='?' (DbType = DateTime2), @p97='?' (Size = 4000), @p98='?' (DbType = Int32), @p99='?' (Size = 4000), @p119='?' (DbType = Int32), @p100='?' (Size = 4000), @p101='?' (Size = 4000), @p102='?' (Size = 4000), @p103='?' (Size = 4000), @p104='?' (Size = 4000), @p105='?' (Size = 4000), @p106='?' (DbType = Boolean), @p107='?' (Size = 4000), @p108='?' (Size = 4000), @p109='?' (Size = 4000), @p110='?' (DbType = DateTime2), @p111='?' (Size = 4000), @p112='?' (DbType = DateTime2), @p113='?' (Size = 4000), @p114='?' (Size = 4000), @p115='?' (Size = 4000), @p116='?' (Size = 4000), @p117='?' (DbType = DateTime2), @p118='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [EquipmentMaintenances] SET [actionType] = @p0, [content] = @p1, [createdAt] = @p2, [createdBy] = @p3, [engineerSignature] = @p4, [equipmentId] = @p5, [isActive] = @p6, [isCompleted] = @p7, [isEngineerArrived] = @p8, [isIncident] = @p9, [labSignature] = @p10, [maintenanceDate] = @p11, [purpose] = @p12, [updatedAt] = @p13, [updatedBy] = @p14
+OUTPUT 1
+WHERE [id] = @p15;
+UPDATE [EquipmentMaintenances] SET [actionType] = @p16, [content] = @p17, [createdAt] = @p18, [createdBy] = @p19, [engineerSignature] = @p20, [equipmentId] = @p21, [isActive] = @p22, [isCompleted] = @p23, [isEngineerArrived] = @p24, [isIncident] = @p25, [labSignature] = @p26, [maintenanceDate] = @p27, [purpose] = @p28, [updatedAt] = @p29, [updatedBy] = @p30
+OUTPUT 1
+WHERE [id] = @p31;
+MERGE [EquipmentMaintenances] USING (
+VALUES (@p32, @p33, @p34, @p35, @p36, @p37, @p38, @p39, @p40, @p41, @p42, @p43, @p44, @p45, @p46, 0),
+(@p47, @p48, @p49, @p50, @p51, @p52, @p53, @p54, @p55, @p56, @p57, @p58, @p59, @p60, @p61, 1)) AS i ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([actionType], [content], [createdAt], [createdBy], [engineerSignature], [equipmentId], [isActive], [isCompleted], [isEngineerArrived], [isIncident], [labSignature], [maintenanceDate], [purpose], [updatedAt], [updatedBy])
+VALUES (i.[actionType], i.[content], i.[createdAt], i.[createdBy], i.[engineerSignature], i.[equipmentId], i.[isActive], i.[isCompleted], i.[isEngineerArrived], i.[isIncident], i.[labSignature], i.[maintenanceDate], i.[purpose], i.[updatedAt], i.[updatedBy])
+OUTPUT INSERTED.[id], i._Position;
+UPDATE [EquipmentManagers] SET [createdAt] = @p62, [createdBy] = @p63, [equipmentId] = @p64, [fromDate] = @p65, [isActive] = @p66, [updatedAt] = @p67, [updatedBy] = @p68, [userId] = @p69, [userName] = @p70
+OUTPUT 1
+WHERE [id] = @p71;
+UPDATE [EquipmentManagers] SET [createdAt] = @p72, [createdBy] = @p73, [equipmentId] = @p74, [fromDate] = @p75, [isActive] = @p76, [updatedAt] = @p77, [updatedBy] = @p78, [userId] = @p79, [userName] = @p80
+OUTPUT 1
+WHERE [id] = @p81;
+MERGE [EquipmentManagers] USING (
+VALUES (@p82, @p83, @p84, @p85, @p86, @p87, @p88, @p89, @p90, 0),
+(@p91, @p92, @p93, @p94, @p95, @p96, @p97, @p98, @p99, 1)) AS i ([createdAt], [createdBy], [equipmentId], [fromDate], [isActive], [updatedAt], [updatedBy], [userId], [userName], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([createdAt], [createdBy], [equipmentId], [fromDate], [isActive], [updatedAt], [updatedBy], [userId], [userName])
+VALUES (i.[createdAt], i.[createdBy], i.[equipmentId], i.[fromDate], i.[isActive], i.[updatedAt], i.[updatedBy], i.[userId], i.[userName])
+OUTPUT INSERTED.[id], i._Position;
+UPDATE [Equipments] SET [conditionWhenReceived] = @p100, [conditionWhenStarted] = @p101, [countryOfOrigin] = @p102, [engineerInCharge] = @p103, [equipmentCode] = @p104, [equipmentName] = @p105, [isActive] = @p106, [location] = @p107, [manufacturer] = @p108, [model] = @p109, [receivedDate] = @p110, [serialNumber] = @p111, [startDateOfUse] = @p112, [supplierAddress] = @p113, [supplierEmail] = @p114, [supplierName] = @p115, [supplierPhone] = @p116, [updatedAt] = @p117, [updatedBy] = @p118
+OUTPUT 1
+WHERE [id] = @p119;
+2026-08-21 14:13:42.060 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.EquipmentResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-21 14:13:42.062 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.Update (THUCTAP) in 72.4938ms
+2026-08-21 14:13:42.063 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.Update (THUCTAP)'
+2026-08-21 14:13:42.065 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Equipments/4 - 200 null application/json; charset=utf-8 88.3223ms
+2026-08-21 14:32:06.115 +07:00 [INF] Hospital is running...
+2026-08-21 14:32:07.112 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 14:32:07.448 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 14:32:07.450 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 14:32:07.593 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 14:32:07.598 +07:00 [INF] Hosting environment: Development
+2026-08-21 14:32:07.599 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 14:32:08.390 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 14:32:08.825 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 454.3523ms
+2026-08-21 14:32:08.833 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 14:32:08.854 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 20.4161ms
+2026-08-21 14:32:09.071 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 14:32:09.130 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.1469ms
+2026-08-21 14:32:09.227 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 14:32:09.343 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 117.3286ms
+2026-08-21 14:32:31.933 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report - multipart/form-data; boundary=----WebKitFormBoundaryMpsawuHecrqOZ6rc 74120
+2026-08-21 14:32:31.994 +07:00 [INF] CORS policy execution successful.
+2026-08-21 14:32:32.204 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP)'
+2026-08-21 14:32:32.238 +07:00 [INF] Route matched with {action = "GenerateReport", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateReport(THUCTAP.ViewModels.DynamicReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-21 14:32:35.346 +07:00 [INF] Executing FileContentResult, sending file with download name 'BaoCao_TuyChinh_20260821143235.docx' ...
+2026-08-21 14:32:35.369 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP) in 3124.1691ms
+2026-08-21 14:32:35.370 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP)'
+2026-08-21 14:32:35.386 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report - 200 72284 application/vnd.openxmlformats-officedocument.wordprocessingml.document 3453.2377ms
+2026-08-21 14:33:50.169 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report - multipart/form-data; boundary=----WebKitFormBoundarywksJBH6ANN3NHtZp 74139
+2026-08-21 14:33:50.175 +07:00 [INF] CORS policy execution successful.
+2026-08-21 14:33:50.179 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP)'
+2026-08-21 14:33:50.181 +07:00 [INF] Route matched with {action = "GenerateReport", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateReport(THUCTAP.ViewModels.DynamicReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-21 14:33:50.282 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType5`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-21 14:33:50.297 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP) in 114.7467ms
+2026-08-21 14:33:50.299 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP)'
+2026-08-21 14:33:50.308 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report - 400 null application/json; charset=utf-8 138.6096ms
+2026-08-21 15:23:20.642 +07:00 [INF] Hospital is running...
+2026-08-21 15:23:21.722 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 15:23:21.884 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 15:23:21.885 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 15:23:21.982 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 15:23:21.983 +07:00 [INF] Hosting environment: Development
+2026-08-21 15:23:21.984 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 15:23:22.751 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 15:23:22.996 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 259.6741ms
+2026-08-21 15:23:23.036 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 15:23:23.047 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.7605ms
+2026-08-21 15:23:23.220 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 15:23:23.274 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.1667ms
+2026-08-21 15:23:23.381 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 15:23:23.461 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 400 null application/json 79.5358ms
+2026-08-21 15:25:14.875 +07:00 [INF] Hospital is running...
+2026-08-21 15:25:15.309 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 15:25:15.468 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 15:25:15.470 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 15:25:15.560 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 15:25:15.562 +07:00 [INF] Hosting environment: Development
+2026-08-21 15:25:15.562 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 15:25:15.924 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 15:25:16.166 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 255.6283ms
+2026-08-21 15:25:16.428 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 15:25:16.428 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 15:25:16.435 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.6158ms
+2026-08-21 15:25:16.492 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 64.482ms
+2026-08-21 15:25:16.715 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 15:25:16.766 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 400 null application/json 50.9671ms
+2026-08-21 15:27:19.755 +07:00 [INF] Hospital is running...
+2026-08-21 15:27:20.284 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 15:27:20.497 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 15:27:20.499 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 15:27:20.602 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 15:27:20.604 +07:00 [INF] Hosting environment: Development
+2026-08-21 15:27:20.605 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 15:27:21.172 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 15:27:21.393 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 237.202ms
+2026-08-21 15:27:21.404 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 15:27:21.412 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 8.01ms
+2026-08-21 15:27:21.595 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 15:27:21.626 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 32.1412ms
+2026-08-21 15:27:21.678 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 15:27:21.730 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 400 null application/json 51.9933ms
+2026-08-21 15:28:33.042 +07:00 [INF] Hospital is running...
+2026-08-21 15:28:33.482 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 15:28:33.641 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 15:28:33.642 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 15:28:33.743 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 15:28:33.748 +07:00 [INF] Hosting environment: Development
+2026-08-21 15:28:33.749 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 15:28:34.151 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 15:28:34.395 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 258.0848ms
+2026-08-21 15:28:34.404 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 15:28:34.420 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 15.3048ms
+2026-08-21 15:28:34.626 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 15:28:34.666 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.8101ms
+2026-08-21 15:28:34.722 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 15:28:34.761 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.4864ms
+2026-08-21 15:30:13.421 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report - multipart/form-data; boundary=----WebKitFormBoundary3a1o47FJzCI6WaVD 74127
+2026-08-21 15:30:13.461 +07:00 [INF] CORS policy execution successful.
+2026-08-21 15:30:13.658 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP)'
+2026-08-21 15:30:13.701 +07:00 [INF] Route matched with {action = "GenerateReport", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GenerateReport(THUCTAP.ViewModels.DynamicReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-21 15:30:16.625 +07:00 [INF] Executing FileContentResult, sending file with download name 'BaoCao_TuyChinh_20260821153016.docx' ...
+2026-08-21 15:30:16.662 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP) in 2952.6879ms
+2026-08-21 15:30:16.666 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.GenerateReport (THUCTAP)'
+2026-08-21 15:30:16.688 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report - 200 72235 application/vnd.openxmlformats-officedocument.wordprocessingml.document 3266.5201ms
+2026-08-21 15:49:42.652 +07:00 [INF] Hospital is running...
+2026-08-21 15:49:43.118 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 15:49:43.352 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-21 15:49:43.353 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-21 15:49:43.506 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 15:49:43.579 +07:00 [INF] Hosting environment: Development
+2026-08-21 15:49:43.617 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-21 15:49:44.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-21 15:49:44.525 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 212.8142ms
+2026-08-21 15:49:44.757 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-21 15:49:44.757 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-21 15:49:44.764 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 6.6087ms
+2026-08-21 15:49:44.805 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.8287ms
+2026-08-21 15:49:45.023 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-21 15:49:45.062 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.1532ms
+2026-08-21 15:49:58.388 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - multipart/form-data; boundary=----WebKitFormBoundaryzxMkjAKw1Bm6VWXD 73706
+2026-08-21 15:49:58.458 +07:00 [INF] CORS policy execution successful.
+2026-08-21 15:49:58.615 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:49:58.643 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 15:50:00.010 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-21 15:50:00.348 +07:00 [INF] Executed DbCommand (55ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 15:50:01.570 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-SA-02_20260821155001.docx' ...
+2026-08-21 15:50:01.587 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP) in 2939.6548ms
+2026-08-21 15:50:01.589 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:50:01.598 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - 200 72284 application/vnd.openxmlformats-officedocument.wordprocessingml.document 3209.9568ms
+2026-08-21 15:54:42.471 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - multipart/form-data; boundary=----WebKitFormBoundary6fjkLtwiDB0AirAp 73706
+2026-08-21 15:54:42.479 +07:00 [INF] CORS policy execution successful.
+2026-08-21 15:54:42.484 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:54:42.485 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 15:54:42.517 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 15:54:42.663 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-SA-02_20260821155442.docx' ...
+2026-08-21 15:54:42.673 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP) in 187.1077ms
+2026-08-21 15:54:42.675 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:54:42.677 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - 200 72284 application/vnd.openxmlformats-officedocument.wordprocessingml.document 205.6346ms
+2026-08-21 15:56:43.618 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - multipart/form-data; boundary=----WebKitFormBoundaryyB50T8gxTinYXxbA 73585
+2026-08-21 15:56:43.624 +07:00 [INF] CORS policy execution successful.
+2026-08-21 15:56:43.627 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:56:43.628 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 15:56:43.688 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 15:56:43.787 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-SA-02_20260821155643.docx' ...
+2026-08-21 15:56:43.791 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP) in 161.5037ms
+2026-08-21 15:56:43.793 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:56:43.794 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - 200 72208 application/vnd.openxmlformats-officedocument.wordprocessingml.document 176.5739ms
+2026-08-21 15:57:18.250 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - multipart/form-data; boundary=----WebKitFormBoundarydQGK8FhzrELjTAG0 73630
+2026-08-21 15:57:18.254 +07:00 [INF] CORS policy execution successful.
+2026-08-21 15:57:18.255 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:57:18.256 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-21 15:57:18.282 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt], [t].[createdBy], [t].[engineerInCharge], [t].[equipmentCode], [t].[equipmentName], [t].[isActive], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierAddress], [t].[supplierEmail], [t].[supplierName], [t].[supplierPhone], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentId], [t0].[fromDate], [t0].[isActive], [t0].[updatedAt], [t0].[updatedBy], [t0].[userId], [t0].[userName], [t0].[id0], [t0].[createdAt0], [t0].[createdBy0], [t0].[department], [t0].[email], [t0].[isActive0], [t0].[password], [t0].[updatedAt0], [t0].[updatedBy0], [t0].[userCode], [t0].[userName0], [t2].[id], [t2].[actionType], [t2].[content], [t2].[createdAt], [t2].[createdBy], [t2].[engineerSignature], [t2].[equipmentId], [t2].[isActive], [t2].[isCompleted], [t2].[isEngineerArrived], [t2].[isIncident], [t2].[labSignature], [t2].[maintenanceDate], [t2].[purpose], [t2].[updatedAt], [t2].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[conditionWhenReceived], [e].[conditionWhenStarted], [e].[countryOfOrigin], [e].[createdAt], [e].[createdBy], [e].[engineerInCharge], [e].[equipmentCode], [e].[equipmentName], [e].[isActive], [e].[location], [e].[manufacturer], [e].[model], [e].[receivedDate], [e].[serialNumber], [e].[startDateOfUse], [e].[supplierAddress], [e].[supplierEmail], [e].[supplierName], [e].[supplierPhone], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t1].[id] AS [id0], [t1].[createdAt] AS [createdAt0], [t1].[createdBy] AS [createdBy0], [t1].[department], [t1].[email], [t1].[isActive] AS [isActive0], [t1].[password], [t1].[updatedAt] AS [updatedAt0], [t1].[updatedBy] AS [updatedBy0], [t1].[userCode], [t1].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t1] ON [e0].[userId] = [t1].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[id] = [t0].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerSignature], [e1].[equipmentId], [e1].[isActive], [e1].[isCompleted], [e1].[isEngineerArrived], [e1].[isIncident], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+ORDER BY [t].[id], [t0].[id], [t0].[id0]
+2026-08-21 15:57:18.341 +07:00 [INF] Executing FileContentResult, sending file with download name 'LyLich_TB-SA-02_20260821155718.docx' ...
+2026-08-21 15:57:18.344 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP) in 86.6313ms
+2026-08-21 15:57:18.346 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.ExportEquipmentProfile (THUCTAP)'
+2026-08-21 15:57:18.347 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Equipments/1/export-word - 200 72243 application/vnd.openxmlformats-officedocument.wordprocessingml.document 97.4404ms

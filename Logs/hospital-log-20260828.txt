@@ -1,0 +1,1143 @@
+2026-08-28 08:28:26.105 +07:00 [INF] Hospital is running...
+2026-08-28 08:28:26.752 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 08:28:26.992 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 08:28:26.993 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 08:28:27.089 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 08:28:27.091 +07:00 [INF] Hosting environment: Development
+2026-08-28 08:28:27.092 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 08:28:27.966 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 08:28:28.416 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 470.0753ms
+2026-08-28 08:28:28.747 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 08:28:28.747 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 08:28:28.758 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 10.6131ms
+2026-08-28 08:28:28.947 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 200.5858ms
+2026-08-28 08:28:30.293 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 08:28:30.340 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.3687ms
+2026-08-28 08:29:49.189 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Menus - application/json 70
+2026-08-28 08:29:49.226 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:29:49.372 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.CreateDynamicMenu (THUCTAP)'
+2026-08-28 08:29:49.407 +07:00 [INF] Route matched with {action = "CreateDynamicMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDynamicMenu(THUCTAP.ViewModels.MenuCreateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:29:50.094 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 08:29:50.096 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 08:29:50.272 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 08:29:50.972 +07:00 [INF] Executed DbCommand (38ms) [Parameters=[@__request_parentMenuName_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[label] = @__request_parentMenuName_0
+2026-08-28 08:29:51.229 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Menus] ([createdAt], [createdBy], [icon], [isActive], [label], [parentId], [to], [updatedAt], [updatedBy])
+OUTPUT INSERTED.[id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-08-28 08:29:51.266 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__childName_0='?' (Size = 4000), @__8__locals1_parentMenu_id_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[label] = @__childName_0 AND [m].[parentId] = @__8__locals1_parentMenu_id_1
+2026-08-28 08:29:51.287 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Menus] ([createdAt], [createdBy], [icon], [isActive], [label], [parentId], [to], [updatedAt], [updatedBy])
+OUTPUT INSERTED.[id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-08-28 08:29:51.297 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.MenuResponse, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-28 08:29:51.312 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.CreateDynamicMenu (THUCTAP) in 1901.0061ms
+2026-08-28 08:29:51.314 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.CreateDynamicMenu (THUCTAP)'
+2026-08-28 08:29:51.322 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Menus - 200 null application/json; charset=utf-8 2132.897ms
+2026-08-28 08:30:42.888 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Menus/37 - application/json 65
+2026-08-28 08:30:42.894 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:30:42.898 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:30:42.906 +07:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, THUCTAP.ViewModels.MenuUpdateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:30:42.940 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:30:42.962 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_parentId_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Menus] AS [m]
+        WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__request_parentId_Value_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-28 08:30:43.015 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType5`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:30:43.018 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP) in 110.3538ms
+2026-08-28 08:30:43.019 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:30:43.021 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Menus/37 - 400 null application/json; charset=utf-8 133.6012ms
+2026-08-28 08:30:58.139 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Menus/37 - application/json 64
+2026-08-28 08:30:58.142 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:30:58.146 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:30:58.149 +07:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, THUCTAP.ViewModels.MenuUpdateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:30:58.165 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-08-28 08:30:58.182 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP) in 31.4067ms
+2026-08-28 08:30:58.183 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:30:58.184 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Menus/37 - 400 null application/problem+json; charset=utf-8 44.9627ms
+2026-08-28 08:31:05.181 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Menus/37 - application/json 66
+2026-08-28 08:31:05.182 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:31:05.184 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:31:05.185 +07:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, THUCTAP.ViewModels.MenuUpdateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:31:05.189 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-08-28 08:31:05.191 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP) in 4.8435ms
+2026-08-28 08:31:05.192 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:31:05.193 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Menus/37 - 400 null application/problem+json; charset=utf-8 12.7389ms
+2026-08-28 08:31:32.646 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Menus/37 - application/json 71
+2026-08-28 08:31:32.650 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:31:32.651 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:31:32.652 +07:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, THUCTAP.ViewModels.MenuUpdateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:31:32.655 +07:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-08-28 08:31:32.656 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP) in 2.5463ms
+2026-08-28 08:31:32.657 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:31:32.658 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Menus/37 - 400 null application/problem+json; charset=utf-8 12.8596ms
+2026-08-28 08:31:41.778 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Menus/37 - application/json 70
+2026-08-28 08:31:41.781 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:31:41.781 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:31:41.782 +07:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, THUCTAP.ViewModels.MenuUpdateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:31:41.845 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:31:41.850 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_parentId_Value_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Menus] AS [m]
+        WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__request_parentId_Value_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-28 08:31:41.871 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType5`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:31:41.872 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP) in 88.6656ms
+2026-08-28 08:31:41.873 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:31:41.874 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Menus/37 - 400 null application/json; charset=utf-8 96.2731ms
+2026-08-28 08:34:48.792 +07:00 [INF] Hospital is running...
+2026-08-28 08:34:49.343 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 08:34:49.548 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 08:34:49.550 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 08:34:49.639 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 08:34:49.640 +07:00 [INF] Hosting environment: Development
+2026-08-28 08:34:49.641 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 08:34:49.917 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 08:34:50.131 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 222.7071ms
+2026-08-28 08:34:50.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 08:34:50.158 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 15.0393ms
+2026-08-28 08:34:50.367 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 08:34:50.414 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.0548ms
+2026-08-28 08:34:50.506 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 08:34:50.564 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.3976ms
+2026-08-28 08:35:08.030 +07:00 [INF] Request starting HTTP/2 PUT https://localhost:7270/api/Menus/37 - application/json 64
+2026-08-28 08:35:08.065 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:35:08.220 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:35:08.248 +07:00 [INF] Route matched with {action = "UpdateMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateMenu(Int32, THUCTAP.ViewModels.MenuUpdateRequest) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:35:09.033 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 08:35:09.035 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 08:35:09.209 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 08:35:09.860 +07:00 [INF] Executed DbCommand (39ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:35:10.041 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[@p7='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = Boolean), @p2='?' (Size = 4000), @p3='?' (DbType = Int32), @p4='?' (Size = 4000), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Menus] SET [icon] = @p0, [isActive] = @p1, [label] = @p2, [parentId] = @p3, [to] = @p4, [updatedAt] = @p5, [updatedBy] = @p6
+OUTPUT 1
+WHERE [id] = @p7;
+2026-08-28 08:35:10.058 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.MenuResponse, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-28 08:35:10.073 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP) in 1820.4839ms
+2026-08-28 08:35:10.076 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.UpdateMenu (THUCTAP)'
+2026-08-28 08:35:10.083 +07:00 [INF] Request finished HTTP/2 PUT https://localhost:7270/api/Menus/37 - 200 null application/json; charset=utf-8 2053.5384ms
+2026-08-28 08:35:25.669 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7270/api/Menus/38 - null null
+2026-08-28 08:35:25.674 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:35:25.676 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:35:25.683 +07:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:35:25.703 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:35:25.730 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Menus] AS [m]
+        WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[parentId] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-28 08:35:25.745 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Menus] SET [createdAt] = @p0, [createdBy] = @p1, [icon] = @p2, [isActive] = @p3, [label] = @p4, [parentId] = @p5, [to] = @p6, [updatedAt] = @p7, [updatedBy] = @p8
+OUTPUT 1
+WHERE [id] = @p9;
+2026-08-28 08:35:25.749 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:35:25.752 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP) in 68.1908ms
+2026-08-28 08:35:25.754 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:35:25.755 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7270/api/Menus/38 - 200 null application/json; charset=utf-8 86.0782ms
+2026-08-28 08:35:29.594 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7270/api/Menus/37 - null null
+2026-08-28 08:35:29.600 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:35:29.607 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:35:29.608 +07:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:35:29.669 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:35:29.674 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Menus] AS [m]
+        WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[parentId] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-28 08:35:29.678 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Menus] SET [createdAt] = @p0, [createdBy] = @p1, [icon] = @p2, [isActive] = @p3, [label] = @p4, [parentId] = @p5, [to] = @p6, [updatedAt] = @p7, [updatedBy] = @p8
+OUTPUT 1
+WHERE [id] = @p9;
+2026-08-28 08:35:29.680 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:35:29.681 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP) in 69.2912ms
+2026-08-28 08:35:29.682 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:35:29.683 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7270/api/Menus/37 - 200 null application/json; charset=utf-8 89.2766ms
+2026-08-28 08:35:51.759 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7270/api/Menus/37 - null null
+2026-08-28 08:35:51.763 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:35:51.764 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:35:51.765 +07:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:35:51.770 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:35:51.773 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:35:51.774 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP) in 7.4216ms
+2026-08-28 08:35:51.775 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:35:51.775 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7270/api/Menus/37 - 404 null application/json; charset=utf-8 16.9973ms
+2026-08-28 08:36:20.497 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7270/api/Menus/38 - null null
+2026-08-28 08:36:20.499 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:36:20.500 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:36:20.500 +07:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:36:20.504 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:36:20.507 +07:00 [INF] Executing NotFoundObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:36:20.509 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP) in 7.0002ms
+2026-08-28 08:36:20.509 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:36:20.510 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7270/api/Menus/38 - 404 null application/json; charset=utf-8 14.0502ms
+2026-08-28 08:36:28.381 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7270/api/Menus/36 - null null
+2026-08-28 08:36:28.384 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:36:28.385 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:36:28.386 +07:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:36:28.391 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:36:28.398 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Menus] AS [m]
+        WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[parentId] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-28 08:36:28.406 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Menus] SET [createdAt] = @p0, [createdBy] = @p1, [icon] = @p2, [isActive] = @p3, [label] = @p4, [parentId] = @p5, [to] = @p6, [updatedAt] = @p7, [updatedBy] = @p8
+OUTPUT 1
+WHERE [id] = @p9;
+2026-08-28 08:36:28.408 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:36:28.409 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP) in 21.504ms
+2026-08-28 08:36:28.410 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:36:28.411 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7270/api/Menus/36 - 200 null application/json; charset=utf-8 29.8917ms
+2026-08-28 08:36:41.118 +07:00 [INF] Request starting HTTP/2 DELETE https://localhost:7270/api/Menus/34 - null null
+2026-08-28 08:36:41.120 +07:00 [INF] CORS policy execution successful.
+2026-08-28 08:36:41.121 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:36:41.122 +07:00 [INF] Route matched with {action = "DeleteMenu", controller = "Menus"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteMenu(Int32) on controller THUCTAP.Controllers.MenusController (THUCTAP).
+2026-08-28 08:36:41.131 +07:00 [INF] Executed DbCommand (4ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[id], [m].[createdAt], [m].[createdBy], [m].[icon], [m].[isActive], [m].[label], [m].[parentId], [m].[to], [m].[updatedAt], [m].[updatedBy]
+FROM [Menus] AS [m]
+WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[id] = @__id_0
+2026-08-28 08:36:41.137 +07:00 [INF] Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Menus] AS [m]
+        WHERE [m].[isActive] = CAST(1 AS bit) AND [m].[parentId] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-28 08:36:41.143 +07:00 [INF] Executed DbCommand (3ms) [Parameters=[@p9='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = Boolean), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (DbType = DateTime2), @p8='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Menus] SET [createdAt] = @p0, [createdBy] = @p1, [icon] = @p2, [isActive] = @p3, [label] = @p4, [parentId] = @p5, [to] = @p6, [updatedAt] = @p7, [updatedBy] = @p8
+OUTPUT 1
+WHERE [id] = @p9;
+2026-08-28 08:36:41.146 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 08:36:41.147 +07:00 [INF] Executed action THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP) in 21.5387ms
+2026-08-28 08:36:41.148 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.MenusController.DeleteMenu (THUCTAP)'
+2026-08-28 08:36:41.149 +07:00 [INF] Request finished HTTP/2 DELETE https://localhost:7270/api/Menus/34 - 200 null application/json; charset=utf-8 31.5324ms
+2026-08-28 08:44:55.658 +07:00 [INF] Hospital is running...
+2026-08-28 08:44:56.109 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 08:44:56.290 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 08:44:56.292 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 08:44:56.433 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 08:44:56.436 +07:00 [INF] Hosting environment: Development
+2026-08-28 08:44:56.437 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 08:44:57.121 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 08:44:57.334 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 224.2409ms
+2026-08-28 08:44:57.567 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 08:44:57.567 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 08:44:57.576 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.194ms
+2026-08-28 08:44:57.619 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 52.0327ms
+2026-08-28 08:44:57.856 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 08:44:57.894 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.4139ms
+2026-08-28 09:10:33.474 +07:00 [INF] Hospital is running...
+2026-08-28 09:10:33.956 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 09:10:34.146 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 09:10:34.148 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 09:10:34.241 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 09:10:34.242 +07:00 [INF] Hosting environment: Development
+2026-08-28 09:10:34.242 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 09:10:34.673 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 09:10:34.916 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 254.6566ms
+2026-08-28 09:10:35.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 09:10:35.143 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 09:10:35.152 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.9674ms
+2026-08-28 09:10:35.194 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.5494ms
+2026-08-28 09:10:35.413 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 09:10:35.451 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 38.3795ms
+2026-08-28 09:19:09.582 +07:00 [INF] Hospital is running...
+2026-08-28 09:19:09.994 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 09:19:10.157 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 09:19:10.159 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 09:19:10.258 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 09:19:10.274 +07:00 [INF] Hosting environment: Development
+2026-08-28 09:19:10.279 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 09:19:10.857 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 09:19:11.067 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 220.3976ms
+2026-08-28 09:19:11.076 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 09:19:11.091 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 14.641ms
+2026-08-28 09:19:11.273 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 09:19:11.313 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.8594ms
+2026-08-28 09:19:11.356 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 09:19:11.401 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 44.7996ms
+2026-08-28 09:19:27.873 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 72
+2026-08-28 09:19:27.908 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:19:28.045 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:19:28.070 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:19:28.909 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 09:19:28.910 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 09:19:29.101 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 09:19:29.729 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-28 09:19:30.169 +07:00 [INF] Executed DbCommand (87ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 09:19:30.458 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:19:30.471 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 2395.8847ms
+2026-08-28 09:19:30.473 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:19:30.481 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 500 null application/json; charset=utf-8 2607.8697ms
+2026-08-28 09:19:54.930 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 66
+2026-08-28 09:19:54.937 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:19:54.939 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:19:54.941 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:19:54.981 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 09:19:56.808 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:19:56.823 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 1880.5162ms
+2026-08-28 09:19:56.824 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:19:56.825 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 200 null application/json; charset=utf-8 1894.9184ms
+2026-08-28 09:28:06.222 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 96614
+2026-08-28 09:28:06.227 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:28:06.231 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:28:06.231 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:28:06.316 +07:00 [INF] Executed DbCommand (20ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 09:28:06.340 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:28:06.341 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 108.4397ms
+2026-08-28 09:28:06.342 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:28:06.343 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 500 null application/json; charset=utf-8 121.1628ms
+2026-08-28 09:28:16.766 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 09:28:16.781 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 14.9253ms
+2026-08-28 09:28:16.800 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 09:28:16.800 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 09:28:16.803 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 2.9706ms
+2026-08-28 09:28:16.822 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 22.6232ms
+2026-08-28 09:28:17.051 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 09:28:17.070 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/favicon-32x32.png - null null
+2026-08-28 09:28:17.080 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 29.2766ms
+2026-08-28 09:28:17.087 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-08-28 09:28:17.088 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/favicon-32x32.png - 200 628 image/png 18.4046ms
+2026-08-28 09:29:08.587 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 65
+2026-08-28 09:29:08.591 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:29:08.592 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:29:08.593 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:29:08.621 +07:00 [INF] Executed DbCommand (24ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 09:29:08.642 +07:00 [INF] Executing ObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:29:08.644 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 48.9855ms
+2026-08-28 09:29:08.645 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:29:08.646 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 500 null application/json; charset=utf-8 59.7981ms
+2026-08-28 09:29:13.479 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 66
+2026-08-28 09:29:13.482 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:29:13.483 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:29:13.484 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:29:13.493 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 09:29:13.671 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:29:13.678 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 192.5769ms
+2026-08-28 09:29:13.679 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:29:13.680 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 200 null application/json; charset=utf-8 200.9221ms
+2026-08-28 09:51:17.660 +07:00 [INF] Hospital is running...
+2026-08-28 09:51:18.080 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 09:51:18.258 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 09:51:18.261 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 09:51:18.364 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 09:51:18.366 +07:00 [INF] Hosting environment: Development
+2026-08-28 09:51:18.368 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 09:51:19.139 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 09:51:19.318 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 188.727ms
+2026-08-28 09:51:19.327 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 09:51:19.337 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.8644ms
+2026-08-28 09:51:19.494 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 09:51:19.533 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.998ms
+2026-08-28 09:51:19.586 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 09:51:19.625 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 39.4616ms
+2026-08-28 09:51:37.902 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 66
+2026-08-28 09:51:37.935 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:51:38.103 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:51:38.141 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:51:38.866 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 09:51:38.867 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 09:51:39.014 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 09:51:39.442 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-28 09:51:39.757 +07:00 [INF] Executed DbCommand (57ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 09:51:41.474 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:51:41.491 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 3344.6409ms
+2026-08-28 09:51:41.492 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 09:51:41.499 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 200 null application/json; charset=utf-8 3597.3485ms
+2026-08-28 09:55:05.005 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - application/json 67
+2026-08-28 09:55:05.017 +07:00 [INF] CORS policy execution successful.
+2026-08-28 09:55:05.023 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-28 09:55:05.034 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 09:55:05.130 +07:00 [INF] Executed DbCommand (25ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-28 09:55:07.030 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 09:55:07.034 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 1998.3551ms
+2026-08-28 09:55:07.035 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-28 09:55:07.036 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 null application/json; charset=utf-8 2031.2677ms
+2026-08-28 10:33:38.750 +07:00 [INF] Hospital is running...
+2026-08-28 10:33:39.195 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 10:33:39.364 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 10:33:39.366 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 10:33:39.485 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 10:33:39.486 +07:00 [INF] Hosting environment: Development
+2026-08-28 10:33:39.487 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 10:33:40.166 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 10:33:40.377 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 227.9594ms
+2026-08-28 10:33:40.386 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 10:33:40.393 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.1972ms
+2026-08-28 10:33:40.564 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 10:33:40.612 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 47.5172ms
+2026-08-28 10:33:40.660 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 10:33:40.701 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 41.1976ms
+2026-08-28 10:33:56.985 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - application/json 66
+2026-08-28 10:33:57.024 +07:00 [INF] CORS policy execution successful.
+2026-08-28 10:33:57.179 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 10:33:57.215 +07:00 [INF] Route matched with {action = "ExportEquipmentProfile", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportEquipmentProfile(Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 10:33:58.007 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 10:33:58.009 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 10:33:58.171 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 10:33:58.705 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-28 10:33:59.044 +07:00 [INF] Executed DbCommand (65ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[isActive], [t1].[productCategoryId], [t1].[updatedAt], [t1].[updatedBy], [t1].[id0], [t1].[conditionWhenReceived], [t1].[conditionWhenStarted], [t1].[countryOfOrigin], [t1].[createdAt0], [t1].[createdBy0], [t1].[equipmentCode], [t1].[equipmentName], [t1].[isActive0], [t1].[location], [t1].[manufacturer], [t1].[model], [t1].[receivedDate], [t1].[serialNumber], [t1].[startDateOfUse], [t1].[supplierId], [t1].[updatedAt0], [t1].[updatedBy0], [t1].[id1], [t1].[categoryId], [t1].[createdAt1], [t1].[createdBy1], [t1].[engineerInCharge], [t1].[isActive1], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt1], [t1].[updatedBy1], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t2].[id0], [t2].[createdAt0], [t2].[createdBy0], [t2].[department], [t2].[email], [t2].[isActive0], [t2].[password], [t2].[updatedAt0], [t2].[updatedBy0], [t2].[userCode], [t2].[userName0], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM (
+    SELECT TOP(1) [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy], [t].[id] AS [id0], [t].[conditionWhenReceived], [t].[conditionWhenStarted], [t].[countryOfOrigin], [t].[createdAt] AS [createdAt0], [t].[createdBy] AS [createdBy0], [t].[equipmentCode], [t].[equipmentName], [t].[isActive] AS [isActive0], [t].[location], [t].[manufacturer], [t].[model], [t].[receivedDate], [t].[serialNumber], [t].[startDateOfUse], [t].[supplierId], [t].[updatedAt] AS [updatedAt0], [t].[updatedBy] AS [updatedBy0], [t0].[id] AS [id1], [t0].[categoryId], [t0].[createdAt] AS [createdAt1], [t0].[createdBy] AS [createdBy1], [t0].[engineerInCharge], [t0].[isActive] AS [isActive1], [t0].[supplierAddress], [t0].[supplierEmail], [t0].[supplierName], [t0].[supplierPhone], [t0].[updatedAt] AS [updatedAt1], [t0].[updatedBy] AS [updatedBy1]
+    FROM [Equipments] AS [e]
+    INNER JOIN (
+        SELECT [p].[id], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy]
+        FROM [ProductCategories] AS [p]
+        WHERE [p].[isActive] = CAST(1 AS bit)
+    ) AS [t] ON [e].[productCategoryId] = [t].[id]
+    INNER JOIN (
+        SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+        FROM [CustomerMasters] AS [c]
+        WHERE [c].[isActive] = CAST(1 AS bit)
+    ) AS [t0] ON [t].[supplierId] = [t0].[id]
+    WHERE [e].[isActive] = CAST(1 AS bit) AND [e].[id] = @__id_0
+) AS [t1]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName], [t3].[id] AS [id0], [t3].[createdAt] AS [createdAt0], [t3].[createdBy] AS [createdBy0], [t3].[department], [t3].[email], [t3].[isActive] AS [isActive0], [t3].[password], [t3].[updatedAt] AS [updatedAt0], [t3].[updatedBy] AS [updatedBy0], [t3].[userCode], [t3].[userName] AS [userName0]
+    FROM [EquipmentManagers] AS [e0]
+    INNER JOIN (
+        SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+        FROM [Users] AS [u]
+        WHERE [u].[isActive] = CAST(1 AS bit)
+    ) AS [t3] ON [e0].[userId] = [t3].[id]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t1].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [t1].[id] = [t4].[equipmentId]
+ORDER BY [t1].[id], [t1].[id0], [t1].[id1], [t2].[id], [t2].[id0]
+2026-08-28 10:34:00.202 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 10:34:00.228 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP) in 3007.3498ms
+2026-08-28 10:34:00.230 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportEquipmentProfile (THUCTAP)'
+2026-08-28 10:34:00.238 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/equipment/1/export-word - 200 null application/json; charset=utf-8 3252.2826ms
+2026-08-28 13:22:52.541 +07:00 [INF] Hospital is running...
+2026-08-28 13:22:53.098 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 13:22:53.413 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 13:22:53.417 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 13:22:53.587 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 13:22:53.595 +07:00 [INF] Hosting environment: Development
+2026-08-28 13:22:53.597 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 13:22:54.109 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:22:54.367 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 271.8973ms
+2026-08-28 13:22:54.436 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:22:54.444 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 7.9973ms
+2026-08-28 13:22:54.651 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:22:54.727 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 75.8323ms
+2026-08-28 13:22:56.452 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:22:56.504 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.3207ms
+2026-08-28 13:23:25.085 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - application/json 67
+2026-08-28 13:23:25.121 +07:00 [INF] CORS policy execution successful.
+2026-08-28 13:23:25.318 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-28 13:23:25.345 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 13:23:26.112 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:23:26.114 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:23:26.310 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 13:23:27.206 +07:00 [INF] Executed DbCommand (62ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-28 13:23:31.102 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 13:23:31.121 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 5772.131ms
+2026-08-28 13:23:31.123 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-28 13:23:31.132 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 null application/json; charset=utf-8 6048.0978ms
+2026-08-28 13:24:56.647 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:24:56.662 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 15.1319ms
+2026-08-28 13:24:56.688 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:24:56.689 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:24:56.694 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 5.9051ms
+2026-08-28 13:24:56.714 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 26.6966ms
+2026-08-28 13:24:56.898 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:24:56.923 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/favicon-32x32.png - null null
+2026-08-28 13:24:56.956 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-08-28 13:24:56.958 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/favicon-32x32.png - 200 628 image/png 34.9442ms
+2026-08-28 13:24:56.966 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 68.0064ms
+2026-08-28 13:25:05.132 +07:00 [INF] Hospital is running...
+2026-08-28 13:25:05.565 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 13:25:05.749 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 13:25:05.750 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 13:25:05.830 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 13:25:05.831 +07:00 [INF] Hosting environment: Development
+2026-08-28 13:25:05.832 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 13:25:06.425 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:25:06.646 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 234.029ms
+2026-08-28 13:25:06.865 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:25:06.865 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:25:06.877 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.2938ms
+2026-08-28 13:25:06.922 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 57.6376ms
+2026-08-28 13:25:07.130 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:25:07.165 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.485ms
+2026-08-28 13:25:35.587 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - application/json 67
+2026-08-28 13:25:35.626 +07:00 [INF] CORS policy execution successful.
+2026-08-28 13:25:35.776 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-28 13:25:35.806 +07:00 [INF] Route matched with {action = "ExportMonthlyMaintenanceLog", controller = "Report"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ExportMonthlyMaintenanceLog(Int32, Int32, Int32, THUCTAP.ViewModels.ExportReportRequest) on controller THUCTAP.Controllers.ReportController (THUCTAP).
+2026-08-28 13:25:36.520 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:25:36.521 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:25:36.689 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 13:25:37.538 +07:00 [INF] Executed DbCommand (63ms) [Parameters=[@__equipmentId_0='?' (DbType = Int32), @__month_1='?' (DbType = Int32), @__year_2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[equipmentId], [e].[executorId], [e].[inspectionDate], [e].[inspectorId], [e].[isActive], [e].[isAsNeeded], [e].[isDaily], [e].[isMonthly], [e].[isQuarterly], [e].[isWeekly], [e].[logDate], [e].[note], [e].[relatedMaintenanceId], [e].[reviewDate], [e].[reviewerId], [e].[status], [e].[updatedAt], [e].[updatedBy], [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[createdAt], [t1].[createdBy], [t1].[department], [t1].[email], [t1].[isActive], [t1].[password], [t1].[updatedAt], [t1].[updatedBy], [t1].[userCode], [t1].[userName], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[department], [t2].[email], [t2].[isActive], [t2].[password], [t2].[updatedAt], [t2].[updatedBy], [t2].[userCode], [t2].[userName], [t3].[id], [t3].[createdAt], [t3].[createdBy], [t3].[department], [t3].[email], [t3].[isActive], [t3].[password], [t3].[updatedAt], [t3].[updatedBy], [t3].[userCode], [t3].[userName], [t4].[id], [t4].[actionType], [t4].[completedTime], [t4].[content], [t4].[createdAt], [t4].[createdBy], [t4].[engineerArrivedTime], [t4].[engineerSignature], [t4].[equipmentId], [t4].[incidentTime], [t4].[isActive], [t4].[labSignature], [t4].[maintenanceDate], [t4].[purpose], [t4].[updatedAt], [t4].[updatedBy]
+FROM [EquipmentMaintenanceLogs] AS [e]
+INNER JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[isActive], [e0].[productCategoryId], [e0].[updatedAt], [e0].[updatedBy]
+    FROM [Equipments] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t] ON [e].[equipmentId] = [t].[id]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [u].[id], [u].[createdAt], [u].[createdBy], [u].[department], [u].[email], [u].[isActive], [u].[password], [u].[updatedAt], [u].[updatedBy], [u].[userCode], [u].[userName]
+    FROM [Users] AS [u]
+    WHERE [u].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [e].[executorId] = [t1].[id]
+LEFT JOIN (
+    SELECT [u0].[id], [u0].[createdAt], [u0].[createdBy], [u0].[department], [u0].[email], [u0].[isActive], [u0].[password], [u0].[updatedAt], [u0].[updatedBy], [u0].[userCode], [u0].[userName]
+    FROM [Users] AS [u0]
+    WHERE [u0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [e].[inspectorId] = [t2].[id]
+LEFT JOIN (
+    SELECT [u1].[id], [u1].[createdAt], [u1].[createdBy], [u1].[department], [u1].[email], [u1].[isActive], [u1].[password], [u1].[updatedAt], [u1].[updatedBy], [u1].[userCode], [u1].[userName]
+    FROM [Users] AS [u1]
+    WHERE [u1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [e].[reviewerId] = [t3].[id]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t4] ON [e].[relatedMaintenanceId] = [t4].[id]
+WHERE [e].[equipmentId] = @__equipmentId_0 AND DATEPART(month, [e].[logDate]) = @__month_1 AND DATEPART(year, [e].[logDate]) = @__year_2
+ORDER BY [e].[logDate]
+2026-08-28 13:25:41.564 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType6`3[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 13:25:41.578 +07:00 [INF] Executed action THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP) in 5767.3888ms
+2026-08-28 13:25:41.580 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ReportController.ExportMonthlyMaintenanceLog (THUCTAP)'
+2026-08-28 13:25:41.587 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/Report/maintenance-log/monthly/export-word?equipmentId=1&month=8&year=2026 - 200 null application/json; charset=utf-8 5999.8282ms
+2026-08-28 13:33:57.701 +07:00 [INF] Hospital is running...
+2026-08-28 13:33:58.123 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 13:33:58.285 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 13:33:58.287 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 13:33:58.377 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 13:33:58.379 +07:00 [INF] Hosting environment: Development
+2026-08-28 13:33:58.380 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 13:33:59.832 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:34:00.058 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 240.7368ms
+2026-08-28 13:34:00.283 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:34:00.283 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:34:00.294 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 11.6198ms
+2026-08-28 13:34:00.333 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.9375ms
+2026-08-28 13:34:00.585 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:34:00.638 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 52.4653ms
+2026-08-28 13:34:10.113 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - null null
+2026-08-28 13:34:10.297 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-28 13:34:10.338 +07:00 [INF] Route matched with {action = "GetAll", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(THUCTAP.ViewModels.EquipmentFilterRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-28 13:34:11.009 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:34:11.010 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:34:11.178 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 13:34:11.869 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Equipments] AS [e]
+WHERE [e].[isActive] = CAST(1 AS bit)
+2026-08-28 13:34:12.086 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-28 13:34:12.140 +07:00 [INF] Executed DbCommand (28ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[categoryId], [t1].[createdAt], [t1].[createdBy], [t1].[engineerInCharge], [t1].[isActive], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt], [t1].[updatedBy], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t3].[id], [t3].[actionType], [t3].[completedTime], [t3].[content], [t3].[createdAt], [t3].[createdBy], [t3].[engineerArrivedTime], [t3].[engineerSignature], [t3].[equipmentId], [t3].[incidentTime], [t3].[isActive], [t3].[labSignature], [t3].[maintenanceDate], [t3].[purpose], [t3].[updatedAt], [t3].[updatedBy]
+FROM (
+    SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit)
+    ORDER BY [e].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+    FROM [CustomerMasters] AS [c]
+    WHERE [c].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [t0].[supplierId] = [t1].[id]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName]
+    FROM [EquipmentManagers] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [t].[id] = [t3].[equipmentId]
+ORDER BY [t].[id] DESC, [t0].[id], [t1].[id], [t2].[id]
+2026-08-28 13:34:12.165 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'THUCTAP.Data.AppDbContext'.
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.ThrowIfNull()
+   at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method247(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.Data.SqlTypes.SqlNullValueException: Data is Null. This method or property cannot be called on Null values.
+   at Microsoft.Data.SqlClient.SqlBuffer.ThrowIfNull()
+   at Microsoft.Data.SqlClient.SqlBuffer.get_String()
+   at Microsoft.Data.SqlClient.SqlDataReader.GetString(Int32 i)
+   at lambda_method247(Closure, QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-08-28 13:34:12.251 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP) in 1908.0691ms
+2026-08-28 13:34:12.254 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-28 13:34:12.347 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - 400 null application/json 2234.1413ms
+2026-08-28 13:36:43.918 +07:00 [INF] Hospital is running...
+2026-08-28 13:36:44.378 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 13:36:44.548 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 13:36:44.550 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 13:36:44.700 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 13:36:44.705 +07:00 [INF] Hosting environment: Development
+2026-08-28 13:36:44.708 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 13:36:45.463 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:36:45.677 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 225.2167ms
+2026-08-28 13:36:45.685 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:36:45.697 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 12.8494ms
+2026-08-28 13:36:45.864 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:36:45.903 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 38.6388ms
+2026-08-28 13:36:45.949 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:36:45.989 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 40.6027ms
+2026-08-28 13:36:50.831 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - null null
+2026-08-28 13:36:51.037 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-28 13:36:51.064 +07:00 [INF] Route matched with {action = "GetAll", controller = "Equipments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll(THUCTAP.ViewModels.EquipmentFilterRequest) on controller THUCTAP.Controllers.EquipmentsController (THUCTAP).
+2026-08-28 13:36:51.914 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:36:51.916 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 13:36:52.135 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 13:36:52.899 +07:00 [INF] Executed DbCommand (42ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [Equipments] AS [e]
+WHERE [e].[isActive] = CAST(1 AS bit)
+2026-08-28 13:36:53.071 +07:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-08-28 13:36:53.119 +07:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[id], [t].[createdAt], [t].[createdBy], [t].[isActive], [t].[productCategoryId], [t].[updatedAt], [t].[updatedBy], [t0].[id], [t0].[asNeededTask], [t0].[conditionWhenReceived], [t0].[conditionWhenStarted], [t0].[countryOfOrigin], [t0].[createdAt], [t0].[createdBy], [t0].[dailyTask], [t0].[equipmentCode], [t0].[equipmentName], [t0].[isActive], [t0].[location], [t0].[manufacturer], [t0].[model], [t0].[monthlyTask], [t0].[quarterlyTask], [t0].[receivedDate], [t0].[serialNumber], [t0].[startDateOfUse], [t0].[supplierId], [t0].[updatedAt], [t0].[updatedBy], [t0].[weeklyTask], [t1].[id], [t1].[categoryId], [t1].[createdAt], [t1].[createdBy], [t1].[engineerInCharge], [t1].[isActive], [t1].[supplierAddress], [t1].[supplierEmail], [t1].[supplierName], [t1].[supplierPhone], [t1].[updatedAt], [t1].[updatedBy], [t2].[id], [t2].[createdAt], [t2].[createdBy], [t2].[equipmentId], [t2].[fromDate], [t2].[isActive], [t2].[updatedAt], [t2].[updatedBy], [t2].[userId], [t2].[userName], [t3].[id], [t3].[actionType], [t3].[completedTime], [t3].[content], [t3].[createdAt], [t3].[createdBy], [t3].[engineerArrivedTime], [t3].[engineerSignature], [t3].[equipmentId], [t3].[incidentTime], [t3].[isActive], [t3].[labSignature], [t3].[maintenanceDate], [t3].[purpose], [t3].[updatedAt], [t3].[updatedBy]
+FROM (
+    SELECT [e].[id], [e].[createdAt], [e].[createdBy], [e].[isActive], [e].[productCategoryId], [e].[updatedAt], [e].[updatedBy]
+    FROM [Equipments] AS [e]
+    WHERE [e].[isActive] = CAST(1 AS bit)
+    ORDER BY [e].[id] DESC
+    OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+) AS [t]
+INNER JOIN (
+    SELECT [p].[id], [p].[asNeededTask], [p].[conditionWhenReceived], [p].[conditionWhenStarted], [p].[countryOfOrigin], [p].[createdAt], [p].[createdBy], [p].[dailyTask], [p].[equipmentCode], [p].[equipmentName], [p].[isActive], [p].[location], [p].[manufacturer], [p].[model], [p].[monthlyTask], [p].[quarterlyTask], [p].[receivedDate], [p].[serialNumber], [p].[startDateOfUse], [p].[supplierId], [p].[updatedAt], [p].[updatedBy], [p].[weeklyTask]
+    FROM [ProductCategories] AS [p]
+    WHERE [p].[isActive] = CAST(1 AS bit)
+) AS [t0] ON [t].[productCategoryId] = [t0].[id]
+INNER JOIN (
+    SELECT [c].[id], [c].[categoryId], [c].[createdAt], [c].[createdBy], [c].[engineerInCharge], [c].[isActive], [c].[supplierAddress], [c].[supplierEmail], [c].[supplierName], [c].[supplierPhone], [c].[updatedAt], [c].[updatedBy]
+    FROM [CustomerMasters] AS [c]
+    WHERE [c].[isActive] = CAST(1 AS bit)
+) AS [t1] ON [t0].[supplierId] = [t1].[id]
+LEFT JOIN (
+    SELECT [e0].[id], [e0].[createdAt], [e0].[createdBy], [e0].[equipmentId], [e0].[fromDate], [e0].[isActive], [e0].[updatedAt], [e0].[updatedBy], [e0].[userId], [e0].[userName]
+    FROM [EquipmentManagers] AS [e0]
+    WHERE [e0].[isActive] = CAST(1 AS bit)
+) AS [t2] ON [t].[id] = [t2].[equipmentId]
+LEFT JOIN (
+    SELECT [e1].[id], [e1].[actionType], [e1].[completedTime], [e1].[content], [e1].[createdAt], [e1].[createdBy], [e1].[engineerArrivedTime], [e1].[engineerSignature], [e1].[equipmentId], [e1].[incidentTime], [e1].[isActive], [e1].[labSignature], [e1].[maintenanceDate], [e1].[purpose], [e1].[updatedAt], [e1].[updatedBy]
+    FROM [EquipmentMaintenances] AS [e1]
+    WHERE [e1].[isActive] = CAST(1 AS bit)
+) AS [t3] ON [t].[id] = [t3].[equipmentId]
+ORDER BY [t].[id] DESC, [t0].[id], [t1].[id], [t2].[id]
+2026-08-28 13:36:53.152 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[THUCTAP.ViewModels.PagedResult`1[[THUCTAP.ViewModels.EquipmentResponseDto, THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], THUCTAP, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-28 13:36:53.182 +07:00 [INF] Executed action THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP) in 2113.855ms
+2026-08-28 13:36:53.185 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.EquipmentsController.GetAll (THUCTAP)'
+2026-08-28 13:36:53.192 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/api/Equipments?pageIndex=1&pageSize=10 - 200 null application/json; charset=utf-8 2360.4352ms
+2026-08-28 13:39:12.854 +07:00 [INF] Hospital is running...
+2026-08-28 13:39:13.317 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 13:39:13.467 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 13:39:13.469 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 13:39:13.556 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 13:39:13.557 +07:00 [INF] Hosting environment: Development
+2026-08-28 13:39:13.558 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 13:39:13.966 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:39:14.205 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 253.1281ms
+2026-08-28 13:39:14.501 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:39:14.501 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:39:14.512 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 12.0003ms
+2026-08-28 13:39:14.561 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.3058ms
+2026-08-28 13:39:14.785 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:39:14.816 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.8337ms
+2026-08-28 13:52:24.783 +07:00 [INF] Hospital is running...
+2026-08-28 13:52:25.205 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 13:52:25.361 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 13:52:25.363 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 13:52:25.436 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 13:52:25.438 +07:00 [INF] Hosting environment: Development
+2026-08-28 13:52:25.439 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 13:52:27.388 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 13:52:27.791 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 427.0225ms
+2026-08-28 13:52:28.053 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 13:52:28.053 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 13:52:28.064 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 11.5731ms
+2026-08-28 13:52:28.092 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 39.3239ms
+2026-08-28 13:52:28.156 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 13:52:28.217 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 61.0858ms
+2026-08-28 14:53:57.021 +07:00 [INF] Hospital is running...
+2026-08-28 14:53:57.512 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 14:53:57.731 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 14:53:57.734 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 14:53:57.855 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 14:53:57.857 +07:00 [INF] Hosting environment: Development
+2026-08-28 14:53:57.858 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 14:53:58.629 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 14:53:58.850 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 228.9275ms
+2026-08-28 14:53:59.061 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 14:53:59.061 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 14:53:59.074 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 13.1959ms
+2026-08-28 14:53:59.112 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 51.674ms
+2026-08-28 14:53:59.320 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 14:53:59.362 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 42.562ms
+2026-08-28 14:54:13.859 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - multipart/form-data; boundary=----WebKitFormBoundary7znLlxT1vZP2dzZV 9844
+2026-08-28 14:54:13.918 +07:00 [INF] CORS policy execution successful.
+2026-08-28 14:54:14.124 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 14:54:14.149 +07:00 [INF] Route matched with {action = "ImportExcel", controller = "ProductCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ImportExcel(Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ProductCategoriesController (THUCTAP).
+2026-08-28 14:54:14.427 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 14:54:14.441 +07:00 [INF] Executed action THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP) in 286.863ms
+2026-08-28 14:54:14.443 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 14:54:14.446 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - 400 null application/json; charset=utf-8 587.1398ms
+2026-08-28 15:04:14.438 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - multipart/form-data; boundary=----WebKitFormBoundaryBIhnbCxHcXAQ5GE8 9852
+2026-08-28 15:04:14.453 +07:00 [INF] CORS policy execution successful.
+2026-08-28 15:04:14.467 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:04:14.468 +07:00 [INF] Route matched with {action = "ImportExcel", controller = "ProductCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ImportExcel(Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ProductCategoriesController (THUCTAP).
+2026-08-28 15:04:14.503 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 15:04:14.504 +07:00 [INF] Executed action THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP) in 34.1711ms
+2026-08-28 15:04:14.505 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:04:14.506 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - 400 null application/json; charset=utf-8 68.5205ms
+2026-08-28 15:12:04.105 +07:00 [INF] Hospital is running...
+2026-08-28 15:12:04.549 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 15:12:04.738 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 15:12:04.741 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 15:12:04.882 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 15:12:04.884 +07:00 [INF] Hosting environment: Development
+2026-08-28 15:12:04.885 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 15:12:05.810 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 15:12:06.006 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 205.9205ms
+2026-08-28 15:12:06.082 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 15:12:06.106 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 23.1194ms
+2026-08-28 15:12:06.312 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 15:12:06.368 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 56.2516ms
+2026-08-28 15:12:06.447 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 15:12:06.496 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.0764ms
+2026-08-28 15:12:21.464 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - multipart/form-data; boundary=----WebKitFormBoundaryP7m29XodCA9HC3SP 9837
+2026-08-28 15:12:21.507 +07:00 [INF] CORS policy execution successful.
+2026-08-28 15:12:21.661 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:12:21.689 +07:00 [INF] Route matched with {action = "ImportExcel", controller = "ProductCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ImportExcel(Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ProductCategoriesController (THUCTAP).
+2026-08-28 15:12:21.840 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 15:12:21.853 +07:00 [INF] Executed action THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP) in 157.4749ms
+2026-08-28 15:12:21.854 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:12:21.857 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - 400 null application/json; charset=utf-8 392.2535ms
+2026-08-28 15:13:46.789 +07:00 [INF] Hospital is running...
+2026-08-28 15:13:47.220 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 15:13:47.381 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 15:13:47.382 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 15:13:47.464 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 15:13:47.466 +07:00 [INF] Hosting environment: Development
+2026-08-28 15:13:47.467 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 15:13:48.403 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 15:13:48.813 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 420.3675ms
+2026-08-28 15:13:49.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 15:13:49.108 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 15:13:49.122 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 14.5435ms
+2026-08-28 15:13:49.156 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.3229ms
+2026-08-28 15:13:49.346 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 15:13:49.402 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 56.9082ms
+2026-08-28 15:33:42.078 +07:00 [INF] Hospital is running...
+2026-08-28 15:33:42.230 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-08-28 15:33:50.728 +07:00 [INF] Hospital is running...
+2026-08-28 15:33:50.864 +07:00 [FTL] Hệ thống gặp lỗi nghiêm trọng và không thể khởi động!
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP\Program.cs:line 128
+2026-08-28 15:35:54.389 +07:00 [INF] Hospital is running...
+2026-08-28 15:35:54.998 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 15:35:55.165 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 15:35:55.167 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 15:35:55.255 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 15:35:55.257 +07:00 [INF] Hosting environment: Development
+2026-08-28 15:35:55.257 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 15:35:55.922 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 15:35:56.146 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 240.351ms
+2026-08-28 15:35:56.239 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 15:35:56.248 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.2572ms
+2026-08-28 15:35:56.332 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 15:35:56.380 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 48.0532ms
+2026-08-28 15:35:56.425 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 15:35:56.502 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 77.1109ms
+2026-08-28 15:36:14.337 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - multipart/form-data; boundary=----WebKitFormBoundary5eUWhPu3KKBz81Zp 9837
+2026-08-28 15:36:14.388 +07:00 [INF] CORS policy execution successful.
+2026-08-28 15:36:14.537 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:36:14.563 +07:00 [INF] Route matched with {action = "ImportExcel", controller = "ProductCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ImportExcel(Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ProductCategoriesController (THUCTAP).
+2026-08-28 15:36:14.832 +07:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 15:36:14.844 +07:00 [INF] Executed action THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP) in 275.6955ms
+2026-08-28 15:36:14.845 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:36:14.848 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - 400 null application/json; charset=utf-8 511.038ms
+2026-08-28 15:41:00.444 +07:00 [INF] Hospital is running...
+2026-08-28 15:41:00.910 +07:00 [INF] User profile is available. Using 'C:\Users\ADMIN\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-28 15:41:01.079 +07:00 [INF] Now listening on: https://localhost:7270
+2026-08-28 15:41:01.082 +07:00 [INF] Now listening on: http://localhost:5165
+2026-08-28 15:41:01.166 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-28 15:41:01.168 +07:00 [INF] Hosting environment: Development
+2026-08-28 15:41:01.168 +07:00 [INF] Content root path: C:\Users\ADMIN\source\repos\THUCTAPPROJECT\THUCTAP
+2026-08-28 15:41:01.693 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/index.html - null null
+2026-08-28 15:41:01.900 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/index.html - 200 null text/html;charset=utf-8 221.0779ms
+2026-08-28 15:41:02.201 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - null null
+2026-08-28 15:41:02.201 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/_vs/browserLink - null null
+2026-08-28 15:41:02.210 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_framework/aspnetcore-browser-refresh.js - 200 13750 application/javascript; charset=utf-8 9.2696ms
+2026-08-28 15:41:02.247 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/_vs/browserLink - 200 null text/javascript; charset=UTF-8 46.3718ms
+2026-08-28 15:41:02.666 +07:00 [INF] Request starting HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - null null
+2026-08-28 15:41:02.707 +07:00 [INF] Request finished HTTP/2 GET https://localhost:7270/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 42.0224ms
+2026-08-28 15:41:16.302 +07:00 [INF] Request starting HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - multipart/form-data; boundary=----WebKitFormBoundaryIPOxPxmN22ngKYp7 9805
+2026-08-28 15:41:16.336 +07:00 [INF] CORS policy execution successful.
+2026-08-28 15:41:16.478 +07:00 [INF] Executing endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:41:16.509 +07:00 [INF] Route matched with {action = "ImportExcel", controller = "ProductCategories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ImportExcel(Microsoft.AspNetCore.Http.IFormFile) on controller THUCTAP.Controllers.ProductCategoriesController (THUCTAP).
+2026-08-28 15:41:17.229 +07:00 [WRN] Entity 'Equipment' has a global query filter defined and is the required end of a relationship with the entity 'EquipmentMaintenanceLog'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 15:41:17.231 +07:00 [WRN] Entity 'CustomerMaster' has a global query filter defined and is the required end of a relationship with the entity 'Order'. This may lead to unexpected results when the required entity is filtered out. Either configure the navigation as optional, or define matching query filters for both entities in the navigation. See https://go.microsoft.com/fwlink/?linkid=2131316 for more information.
+2026-08-28 15:41:17.383 +07:00 [WRN] No store type was specified for the decimal property 'estimatedTotal' on entity type 'Order'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType', specify precision and scale using 'HasPrecision', or configure a value converter using 'HasConversion'.
+2026-08-28 15:41:17.992 +07:00 [INF] Executed DbCommand (51ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = DateTime2), @p5='?' (Size = 4000), @p6='?' (Size = 4000), @p7='?' (Size = 4000), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = DateTime2), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (DbType = Int32), @p19='?' (DbType = DateTime2), @p20='?' (Size = 4000), @p21='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ProductCategories] ([asNeededTask], [conditionWhenReceived], [conditionWhenStarted], [countryOfOrigin], [createdAt], [createdBy], [dailyTask], [equipmentCode], [equipmentName], [isActive], [location], [manufacturer], [model], [monthlyTask], [quarterlyTask], [receivedDate], [serialNumber], [startDateOfUse], [supplierId], [updatedAt], [updatedBy], [weeklyTask])
+OUTPUT INSERTED.[id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21);
+2026-08-28 15:41:18.055 +07:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-08-28 15:41:18.067 +07:00 [INF] Executed action THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP) in 1552.1482ms
+2026-08-28 15:41:18.069 +07:00 [INF] Executed endpoint 'THUCTAP.Controllers.ProductCategoriesController.ImportExcel (THUCTAP)'
+2026-08-28 15:41:18.076 +07:00 [INF] Request finished HTTP/2 POST https://localhost:7270/api/ProductCategories/import-excel - 200 null application/json; charset=utf-8 1774.3445ms
