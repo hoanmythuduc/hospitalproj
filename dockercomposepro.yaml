@@ -1,0 +1,25 @@
+version: '3.4'
+
+networks:
+  backend:
+
+services:
+  hospitaldb:
+    container_name: hospitaldb
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=password@12345#
+    networks:
+      - backend
+    ports:
+      - 1433:1433
+    volumes:
+       - d:/ProjectDeploy/var/opt/mssql-data:/var/opt/mssql/data
+       - d:/ProjectDeploy/var/opt/mssql-log:/var/opt/mssql/log
+       - d:/ProjectDeploy/var/opt/mssql-secret:/var/opt/mssql/secrets
+     
+volumes:
+    my-volume:
+      
+  
