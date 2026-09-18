@@ -27,7 +27,7 @@ services:
     ports:
       - 8080:8080
     environment:
-      - ConnectionStrings__Hospital=Server=hospitaldb,1433;Database=HOSPITAL_DB;User Id=sa;Password=password@12345#;TrustServerCertificate=True;
+      - ConnectionStrings__Hospital=Server=host.docker.internal,1433;Database=HOSPITAL_DB;User Id=sa;Password=password@12345#;TrustServerCertificate=True;
   fehospital:
     container_name: fehospital
     image: hmtd79/fe:v1
