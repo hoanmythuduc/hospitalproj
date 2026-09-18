@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("THUCTAP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7de01a76057137c4e591ebe40d0155a8f80a3649")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6ecb9c840c3912cfcf3546d834eadbade6f3285")]
 [assembly: System.Reflection.AssemblyProductAttribute("THUCTAP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("THUCTAP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

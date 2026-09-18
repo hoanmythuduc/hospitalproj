@@ -1,0 +1,27 @@
+version: '3.4'
+
+networks:
+  hospital:
+
+services:
+  hospitalservice:
+    container_name: hospitalservice
+    image: hmtdproj/hospital:v2
+    networks:
+      - hospital
+    ports:
+      - 8080:8080
+    environment:
+      - ConnectionStrings__Hospital=Server=host.docker.internal,1433;Database=HOSPITAL_DB;User Id=sa;Password=password@12345#;TrustServerCertificate=True;
+  fehospital:
+    container_name: fehospital
+    image: hmtd79/fe:v1
+    networks:
+      - hospital
+    ports:
+      - 5000:3000
+  
+volumes:
+    my-volume:
+      
+  
