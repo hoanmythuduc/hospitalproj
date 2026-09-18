@@ -151,7 +151,9 @@ namespace THUCTAP.Data
 
             modelBuilder.Entity<User>().HasData(
                 new User { id = 1, userName = "admin", userCode = "NV001", password = "123", email = "admin@test.com", department = "Ban Giám Đốc" },
-                new User { id = 2, userName = "bacsi01", userCode = "BS001", password = "123", email = "bs@test.com", department = "Khoa Nội" }
+                new User { id = 2, userName = "bacsi01", userCode = "BS001", password = "123", email = "bs@test.com", department = "Khoa Nội" },
+                new User { id = 3, userName = "admin02", userCode = "NV002", password = "123", email = "admin02@test.com", department = "Phòng Vật tư" },
+                new User { id = 4, userName = "nguyenvanan", userCode = "NV003", password = "123", email = "an.nv@test.com", department = "Phòng Kỹ thuật" }
             );
 
             modelBuilder.Entity<Group>().HasData(
@@ -421,7 +423,7 @@ namespace THUCTAP.Data
                     status = UsageLogStatus.Completed, 
 
                     preparerId = 2,  
-                    inspectorId = 11, 
+                    inspectorId = 1, 
                     inspectionDate = new DateTime(2026, 8, 8),
                     reviewerId = 1, 
                     reviewDate = new DateTime(2026, 8, 9),

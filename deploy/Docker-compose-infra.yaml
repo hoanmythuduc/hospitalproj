@@ -18,24 +18,6 @@ services:
        - d:/ProjectDeploy/var/opt/mssql-data:/var/opt/mssql/data
        - d:/ProjectDeploy/var/opt/mssql-log:/var/opt/mssql/log
        - d:/ProjectDeploy/var/opt/mssql-secret:/var/opt/mssql/secrets
-
-  hospitalservice:
-    container_name: hospitalservice
-    image: hmtdproj/hospital:v2
-    networks:
-      - hospital
-    ports:
-      - 8080:8080
-    environment:
-      - ConnectionStrings__Hospital=Server=host.docker.internal,1433;Database=HOSPITAL_DB;User Id=sa;Password=password@12345#;TrustServerCertificate=True;
-  fehospital:
-    container_name: fehospital
-    image: hmtd79/fe:v1
-    networks:
-      - hospital
-    ports:
-      - 5000:3000
-  
 volumes:
     my-volume:
       
