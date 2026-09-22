@@ -1,5 +1,5 @@
-//const BASE_URL = 'http://localhost:5165/api';
-const BASE_URL = 'http://10.36.22.102:81/api';
+//const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'http://10.36.22.105:81/api';
 
 export const authApi = {
   login: async (credentials: any) => {
@@ -35,10 +35,6 @@ const getAuthHeaders = () => {
 
 export const dynamicApi = {
   getAll: async (endpoint: string) => {
-    // if (endpoint.includes('WaterSystem') && !endpoint.includes('CustomField')){
-    //   endpoint = 'WaterSystem/1';
-    //   console.log(`endpoint: ${endpoint}`);
-    // }
     try {
       const res = await fetch(`${BASE_URL}/${endpoint}` , {
         method: 'GET',
@@ -80,7 +76,7 @@ export const dynamicApi = {
     return data;
   },
 
-  update: async (endpoint: string, id: number, data: Record<string, any>) => {
+  update: async (endpoint: string, id: number | string, data: Record<string, any>) => {
     const res = await fetch(`${BASE_URL}/${endpoint}/${id}`, {
       method: 'PUT',
       headers: getAuthHeaders(),
@@ -182,7 +178,6 @@ export const systemApi = {
     try {
       let endpoint = '';
       let requestBody = data;
-      console.log(`logDate: ${logDate}`);
       
       if (moduleName === 'Equipment') {
         endpoint = `${BASE_URL}/Report/equipment/${id}/export-word`;

@@ -7,8 +7,8 @@ import { dynamicApi, systemApi } from "../../api/api";
 import TableDropdown from './TableDropdown';
 import PermissionField from './PermissionField';
 import { validateField, validateForm } from '../../utils/validationEngine'; 
-import AsyncDropdown from './AsyncDropdown';
 import DocxViewer from '../shared/DocxViewer';
+import { hasPermission } from '../../utils/auth';
 
 const TYPES = [
   { value: 'text', label: 'Text' }, 
@@ -24,17 +24,37 @@ const TYPES = [
   { value: 'boolean', label: 'Checkbox' }
 ];
 
-const groupTableColumns = [ { key: 'groupCode', label: 'Group Code' }, { key: 'groupName', label: 'Group Name' } ];
+const parseDateString = (dateStr) => {
+  if (!dateStr) return '';
+
+  if (dateStr.includes('T') || dateStr.match(/^\d{4}-\d{2}-\d{2}/)) return dateStr;
+
+  const parts = dateStr.split(' ');
+  const datePart = parts[0];
+  const timePart = parts[1] || '00:00:00';
+  const dateSubParts = datePart.split('/');
+  if (dateSubParts.length === 3) {
+    const day = dateSubParts[0].padStart(2, '0');
+    const month = dateSubParts[1].padStart(2, '0');
+    const year = dateSubParts[2];
+    const timeSubParts = timePart.split(':');
+    const hh = (timeSubParts[0] || '00').padStart(2, '0');
+    const mm = (timeSubParts[1] || '00').padStart(2, '0');
+    const ss = (timeSubParts[2] || '00').padStart(2, '0');
+    
+    return `${year}-${month}-${day}T${hh}:${mm}:${ss}`;
+  }
+  
+  return dateStr; 
+};
 
 export default function DynamicForm({ schema, initialData, onClose, onSave }) {
   const [formData, setFormData] = useState({});
   const [dropdownOptions, setDropdownOptions] = useState({}); 
   const [errors, setErrors] = useState({});
-  
   const { moduleName, fields, formConfig, endpoint } = schema;
   const isUserModule = endpoint === 'UserAccount' || moduleName === 'User Account';
   const isGroupModule = endpoint === 'UserGroup' || moduleName === 'User Group';
-
   const normalizedFields = useMemo(() => {
     if (!fields) return [];
     return fields.map(field => {
@@ -61,7 +81,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
   const groupFieldName = fieldMap['group']?.name || fieldMap['group']?.field || fieldMap['groupIds']?.name || fieldMap['groupIds']?.field;
   const [activeTab, setActiveTab] = useState(0);
 
-  const [templateFile, setTemplateFile] = useState(null);
+  //const [templateFile, setTemplateFile] = useState(null);
   const [previewData, setPreviewData] = useState(null); 
   const [isProcessingFile, setIsProcessingFile] = useState(false);
 
@@ -148,33 +168,93 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     }
   };
 
+  const permissionTarget = schema.permissionKey || moduleName;
+  const canReview = hasPermission(permissionTarget, 'Review');
+  const canApprove = hasPermission(permissionTarget, 'Approve');
+  const [isReviewed, setIsReviewed] = useState(false); 
+  const [isApproved, setIsApproved] = useState(false);
+  const currentUserName = typeof window !== 'undefined' ? localStorage.getItem('userName') : ''; 
+  const [inspector, setInspector] = useState(''); 
+  const [approver, setApprover] = useState('');
+  const isMyReview = inspector === currentUserName;
+  const isMyApprove = approver === currentUserName; 
+  const isFormDisabled = (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') ? isReviewed : false;
+  
+
   const handleReviewReport = async () => {
-      const userId = Number(localStorage.getItem('userId'));
-      const payload = {
-        reviewerId: userId
+    const userId = Number(localStorage.getItem('userId'));
+    const newValue = !isReviewed; 
+    
+    const payload = { userId: userId, isApproved: newValue };
+
+    try {
+      const response = await dynamicApi.update(endpoint, `${formData.id}/inspect`, payload);
+      if (response.error) {
+        alert('Lỗi: ' + response.error);
+        return;
       }
-      const response = await dynamicApi.update(endpoint, formData.id, payload);
-      if (response.error || !response.data){
-        alert('Error reviewing' + response.error);
-        return null;
+      
+      setIsReviewed(newValue);
+      
+      if (newValue) {
+        setInspector(currentUserName); 
+      } else {
+        setInspector(''); 
+        setIsApproved(false);
+        setApprover('');
       }
-      return data;
+    } catch (err) {
+      console.error(err);
     }
+  };
 
   const handleApproveReport = async () => {
+    const userId = Number(localStorage.getItem('userId'));
+    const newValue = !isApproved; 
+    
+    let payload = {};
+    let actionPath = moduleName === 'Maintenance Schedule' ? 'approve' : 'review';
+    
+    if (moduleName === 'Maintenance Schedule') {
+      payload = { approverId: userId, isApproved: newValue };
+    } else {
+      payload = { userId: userId, isApproved: newValue };
+    }
 
-  }
+    try {
+      const response = await dynamicApi.update(endpoint, `${formData.id}/${actionPath}`, payload);
+      if (response.error) {
+        alert('Lỗi: ' + response.error);
+        return;
+      }
+      
+      if (newValue) {
+        setIsApproved(true);
+        setApprover(currentUserName);
+      } else {
+        setIsApproved(false);
+        setIsReviewed(false); 
+        setInspector('');
+        setApprover('');
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
 
   useEffect(() => {
     if (initialData) {
-      //console.log("Initial:", initialData)
       let preparedData = { ...initialData };
 
       normalizedFields.forEach(field => {
         const fKey = field.name || field.field;
         const isMetaSubField = fKey === 'subfield' || fKey === 'subField'; 
-        const hasSubFields = field.subfield && field.subfield.length > 0;  
+        const hasSubFields = field.subfield && field.subfield.length > 0; 
+        const isDateType = ['date', 'datetime', 'dateTime'].includes(field.type);
+        if (isDateType && preparedData[fKey]) {
+          preparedData[fKey] = parseDateString(preparedData[fKey]);
+        }
 
         if (isMetaSubField || hasSubFields) {
           if (typeof preparedData[fKey] === 'string' && preparedData[fKey].trim() !== '') {
@@ -188,6 +268,20 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
               console.error(`Error parsin JSON for field ${fKey}:`, e);
               preparedData[fKey] = [];
             }
+          }
+
+          if (Array.isArray(preparedData[fKey]) && field.subfield) {
+            preparedData[fKey] = preparedData[fKey].map(row => {
+              let newRow = { ...row };
+              field.subfield.forEach(sf => {
+                const sfKey = sf.name || sf.field;
+                const isSubDate = ['date', 'datetime', 'dateTime', 'time'].includes(sf.type);
+                if (isSubDate && newRow[sfKey]) {
+                  newRow[sfKey] = parseDateString(newRow[sfKey]); 
+                }
+              });
+              return newRow;
+            });
           }
         }
       });
@@ -212,6 +306,22 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
           preparedData[groupFieldName] = groupNames;
         }
       }
+
+      const currentStatus = initialData.statusName || initialData.status || '';
+      if (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') {
+         const isDoneInspect = currentStatus === 'PendingReview' || currentStatus === 'Completed' || !!initialData.isInspected;
+         const isDoneReview = currentStatus === 'Completed' || !!initialData.isReviewed;
+
+         setIsReviewed(isDoneInspect); 
+         setIsApproved(isDoneReview);  
+         setInspector(initialData.inspectorName || ''); 
+         setApprover(initialData.reviewerName || '');   
+      } else if (moduleName === 'Maintenance Schedule') {
+         const isDoneApprove = currentStatus === 'Completed' || !!initialData.isApproved;
+         setIsApproved(isDoneApprove);  
+         setApprover(initialData.approverName || initialData.reviewerName || '');
+      }
+
       setFormData(preparedData);
     }
   }, [initialData, dropdownOptions, isUserModule, groupFieldName, normalizedFields]);
@@ -272,29 +382,6 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
 
     fetchGroupPermissions();
   }, [formData[groupFieldName], isUserModule, groupFieldName]);
-
-  // useEffect(() => {
-  //   const fetchStaticDropdownData = () => {
-  //     normalizedFields.forEach((field) => {
-  //       const fieldKey = field.name || field.field;
-  //       const listTypes = ['select', 'multiselect', 'singleSelectDropdown', 'multiselectDropdown', 'singleComboBox', 'multiComboBox'];
-        
-  //       if (listTypes.includes(field.type)) {
-  //         if (!(field.dataSource || field.endpoint)) {
-  //           const rawOption = field.option || field.options;
-  //           if (typeof rawOption === 'string' && rawOption.trim() !== '') {
-  //             const staticOptions = rawOption.split(',').map(val => ({
-  //               value: val.trim(),
-  //               label: val.trim()
-  //             }));
-  //             setDropdownOptions(prev => ({ ...prev, [fieldKey]: staticOptions }));
-  //           }
-  //         }
-  //       }
-  //     });
-  //   };
-  //   fetchStaticDropdownData();
-  // }, [normalizedFields]);
 
   const handleFieldChange = (name, value) => {
     setFormData(prev => {
@@ -432,15 +519,23 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
       setFormData(prev => {
         const currentList = [...(Array.isArray(prev[parentKey]) ? prev[parentKey] : [])];
         let rowDataObj = currentList[rowIndex] ? { ...currentList[rowIndex] } : {};
-        
-        rowDataObj[fieldKey] = val; 
-        
+        rowDataObj[fieldKey] = val;
         if (selectedRowData) {
           Object.keys(selectedRowData).forEach(key => {
             if (!['_value', '_label', 'permissionsPayload', 'id'].includes(key) && key !== fieldKey) {
               rowDataObj[key] = selectedRowData[key];
             }
           });
+
+          if (selectedRowData.id !== undefined) {
+            if (fieldKey.toLowerCase().includes('name')) {
+              const idField = fieldKey.replace(/name$/i, 'Id');
+              rowDataObj[idField] = selectedRowData.id;
+            }
+            if (subFieldConfig.dataSource === 'UserAccount' || subFieldConfig.endpoint === 'UserAccount') {
+              rowDataObj.userId = selectedRowData.id;
+            }
+          }
         }
         currentList[rowIndex] = rowDataObj;
         return { ...prev, [parentKey]: currentList };
@@ -634,6 +729,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     const hasError = !!errors[fieldKey];
     const baseInputClass = "w-full border rounded px-3 py-2 outline-none font-medium transition-colors ";
     const colorClass = hasError ? "border-red-500 bg-red-50 focus:border-red-600 text-red-700" : "border-gray-300 focus:border-[#00b074] text-gray-600";
+    console.log(canApprove, isReviewed, isApproved, moduleName)
 
     return (
       <div key={fieldKey} className={`col-span-12 ${colSpanClass} flex flex-col gap-1.5 mb-2`}>
@@ -643,33 +739,6 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
         </label>
         
         <div className="relative">
-          {/* ComboBox
-          {(effectiveType === 'singleComboBox' || effectiveType === 'multiComboBox') && (
-            <div onBlur={() => handleBlur(fieldKey, formData[fieldKey])}>
-              <CreatableSelect
-                isMulti={effectiveType === 'multiComboBox'}
-                options={effectiveOptions} 
-                value={
-                  effectiveType === 'multiComboBox'
-                    ? (Array.isArray(formData[fieldKey]) 
-                        ? formData[fieldKey].map(v => ({ label: v, value: v })) 
-                        : [])
-                    : (formData[fieldKey] ? { label: formData[fieldKey], value: formData[fieldKey] } : null)
-                }
-                onChange={(selected) => {
-                  if (effectiveType === 'multiComboBox') {
-                    handleFieldChange(fieldKey, selected ? selected.map(item => item.value) : []);
-                  } else {
-                    handleFieldChange(fieldKey, selected ? selected.value : '');
-                  }
-                }}
-                placeholder={field.placeholder || "Type to search or create..."}
-                className={hasError ? "border-red-500 rounded border" : ""}
-              />
-            </div>
-          )} */}
-
-
           {['singleComboBox', 'multiComboBox', 'select', 'singleSelectDropdown', 'multiselect', 'multiselectDropdown'].includes(effectiveType) && (
             <div onBlur={() => handleBlur(fieldKey, formData[fieldKey])}>
               {(field.dataSource || field.endpoint) ? (
@@ -861,55 +930,49 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
           {/* footer */}
           <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
             <div className="flex items-center gap-3">
-              {/* <input 
-                type="file" 
-                accept=".docx" 
-                onChange={(e) => setTemplateFile(e.target.files[0])} 
-                className="text-xs text-gray-500 w-48"
-              /> */}
-              <button 
-                onClick={handleViewData} 
-                disabled={isProcessingFile}
-                className="px-4 py-2 text-sm font-medium text-white bg-[#117180]  hover:bg-[#028497]  rounded transition-colors disabled:opacity-50"
-              >
-                {isProcessingFile ? 'Loading...' : 'Preview'}
+              <button onClick={handleViewData} disabled={isProcessingFile} className="px-4 py-2 text-sm font-medium text-white bg-[#117180] hover:bg-[#028497] rounded transition-colors disabled:opacity-50">
+                Preview
               </button>
-              <button 
-                onClick={handleExportData} 
-                disabled={isProcessingFile}
-                className="px-4 py-2 text-sm font-medium text-white bg-[#117180]  hover:bg-[#028497] rounded transition-colors disabled:opacity-50"
-              >
+              <button onClick={handleExportData} disabled={isProcessingFile} className="px-4 py-2 text-sm font-medium text-white bg-[#117180] hover:bg-[#028497] rounded transition-colors disabled:opacity-50">
                 Export
               </button>
 
-              <button
-                onClick={handleReviewReport}
-                disabled={isProcessingFile}
-                className="px-4 py-2 text-sm font-medium text-white bg-[#117180]  hover:bg-[#028497]  rounded transition-colors disabled:opacity-50"
-              >
-                Review
-              </button>
+              {/* review */}
+              {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') && canReview && !isApproved && (!isReviewed || isMyReview) && (
+                <button
+                  onClick={handleReviewReport}
+                  disabled={isProcessingFile}
+                  className={`px-4 py-2 text-sm font-medium text-white rounded transition-colors disabled:opacity-50 ${isReviewed ? 'bg-orange-500 hover:bg-orange-600' : 'bg-[#117180] hover:bg-[#028497]'}`}
+                >
+                  {isReviewed ? 'Undo Review' : 'Review'}
+                </button>
+              )}
 
-
-              <button
-                onClick={handleApproveReport}
-                disabled={isProcessingFile}
-                className="px-4 py-2 text-sm font-medium text-white bg-[#117180]  hover:bg-[#028497]  rounded transition-colors disabled:opacity-50"
-              >
-                Approve
-              </button>
+              {/* approve */}
+              {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') && canApprove && (moduleName === 'Maintenance Schedule' || isReviewed) && (!isApproved || isMyApprove) && (
+                <button
+                  onClick={handleApproveReport}
+                  disabled={isProcessingFile}
+                  className={`px-4 py-2 text-sm font-medium text-white rounded transition-colors disabled:opacity-50 ${isApproved ? 'bg-orange-500 hover:bg-orange-600' : 'bg-green-600 hover:bg-green-700'}`}
+                >
+                  {isApproved ? 'Undo Approve' : 'Approve'}
+                </button>
+              )}
             </div>
 
-            {/* btn*/}
+            {/* Cancel & Save */}
             <div className="flex items-center gap-3">
               <button onClick={onClose} className="px-6 py-2 text-sm font-medium text-[#0b798f]">
-                Cancle
+                Cancel
               </button>
-              <button onClick={handleSubmit} className="px-6 py-2 text-sm font-medium text-white bg-[#117180]  hover:bg-[#028497]  rounded shadow-sm transition-colors">
+              <button 
+                onClick={handleSubmit} 
+                disabled={isFormDisabled}
+                className={`px-6 py-2 text-sm font-medium text-white rounded shadow-sm transition-colors ${isFormDisabled ? 'bg-gray-400 cursor-not-allowed' : 'bg-[#117180] hover:bg-[#028497]'}`}
+              >
                 Save changes
               </button>
             </div>
-
           </div>
         </div>
       </div>

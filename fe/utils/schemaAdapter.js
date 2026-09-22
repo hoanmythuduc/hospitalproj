@@ -5,7 +5,7 @@ export const transformApiToSchema = (apiData, moduleEndpoint, moduleName) => {
   else if (apiData?.data?.items && Array.isArray(apiData.data.items)) items = apiData.data.items;
   
   const sortedItems = [...items].sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0));
-  
+  let primaryKey
   const mappedFields = sortedItems.map(item => {
     const defaultFieldConfig = {
       isShowInForm: true,

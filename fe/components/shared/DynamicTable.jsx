@@ -18,7 +18,7 @@ export default function DynamicTable({ schema }) {
 
   const pathname = usePathname(); 
   const { tabStates, updateTabState } = useTabStore();
-  const savedState = tabStates[pathname] || {};
+  const savedState = tabStates[pathname] || {}
   
   const [pageIndex, setPageIndex] = useState(savedState.pageIndex || 1);
   const [pageSize, setPageSize] = useState(savedState.pageSize || 10);
@@ -223,14 +223,34 @@ export default function DynamicTable({ schema }) {
       if (schema.disableDetailFetch) {
         setSelectedRow(row);
       } else {
-        const recordId = row[schema.primaryKey] || row.id || row.userCode || row.groupCode;
-        let response = await dynamicApi.getById(endpoint, recordId, schema.primaryKey);
+        let fetchKey = schema.primaryKey || 'id';
+        let fetchValue = row[fetchKey] || row.id || row.userCode || row.groupCode;
+        if (moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') {
+          fetchKey = 'equipmentId';
+          fetchValue = row.equipmentId; 
+        }
+        let response = await dynamicApi.getById(endpoint, fetchValue, fetchKey);
         console.log(`response: ${JSON.stringify(response)}`);
 
         if (!response.error && response.data) {
           const apiPayload = response.data.data || response.data;
-          const detailData = Array.isArray(apiPayload) ? apiPayload[0] : (apiPayload.items !== undefined ? apiPayload.items[0] : apiPayload); 
-          setSelectedRow(detailData);
+          let detailDataArray = [];
+          if (Array.isArray(apiPayload)) {
+            detailDataArray = apiPayload;
+          } else if (apiPayload.items !== undefined) {
+            detailDataArray = apiPayload.items;
+          } else {
+            detailDataArray = [apiPayload];
+          }
+          let detailData = detailDataArray[0];
+          if (moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') {
+            const matchedRecord = detailDataArray.find(item => item.id === row.id);
+            if (matchedRecord) {
+              detailData = matchedRecord;
+            }
+          }
+
+          setSelectedRow(detailData || row);
         } else {
           setSelectedRow(row);
         }
@@ -543,7 +563,7 @@ export default function DynamicTable({ schema }) {
 
       {subTableModal.isOpen && (
         <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/40 backdrop-blur-sm">
-           <div className="bg-white rounded-lg shadow-xl w-full max-w-3xl overflow-hidden flex flex-col max-h-[85vh]">
+           <div className="bg-white rounded-lg shadow-xl w-full max-w-6xl overflow-hidden flex flex-col max-h-[85vh]">
               {/* Modal Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-gray-200 bg-gray-50">
                 <h3 className="text-lg font-bold text-gray-800 uppercase tracking-wide">{subTableModal.title}</h3>
