@@ -554,8 +554,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     const effectiveOptions = fieldKey === 'type' ? TYPES : (dropdownOptions[fieldKey] || subFieldConfig.options || []);
     const rowData = (formData[parentKey] || [])[rowIndex] || {};
     const value = rowData[fieldKey];
-    const baseInputClass = `w-full min-w-[120px] border border-gray-300 focus:border-[#00b074] rounded px-2.5 py-1.5 outline-none text-sm transition-colors text-gray-600 ${fieldKey === 'sortOrder' ? 'bg-gray-100' : 'bg-white'}`;
-    const onChange = (val) => handleSubFieldChange(parentKey, rowIndex, fieldKey, val);
+    const baseInputClass = `w-full min-w-[120px] border border-gray-300 focus:border-[#00b074] rounded px-2.5 py-1.5 outline-none text-sm transition-colors text-gray-600 bg-white`;    const onChange = (val) => handleSubFieldChange(parentKey, rowIndex, fieldKey, val);
     const handleSubRowChange = (val, selectedRowData) => {
       setFormData(prev => {
         const currentList = [...(Array.isArray(prev[parentKey]) ? prev[parentKey] : [])];
@@ -633,7 +632,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     }
 
     if (effectiveType === 'text' || effectiveType === 'string' || effectiveType === 'email' || effectiveType === 'password') {
-      return <input type={effectiveType === 'string' ? 'text' : effectiveType} value={value || ''} onChange={(e) => onChange(e.target.value)} disabled={fieldKey === 'sortOrder'} className={baseInputClass} />;
+      return <input type={effectiveType === 'string' ? 'text' : effectiveType} value={value || ''} onChange={(e) => onChange(e.target.value)} className={baseInputClass} />;
     }
 
     if (effectiveType === 'date' || effectiveType === 'datetime' || effectiveType === 'dateTime') {
@@ -656,7 +655,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     }
 
     if (effectiveType === 'number' || effectiveType === 'int' || effectiveType === 'integer') {
-      return <input type="number" value={value ?? ''} onChange={(e) => onChange(e.target.value === '' ? '' : Number(e.target.value))} disabled={fieldKey === 'sortOrder'} className={baseInputClass} />;
+      return <input type="number" value={value ?? ''} onChange={(e) => onChange(e.target.value === '' ? '' : Number(e.target.value))}  className={baseInputClass} />;
     }
 
     if (effectiveType === 'boolean') {
@@ -902,7 +901,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
                   e.preventDefault();
                 }
               }}
-              disabled={fieldKey === 'sortOrder' || isFormDisabled} 
+              disabled={ isFormDisabled} 
               className={`${baseInputClass} ${colorClass}`}
             />
           )}
