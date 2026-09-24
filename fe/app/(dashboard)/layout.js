@@ -1,13 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import mockData from '../../mock/db.json';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTabStore } from '../../store/tabStore';
 import WelcomePage from '../../components/welcome/WelcomePage'; 
 import { dynamicApi, systemApi } from '../../api/api';
 import { 
-  Menu, 
   LogOut, 
   ChevronLeft, 
   ChevronRight, 

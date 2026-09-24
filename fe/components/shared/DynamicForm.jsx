@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, Fragment } from 'react';
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 import { dynamicApi, systemApi } from "../../api/api";
+import AsyncDropdown from './AsyncDropdown';
 import TableDropdown from './TableDropdown';
 import PermissionField from './PermissionField';
 import { validateField, validateForm } from '../../utils/validationEngine'; 
@@ -173,158 +174,198 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
   const canApprove = hasPermission(permissionTarget, 'Approve');
   const [isReviewed, setIsReviewed] = useState(false); 
   const [isApproved, setIsApproved] = useState(false);
+  const [recordStatus, setRecordStatus] = useState('');
   const currentUserName = typeof window !== 'undefined' ? localStorage.getItem('userName') : ''; 
   const [inspector, setInspector] = useState(''); 
   const [approver, setApprover] = useState('');
   const isMyReview = inspector === currentUserName;
   const isMyApprove = approver === currentUserName; 
-  const isFormDisabled = (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') ? isReviewed : false;
-  
-
+  const isFormDisabled = (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') 
+    ? isReviewed 
+    : (moduleName === 'Maintenance Schedule' ? isApproved : false);
   const handleReviewReport = async () => {
     const userId = Number(localStorage.getItem('userId'));
     const newValue = !isReviewed; 
-    
     const payload = { userId: userId, isApproved: newValue };
-
     try {
       const response = await dynamicApi.update(endpoint, `${formData.id}/inspect`, payload);
       if (response.error) {
-        alert('Lỗi: ' + response.error);
+        alert('Error: ' + response.error);
         return;
       }
-      
-      setIsReviewed(newValue);
-      
-      if (newValue) {
-        setInspector(currentUserName); 
-      } else {
-        setInspector(''); 
-        setIsApproved(false);
-        setApprover('');
-      }
+      await refreshData(); 
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleApproveReport = async () => {
+  const handleApproveReport = async (actionType) => {
     const userId = Number(localStorage.getItem('userId'));
-    const newValue = !isApproved; 
+    const isApproveAction = actionType === 'approve'; 
     
     let payload = {};
     let actionPath = moduleName === 'Maintenance Schedule' ? 'approve' : 'review';
     
     if (moduleName === 'Maintenance Schedule') {
-      payload = { approverId: userId, isApproved: newValue };
+      payload = { approverId: userId, isApproved: isApproveAction };
     } else {
-      payload = { userId: userId, isApproved: newValue };
+      payload = { userId: userId, isApproved: isApproveAction };
     }
 
     try {
       const response = await dynamicApi.update(endpoint, `${formData.id}/${actionPath}`, payload);
       if (response.error) {
-        alert('Lỗi: ' + response.error);
+        alert('Error: ' + response.error);
         return;
       }
-      
-      if (newValue) {
-        setIsApproved(true);
-        setApprover(currentUserName);
-      } else {
-        setIsApproved(false);
-        setIsReviewed(false); 
-        setInspector('');
-        setApprover('');
-      }
+      await refreshData(); 
     } catch (err) {
       console.error(err);
     }
   };
 
 
-  useEffect(() => {
-    if (initialData) {
-      let preparedData = { ...initialData };
+  const processFormData = (sourceData) => {
+    let preparedData = { ...sourceData };
+    normalizedFields.forEach(field => {
+      const fKey = field.name || field.field;
+      const isMetaSubField = fKey === 'subfield' || fKey === 'subField'; 
+      const hasSubFields = field.subfield && field.subfield.length > 0; 
+      const isDateType = ['date', 'datetime', 'dateTime'].includes(field.type);
+      if (isDateType && preparedData[fKey]) {
+        preparedData[fKey] = parseDateString(preparedData[fKey]);
+      }
 
-      normalizedFields.forEach(field => {
-        const fKey = field.name || field.field;
-        const isMetaSubField = fKey === 'subfield' || fKey === 'subField'; 
-        const hasSubFields = field.subfield && field.subfield.length > 0; 
-        const isDateType = ['date', 'datetime', 'dateTime'].includes(field.type);
-        if (isDateType && preparedData[fKey]) {
-          preparedData[fKey] = parseDateString(preparedData[fKey]);
+      if (field.type === 'boolean') {
+          if (preparedData[fKey] === 'X' || preparedData[fKey] === 'x') {
+            preparedData[fKey] = true;
+          } else if (preparedData[fKey] === '') {
+            preparedData[fKey] = false;
+          }
         }
 
-        if (isMetaSubField || hasSubFields) {
-          if (typeof preparedData[fKey] === 'string' && preparedData[fKey].trim() !== '') {
-            try {
-              let parsed = JSON.parse(preparedData[fKey]);
-              if (typeof parsed === 'string') {
-                parsed = JSON.parse(parsed);
-              }
-              preparedData[fKey] = Array.isArray(parsed) ? parsed : [];
-            } catch (e) {
-              console.error(`Error parsin JSON for field ${fKey}:`, e);
-              preparedData[fKey] = [];
-            }
+      if (isMetaSubField || hasSubFields) {
+        if (typeof preparedData[fKey] === 'string' && preparedData[fKey].trim() !== '') {
+          try {
+            let parsed = JSON.parse(preparedData[fKey]);
+            if (typeof parsed === 'string') parsed = JSON.parse(parsed);
+            preparedData[fKey] = Array.isArray(parsed) ? parsed : [];
+          } catch (e) {
+            preparedData[fKey] = [];
           }
+        }
 
-          if (Array.isArray(preparedData[fKey]) && field.subfield) {
-            preparedData[fKey] = preparedData[fKey].map(row => {
-              let newRow = { ...row };
-              field.subfield.forEach(sf => {
-                const sfKey = sf.name || sf.field;
-                const isSubDate = ['date', 'datetime', 'dateTime', 'time'].includes(sf.type);
-                if (isSubDate && newRow[sfKey]) {
-                  newRow[sfKey] = parseDateString(newRow[sfKey]); 
-                }
-              });
-              return newRow;
+        if (Array.isArray(preparedData[fKey]) && field.subfield) {
+          preparedData[fKey] = preparedData[fKey].map(row => {
+            let newRow = { ...row };
+            field.subfield.forEach(sf => {
+              const sfKey = sf.name || sf.field;
+              const isSubDate = ['date', 'datetime', 'dateTime', 'time'].includes(sf.type);
+              if (isSubDate && newRow[sfKey]) {
+                newRow[sfKey] = parseDateString(newRow[sfKey]); 
+              }
             });
+            return newRow;
+          });
+        }
+      }
+    });
+
+    if (isUserModule && groupFieldName && sourceData[groupFieldName]) {
+      const rawGroups = sourceData[groupFieldName];
+      let groupNames = Array.isArray(rawGroups) ? rawGroups : (typeof rawGroups === 'string' && rawGroups.trim() !== '' ? rawGroups.split(',').map(g => g.trim()) : [rawGroups]);
+
+      if (dropdownOptions[groupFieldName] && dropdownOptions[groupFieldName].length > 0) {
+          preparedData[groupFieldName] = groupNames.map(nameOrId => {
+          const matched = dropdownOptions[groupFieldName].find(g => g.label === nameOrId || g.value === nameOrId);
+          return matched ? matched.value : nameOrId;
+        });
+      } else {
+        preparedData[groupFieldName] = groupNames;
+      }
+    }
+
+    const rawStatus = sourceData.statusName || sourceData.status || '';
+    const currentStatus = String(rawStatus).toLowerCase().replace(/\s+/g, '');
+    setRecordStatus(currentStatus);
+
+    if (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') {
+        const isDoneInspect = currentStatus === 'pendingreview' || currentStatus === 'completed' || !!sourceData.isInspected;
+        const isDoneReview = currentStatus === 'completed' || !!sourceData.isReviewed;
+
+        setIsReviewed(isDoneInspect); 
+        setIsApproved(isDoneReview);  
+        setInspector(sourceData.inspectorName || ''); 
+        setApprover(sourceData.reviewerName || '');   
+    } else if (moduleName === 'Maintenance Schedule') {
+        const isDoneApprove = currentStatus === 'Approved' || !!sourceData.isApproved;
+        
+        setIsApproved(isDoneApprove);  
+        setApprover(sourceData.approverName || sourceData.reviewerName || '');
+    }
+
+    setFormData(preparedData);
+  };
+
+  useEffect(() => {
+    const fetchSimpleDropdownData = async () => {
+      normalizedFields.forEach(async (field) => {
+        const fieldKey = field.name || field.field;
+        const apiPath = field.dataSource || field.endpoint;
+        if (apiPath && fieldKey.toLowerCase() === 'department') {
+          try {
+            const res = await dynamicApi.getAll(apiPath);
+            if (res && !res.error) {
+              const responseData = res.data || res;
+              if (Array.isArray(responseData) && typeof responseData[0] === 'string') {
+                const parsedOptions = responseData.map(str => ({ label: str, value: str }));
+                setDropdownOptions(prev => ({ ...prev, [fieldKey]: parsedOptions }));
+              }
+            }
+          } catch (err) {
+            console.error(`Error fetching data for ${fieldKey}:`, err);
           }
         }
       });
+    };
 
-      if (isUserModule && groupFieldName && initialData[groupFieldName]) {
-        const rawGroups = initialData[groupFieldName];
-        let groupNames = [];
-        if (Array.isArray(rawGroups)) {
-          groupNames = rawGroups;
-        } else if (typeof rawGroups === 'string' && rawGroups.trim() !== '') {
-          groupNames = rawGroups.split(',').map(g => g.trim()); 
-        } else {
-          groupNames = [rawGroups];
-        }
+    fetchSimpleDropdownData();
+  }, [normalizedFields]);
 
-        if (dropdownOptions[groupFieldName] && dropdownOptions[groupFieldName].length > 0) {
-           preparedData[groupFieldName] = groupNames.map(nameOrId => {
-            const matched = dropdownOptions[groupFieldName].find(g => g.label === nameOrId || g.value === nameOrId);
-            return matched ? matched.value : nameOrId;
-          });
-        } else {
-          preparedData[groupFieldName] = groupNames;
-        }
-      }
-
-      const currentStatus = initialData.statusName || initialData.status || '';
-      if (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') {
-         const isDoneInspect = currentStatus === 'PendingReview' || currentStatus === 'Completed' || !!initialData.isInspected;
-         const isDoneReview = currentStatus === 'Completed' || !!initialData.isReviewed;
-
-         setIsReviewed(isDoneInspect); 
-         setIsApproved(isDoneReview);  
-         setInspector(initialData.inspectorName || ''); 
-         setApprover(initialData.reviewerName || '');   
-      } else if (moduleName === 'Maintenance Schedule') {
-         const isDoneApprove = currentStatus === 'Completed' || !!initialData.isApproved;
-         setIsApproved(isDoneApprove);  
-         setApprover(initialData.approverName || initialData.reviewerName || '');
-      }
-
-      setFormData(preparedData);
+  useEffect(() => {
+    if (initialData) {
+      processFormData(initialData);
     }
   }, [initialData, dropdownOptions, isUserModule, groupFieldName, normalizedFields]);
+  const refreshData = async () => {
+    try {
+      let fetchKey = schema.primaryKey || 'id';
+      let fetchValue = formData.id;
+      if (moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') {
+        fetchKey = 'equipmentId';
+        fetchValue = formData.equipmentId || formData.id;
+      }
+
+      const response = await dynamicApi.getById(endpoint, fetchValue, fetchKey);
+      
+      if (!response.error && response.data) {
+        const apiPayload = response.data.data || response.data;
+        let detailDataArray = Array.isArray(apiPayload) ? apiPayload : (apiPayload.items ? apiPayload.items : [apiPayload]);
+        let detailData = detailDataArray[0];
+
+        if (moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') {
+          const matchedRecord = detailDataArray.find(item => item.id === formData.id);
+          if (matchedRecord) detailData = matchedRecord;
+        }
+
+        if (detailData) {
+          processFormData(detailData); 
+        }
+      }
+    } catch (error) {
+      console.error("Error refreshing data:", error);
+    }
+  };
 
   useEffect(() => {
     const fetchGroupPermissions = async () => {
@@ -619,7 +660,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     }
 
     if (effectiveType === 'boolean') {
-      return <input type="checkbox" checked={[true, 'true', 1, '1'].includes(value)} onChange={(e) => onChange(e.target.checked)} className="h-4 w-4 mt-1" />;
+      return <input type="checkbox" checked={[true, 'true', 1, '1', 'X', 'x'].includes(value)} onChange={(e) => onChange(e.target.checked)} className="h-4 w-4 mt-1" />;
     }
 
     return null;
@@ -715,21 +756,36 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
       );
     }
 
-    
-
     const booleanFields = ['isShowInForm', 'isShowInList', 'isSearchAble'];
-    const effectiveType = fieldKey === 'type' ? 'select' : (booleanFields.includes(fieldKey) ? 'boolean' : field.type);
-    const effectiveOptions = fieldKey === 'type' ? TYPES : (dropdownOptions[fieldKey] || field.options || []);
+    const effectiveType = fieldKey === 'type' ? 'select' : (booleanFields.includes(fieldKey) ? 'boolean' : field.type);    
+    let rawOptions = fieldKey === 'type' ? TYPES : (dropdownOptions[fieldKey] || field.options || []);
+    let effectiveOptions = [];
 
+    if (typeof rawOptions === 'string' && rawOptions.trim() !== '') {
+      effectiveOptions = rawOptions.split(',').map(val => ({
+        value: val.trim(),
+        label: val.trim()
+      }));
+    } else if (Array.isArray(rawOptions) && rawOptions.length > 0) {
+      if (typeof rawOptions[0] === 'string') {
+        effectiveOptions = rawOptions.map(val => ({
+          value: val.trim(),
+          label: val.trim()
+        }));
+      } else {
+        effectiveOptions = rawOptions;
+      }
+    } else {
+      effectiveOptions = rawOptions;
+    }
     if (fieldKey === 'option' || fieldKey === 'options') {
       const selectedType = formData['type'];
       if (selectedType !== 'select' && selectedType !== 'multiselect') return null; 
     }
-
     const hasError = !!errors[fieldKey];
-    const baseInputClass = "w-full border rounded px-3 py-2 outline-none font-medium transition-colors ";
+    const baseInputClass = "w-full border rounded px-3 py-2 outline-none font-medium transition-colors disabled:bg-gray-50 disabled:text-gray-500 disabled:border-gray-200 disabled:cursor-not-allowed ";
     const colorClass = hasError ? "border-red-500 bg-red-50 focus:border-red-600 text-red-700" : "border-gray-300 focus:border-[#00b074] text-gray-600";
-    console.log(canApprove, isReviewed, isApproved, moduleName)
+    const isDepartmentField = fieldKey.toLowerCase() === 'department';
 
     return (
       <div key={fieldKey} className={`col-span-12 ${colSpanClass} flex flex-col gap-1.5 mb-2`}>
@@ -742,16 +798,19 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
           {['singleComboBox', 'multiComboBox', 'select', 'singleSelectDropdown', 'multiselect', 'multiselectDropdown'].includes(effectiveType) && (
             <div onBlur={() => handleBlur(fieldKey, formData[fieldKey])}>
               {(field.dataSource || field.endpoint) ? (
-                <TableDropdown 
-                  field={field} 
+                <AsyncDropdown
+                  field={field}
                   fieldKey={fieldKey}
-                  value={formData[fieldKey]} 
-                  onChange={(newValues, selectedRowData) => handleAutoFillChange(fieldKey, newValues, selectedRowData)} 
-                  hasError={hasError} 
+                  effectiveType={effectiveType}
+                  value={formData[fieldKey]}
+                  onChange={(newValues) => handleFieldChange(fieldKey, newValues)}
+                  hasError={hasError}
+                  isDisabled={isFormDisabled} 
                 />
               ) : (
                 effectiveType.includes('ComboBox') ? (
                   <CreatableSelect
+                    isDisabled={isFormDisabled} 
                     isMulti={effectiveType.includes('multi')}
                     options={effectiveOptions} 
                     value={effectiveType.includes('multi') ? (Array.isArray(formData[fieldKey]) ? formData[fieldKey].map(v => ({ label: v, value: v })) : []) : (formData[fieldKey] ? { label: formData[fieldKey], value: formData[fieldKey] } : null)}
@@ -760,6 +819,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
                   />
                 ) : (
                   <Select 
+                    isDisabled={isFormDisabled}
                     isMulti={effectiveType.includes('multi')}
                     options={effectiveOptions} 
                     value={effectiveType.includes('multi') ? (Array.isArray(formData[fieldKey]) ? formData[fieldKey].map(v => effectiveOptions.find(o => o.value === v)) : []) : (effectiveOptions.find(opt => opt.value === formData[fieldKey]) || null)}
@@ -771,13 +831,14 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
             </div>
           )}
           
-          {/*Input Text */}
+          {/* Input Text */}
           {(effectiveType === 'text' || effectiveType === 'string' || effectiveType === 'email' || effectiveType === 'password') && (
             <input 
               type={effectiveType === 'string' ? 'text' : effectiveType} 
               value={Array.isArray(formData[fieldKey]) ? JSON.stringify(formData[fieldKey]) : (formData[fieldKey] || '')} 
               onChange={(e) => handleFieldChange(fieldKey, e.target.value)} 
               onBlur={(e) => handleBlur(fieldKey, e.target.value)}
+              disabled={isFormDisabled} 
               className={`${baseInputClass} ${colorClass}`} 
             />
           )}
@@ -807,6 +868,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
                 handleFieldChange(fieldKey, val);
               }} 
               onBlur={(e) => handleBlur(fieldKey, e.target.value)}
+              disabled={isFormDisabled} 
               className={`${baseInputClass} ${colorClass}`} 
             />
           )}
@@ -840,6 +902,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
                   e.preventDefault();
                 }
               }}
+              disabled={fieldKey === 'sortOrder' || isFormDisabled} 
               className={`${baseInputClass} ${colorClass}`}
             />
           )}
@@ -849,21 +912,22 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
             <div className="flex items-center gap-2">
               <input
                 type="checkbox"
-                checked={[true, 'true', 1, '1'].includes(formData[fieldKey])}
+                checked={[true, 'true', 1, '1', 'X', 'x'].includes(formData[fieldKey])}
                 onChange={(e) => handleFieldChange(fieldKey, e.target.checked)}
-                className="h-4 w-4"
+                disabled={isFormDisabled} 
+                className="h-4 w-4 disabled:cursor-not-allowed disabled:opacity-60"
               />
             </div>
           )}
           
-          {/*Tree Checkbox*/}
+          {/* Tree Checkbox */}
           {effectiveType === 'tree_checkbox' && (
             <PermissionField 
               apiEndpoint={field.dataSource} 
               matrixId={isUserModule ? 0 : (initialData?.id || 0)} 
               externalPayload={isUserModule ? formData.permissions : formData[fieldKey]}
               onChange={newPayload => handleFieldChange(fieldKey, newPayload)}
-              isReadonly={isUserModule} 
+              isReadonly={isUserModule || isFormDisabled} 
             />
           )}
         </div>
@@ -894,38 +958,40 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
 
           {/* body */}
           <div className="p-6 overflow-y-auto flex-1">
-          {formConfig.layout.map((section, index) => {
-            if (section.type === 'flat') {
-              return (
-                <div key={index} className="grid grid-cols-12 gap-5">
-                  {section.fields.map(fieldName => renderField(fieldName))}
-                </div>
-              );
-            }
-            if (section.type === 'tabs') {
-              return (
-                <div key={index} className="flex flex-col w-full">
-                  <div className="flex border-b border-gray-200 mb-5 gap-2">
-                    {section.tabItems.map((tab, tIdx) => (
-                      <button
-                        key={tIdx} type="button" onClick={() => setActiveTab(tIdx)}
-                        className={`px-4 py-2 font-medium text-sm border-b-2 transition-colors ${
-                          activeTab === tIdx ? 'border-[#9adada] text-[#0b798f]' : 'border-transparent text-gray-500 hover:text-gray-700'
-                        }`}
-                      >
-                        {tab.title}
-                      </button>
-                    ))}
-                  </div>
-                  <div className="grid grid-cols-12 gap-5">
-                    {section.tabItems[activeTab]?.fields.map(fieldName => renderField(fieldName))}
-                  </div>
-                </div>
-              );
-            }
-            return null;
-          })}
-        </div>
+            <fieldset disabled={isFormDisabled} className="w-full">
+              {formConfig.layout.map((section, index) => {
+                if (section.type === 'flat') {
+                  return (
+                    <div key={index} className="grid grid-cols-12 gap-5">
+                      {section.fields.map(fieldName => renderField(fieldName))}
+                    </div>
+                  );
+                }
+                if (section.type === 'tabs') {
+                  return (
+                    <div key={index} className="flex flex-col w-full">
+                      <div className="flex border-b border-gray-200 mb-5 gap-2">
+                        {section.tabItems.map((tab, tIdx) => (
+                          <button
+                            key={tIdx} type="button" onClick={() => setActiveTab(tIdx)}
+                            className={`px-4 py-2 font-medium text-sm border-b-2 transition-colors ${
+                            activeTab === tIdx ? 'border-[#9adada] text-[#0b798f]' : 'border-transparent text-gray-500 hover:text-gray-700'
+                            }`}
+                          >
+                            {tab.title}
+                          </button>
+                        ))}
+                      </div>
+                      <div className="grid grid-cols-12 gap-5">
+                        {section.tabItems[activeTab]?.fields.map(fieldName => renderField(fieldName))}
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })}
+            </fieldset>
+          </div>
 
           {/* footer */}
           <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
@@ -937,26 +1003,49 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
                 Export
               </button>
 
-              {/* review */}
+              {/* review/inspect */}
               {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') && canReview && !isApproved && (!isReviewed || isMyReview) && (
                 <button
                   onClick={handleReviewReport}
                   disabled={isProcessingFile}
-                  className={`px-4 py-2 text-sm font-medium text-white rounded transition-colors disabled:opacity-50 ${isReviewed ? 'bg-orange-500 hover:bg-orange-600' : 'bg-[#117180] hover:bg-[#028497]'}`}
+                  className={`px-4 py-2 text-sm font-medium text-white rounded transition-colors disabled:opacity-50 ${isReviewed ? 'bg-[#117180] hover:bg-[#028497]' : 'bg-[#117180] hover:bg-[#028497]'}`}
                 >
                   {isReviewed ? 'Undo Review' : 'Review'}
                 </button>
               )}
 
-              {/* approve */}
-              {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') && canApprove && (moduleName === 'Maintenance Schedule' || isReviewed) && (!isApproved || isMyApprove) && (
-                <button
-                  onClick={handleApproveReport}
-                  disabled={isProcessingFile}
-                  className={`px-4 py-2 text-sm font-medium text-white rounded transition-colors disabled:opacity-50 ${isApproved ? 'bg-orange-500 hover:bg-orange-600' : 'bg-green-600 hover:bg-green-700'}`}
-                >
-                  {isApproved ? 'Undo Approve' : 'Approve'}
-                </button>
+              {/* approve/reject/undo */}
+              {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') && canApprove && (
+                <Fragment>
+                  {((moduleName === 'Maintenance Schedule' && recordStatus === 'pendingapproval') || 
+                    (moduleName !== 'Maintenance Schedule' && recordStatus === 'pendingreview')) && (
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleApproveReport('reject')}
+                        disabled={isProcessingFile}
+                        className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded transition-colors disabled:opacity-50"
+                      >
+                        Reject
+                      </button>
+                      <button
+                        onClick={() => handleApproveReport('approve')}
+                        disabled={isProcessingFile}
+                        className="px-4 py-2 text-sm font-medium text-white bg-[#117180] hover:bg-[#028497] rounded transition-colors disabled:opacity-50"
+                      >
+                        Approve
+                      </button>
+                    </div>
+                  )}
+                  {(recordStatus === 'approved' || recordStatus === 'completed') && isMyApprove && (
+                    <button
+                      onClick={() => handleApproveReport('undo')}
+                      disabled={isProcessingFile}
+                      className="px-4 py-2 text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 rounded transition-colors disabled:opacity-50"
+                    >
+                      Undo Approve
+                    </button>
+                  )}
+                </Fragment>
               )}
             </div>
 

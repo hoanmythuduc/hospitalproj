@@ -86,6 +86,11 @@ export default function TableDropdown({ field, fieldKey, value, onChange, hasErr
         return;
       }
 
+      if (targetEntity.toLowerCase() === 'department' || targetEntity.toLowerCase().includes('department')) {
+        setDynamicColumns([ { key: '_label', label: 'Tên Phòng Ban' } ]);
+        return;
+      }
+
       try {
         const menus = JSON.parse(localStorage.getItem('menu') || '[]');
         const normalize = (str) => str?.toLowerCase().trim();
@@ -101,9 +106,15 @@ export default function TableDropdown({ field, fieldKey, value, onChange, hasErr
                 .map(f => ({ key: f.field, label: f.label }));
              
              if (visibleCols.length > 0) setDynamicColumns(visibleCols);
+             else setDynamicColumns([{ key: '_label', label: 'Tên' }]); 
           }
+        } else {
+           setDynamicColumns([{ key: '_label', label: 'Tên phòng ban' }]);
         }
-      } catch (err) { console.error("Error fetching dynamic columns:", err); }
+      } catch (err) { 
+        console.error("Error fetching dynamic columns:", err); 
+        setDynamicColumns([{ key: '_label', label: 'Tên phòng ban' }]);
+      }
     };
     fetchDynamicColumns();
   }, [field?.entityName, endpoint]);
@@ -126,10 +137,20 @@ export default function TableDropdown({ field, fieldKey, value, onChange, hasErr
         let payload = response.data.data || response.data;
         if (typeof payload === 'string') payload = JSON.parse(payload);
         
-        let items = Array.isArray(payload) ? payload : (payload.items || []);
+        let items = [];
+        if (Array.isArray(payload)) items = payload;
+        else if (payload.items && Array.isArray(payload.items)) items = payload.items;
+        
         if (endpoint.toLowerCase() === 'menu') items = items.filter(item => item.parentLabel !== null);
         
         const formatted = items.map(item => {
+          if (typeof item === 'string') {
+            return {
+              _value: item,
+              _label: item, 
+              [fieldKey]: item 
+            };
+          }
           const keys = Object.keys(item);
           const nameKey = keys.find(k => k.toLowerCase().endsWith('name') || k.toLowerCase() === 'name' || k.toLowerCase().includes('tên'));
           

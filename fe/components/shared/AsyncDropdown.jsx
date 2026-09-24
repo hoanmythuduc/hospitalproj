@@ -25,7 +25,7 @@ const CustomMenuList = (props) => {
   );
 };
 
-export default function AsyncDropdown({ field, fieldKey, effectiveType, value, onChange, hasError }) {
+export default function AsyncDropdown({ field, fieldKey, effectiveType, value, onChange, hasError, isDisabled }) {
   const [options, setOptions] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
@@ -51,7 +51,7 @@ export default function AsyncDropdown({ field, fieldKey, effectiveType, value, o
         const targetName = field.entityName || endpoint;
         const targetMenu = menus.find(m => normalize(m.menuLabel) === normalize(targetName) || normalize(m.menuName) === normalize(targetName));
 
-        let valKey = 'id'; // Mặc định ID
+        let valKey = 'id'; 
         let labKey = null;
 
         if (targetMenu && targetMenu.menuId) {
@@ -146,6 +146,7 @@ export default function AsyncDropdown({ field, fieldKey, effectiveType, value, o
 
   return (
     <SelectComponent
+      isDisabled={isDisabled}
       isMulti={isMulti}
       options={options}
       components={{ MenuList: CustomMenuList }}
