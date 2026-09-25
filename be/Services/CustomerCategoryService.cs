@@ -3,16 +3,15 @@ using System.ComponentModel.DataAnnotations;
 using THUCTAP.Interfaces;
 using THUCTAP.Mappers;
 using THUCTAP.ViewModels;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
     public class CustomerCategoryService : ICustomerCategoryService
     {
         private readonly ICustomerCategoryRepository _repository;
-        private readonly ILogger<CustomerCategoryService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<CustomerCategoryService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public CustomerCategoryService(ICustomerCategoryRepository repository, ILogger<CustomerCategoryService> logger)
         {
             _repository = repository;
@@ -44,7 +43,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log kèm tên nhóm khách hàng để dễ dò lỗi
                 _logger.LogError(ex, "Lỗi khi tạo nhóm khách hàng mới. Tên nhóm: {GroupName}", request.groupName);
                 throw;
             }
@@ -146,7 +144,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log tên file Excel bị lỗi
                 _logger.LogError(ex, "Lỗi nghiêm trọng khi Import file Excel dữ liệu Nhóm khách hàng. Tên file: {FileName}", file?.FileName ?? "Không xác định");
                 throw;
             }

@@ -16,9 +16,8 @@ namespace THUCTAP.Services
     public class ProductCategoryService : IProductCategoryService
     {
         private readonly IProductCategoryRepository _repository;
-        private readonly ILogger<ProductCategoryService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<ProductCategoryService> _logger;
 
-        // 👉 Tiêm ILogger vào Constructor
         public ProductCategoryService(IProductCategoryRepository repository, ILogger<ProductCategoryService> logger)
         {
             _repository = repository;
@@ -66,7 +65,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log kèm theo mã thiết bị để dễ truy vết
                 _logger.LogError(ex, "Lỗi khi tạo mới Danh mục sản phẩm. Mã thiết bị: {EquipmentCode}", request.equipmentCode);
                 throw;
             }
@@ -166,7 +164,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log tên file Excel bị lỗi
                 _logger.LogError(ex, "Lỗi nghiêm trọng khi Import file Excel dữ liệu Danh mục sản phẩm. Tên file: {FileName}", file?.FileName ?? "Không xác định");
                 throw;
             }

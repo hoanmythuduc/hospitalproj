@@ -4,7 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using THUCTAP.Interfaces;
 using THUCTAP.Models;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 using System;
 using System.Collections.Generic;
 
@@ -14,9 +14,8 @@ namespace THUCTAP.Services
     {
         private readonly IConfiguration _config;
         private readonly SymmetricSecurityKey _key;
-        private readonly ILogger<TokenService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<TokenService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public TokenService(IConfiguration config, ILogger<TokenService> logger)
         {
             _config = config;
@@ -83,7 +82,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log chi tiết Token đang được gen cho User nào thì bị lỗi
                 _logger.LogError(ex, "Lỗi khi khởi tạo Token JWT cho User: {UserName} (ID: {UserId})", user?.userName ?? "Unknown", user?.id);
                 throw;
             }

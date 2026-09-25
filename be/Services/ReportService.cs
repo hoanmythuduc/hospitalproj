@@ -11,7 +11,7 @@ using THUCTAP.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
 using THUCTAP.Models;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
@@ -19,9 +19,8 @@ namespace THUCTAP.Services
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
-        private readonly ILogger<ReportService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<ReportService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public ReportService(AppDbContext context, IWebHostEnvironment env, ILogger<ReportService> logger)
         {
             _context = context;
