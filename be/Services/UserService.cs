@@ -2,7 +2,7 @@
 using THUCTAP.Mappers;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -13,9 +13,8 @@ namespace THUCTAP.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        private readonly ILogger<UserService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<UserService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public UserService(IUserRepository userRepository, ILogger<UserService> logger)
         {
             _userRepository = userRepository;

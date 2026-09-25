@@ -7,7 +7,7 @@ using THUCTAP.ViewModels;
 using THUCTAP.Mappers;
 using Serilog;
 using THUCTAP.Data;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
@@ -15,9 +15,8 @@ namespace THUCTAP.Services
     {
         private readonly IMaintenanceScheduleRepository _repository;
         private readonly AppDbContext _context;
-        private readonly ILogger<MaintenanceScheduleService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<MaintenanceScheduleService> _logger;
 
-        // 👉 Tiêm ILogger vào Constructor
         public MaintenanceScheduleService(IMaintenanceScheduleRepository repository, AppDbContext context, ILogger<MaintenanceScheduleService> logger)
         {
             _repository = repository;
@@ -45,7 +44,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log kèm theo mã thiết bị để dễ truy vết
                 _logger.LogError(ex, "Lỗi khi tạo Kế hoạch bảo trì mới cho thiết bị mã: {EquipmentCode}", request.equipmentCode);
                 throw;
             }

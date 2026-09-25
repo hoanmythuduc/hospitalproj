@@ -8,7 +8,7 @@ using THUCTAP.Interfaces;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
 using THUCTAP.Mappers;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
@@ -16,9 +16,8 @@ namespace THUCTAP.Services
     {
         private readonly IWaterSystemRepository _repository;
         private readonly AppDbContext _context; 
-        private readonly ILogger<WaterSystemService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<WaterSystemService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public WaterSystemService(IWaterSystemRepository repository, AppDbContext context, ILogger<WaterSystemService> logger)
         {
             _repository = repository;
@@ -105,17 +104,14 @@ namespace THUCTAP.Services
 
                     await _repository.CreateAsync(log);
                     
-                    // 👉 Log thông tin khi hệ thống tự động sinh phiếu tháng mới
                     _logger.LogInformation("Đã tự động khởi tạo phiếu theo dõi tháng mới cho hệ thống nước {EquipmentCode} (Tháng {Month}/{Year})", request.equipmentCode, request.month, request.year);
                 }
                 else
                 {
-                    // Cập nhật thông số chung nếu Frontend có gửi lên (hỗ trợ đổi giờ giữa chừng)
                     if (!string.IsNullOrWhiteSpace(request.allowedRange)) log.allowedRange = request.allowedRange;
                     if (!string.IsNullOrWhiteSpace(request.trackingTime)) log.trackingTime = request.trackingTime;
                 }
 
-                // 🛑 TRẠM GÁC: Chặn không cho sửa khi đã nộp kiểm tra
                 if (log.status != WaterLogStatus.Tracking && log.status != WaterLogStatus.PendingInspection)
                     throw new Exception("Phiếu đã được kiểm tra hoặc phê duyệt! Vui lòng yêu cầu cấp trên Từ chối/Mở khóa trước khi sửa số liệu.");
 

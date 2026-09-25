@@ -3,7 +3,7 @@ using THUCTAP.Data;
 using THUCTAP.Interfaces;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
@@ -11,9 +11,8 @@ namespace THUCTAP.Services
     {
         private readonly IGroupRepository _groupRepository;
         private readonly AppDbContext _context;
-        private readonly ILogger<GroupService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<GroupService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public GroupService(IGroupRepository groupRepository, AppDbContext context, ILogger<GroupService> logger)
         {
             _groupRepository = groupRepository;
@@ -54,7 +53,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log kèm theo Tên nhóm và Mã nhóm
                 _logger.LogError(ex, "Lỗi khi tạo Nhóm quyền mới. Tên nhóm: {GroupName}, Mã nhóm: {GroupCode}", request.groupName, request.groupCode);
                 throw;
             }

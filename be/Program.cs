@@ -9,7 +9,7 @@ using THUCTAP.Repos;
 using THUCTAP.Services;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using Serilog.Sinks.Elasticsearch; // 👉 Bổ sung thư viện Elasticsearch
+using Serilog.Sinks.Elasticsearch; 
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information() 

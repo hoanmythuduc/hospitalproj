@@ -5,7 +5,7 @@ using System.Text;
 using THUCTAP.Interfaces;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
@@ -13,9 +13,8 @@ namespace THUCTAP.Services
     {
         private readonly IConfiguration _config;
         private readonly IUserRepository _userRepo;
-        private readonly ILogger<AuthService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<AuthService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public AuthService(IConfiguration config, IUserRepository userRepo, ILogger<AuthService> logger)
         {
             _config = config;
@@ -31,14 +30,12 @@ namespace THUCTAP.Services
 
                 if (user == null)
                 {
-                    // 👉 Ghi log cảnh báo khi đăng nhập sai tài khoản/mật khẩu
                     _logger.LogWarning("Cảnh báo bảo mật: Đăng nhập thất bại. Tài khoản hoặc mật khẩu không đúng đối với User: {Username}", request.userName);
                     return null;
                 }
 
                 string token = GenerateJSONWebToken(user.userName);
                 
-                // 👉 Ghi log thông báo đăng nhập thành công
                 _logger.LogInformation("Đăng nhập thành công. User: {Username} (ID: {UserId})", user.userName, user.id);
 
                 return new LoginResponse()
@@ -49,7 +46,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Bắt lỗi hệ thống (ví dụ: đứt cáp, sập DB lúc đang login)
                 _logger.LogError(ex, "Lỗi hệ thống nghiêm trọng khi xử lý đăng nhập cho User: {Username}", request.userName);
                 throw;
             }
@@ -79,7 +75,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Bắt lỗi nếu file appsettings.json bị mất cấu hình Jwt:Key
                 _logger.LogError(ex, "Lỗi khi khởi tạo Token JWT cho User: {Username}. Vui lòng kiểm tra lại cấu hình JWT trong appsettings.json.", username);
                 throw;
             }

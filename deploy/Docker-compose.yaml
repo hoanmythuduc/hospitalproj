@@ -5,14 +5,14 @@ networks:
 
 services:
   hospitalservice:
-    container_name: hospitalservice
-    image: hmtdproj/hospital:v2
+    container_name: behospital
+    image: hmtdproj/hospital:v3
     networks:
       - hospital
     ports:
       - 8080:8080
     environment:
-      - ConnectionStrings__Hospital=Server=host.docker.internal,1433;Database=HOSPITAL_DB;User Id=sa;Password=password@12345#;TrustServerCertificate=True;
+      - ConnectionStrings__Hospital=Server=10.36.9.252,1433;Database=HOSPITAL_DB;User Id=sa;Password=@357ithmtd;TrustServerCertificate=True;
   fehospital:
     container_name: fehospital
     image: hmtd79/fe:v1

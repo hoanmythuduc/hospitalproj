@@ -4,16 +4,15 @@ using THUCTAP.Interfaces;
 using THUCTAP.Mappers;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
     public class ActionService : IActionService
     {
         private readonly IActionRepository _actionRepository;
-        private readonly ILogger<ActionService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<ActionService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public ActionService(IActionRepository actionRepository, ILogger<ActionService> logger)
         {
             _actionRepository = actionRepository;
@@ -37,7 +36,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log kèm theo mã Action và Menu ID để dễ dò lỗi
                 _logger.LogError(ex, "Lỗi khi tạo Action mới. Mã: {ActionCode}, MenuId: {MenuId}", request.code, request.menuId);
                 throw; // Tiếp tục ném lỗi ra ngoài để Controller trả về cho Frontend
             }

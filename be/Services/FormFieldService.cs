@@ -4,16 +4,15 @@ using THUCTAP.Interfaces;
 using THUCTAP.Mappers;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
     public class FormFieldService : IFormFieldService
     {
         private readonly IFormFieldRepository _formFieldRepository;
-        private readonly ILogger<FormFieldService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<FormFieldService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public FormFieldService(IFormFieldRepository formFieldRepository, ILogger<FormFieldService> logger)
         {
             _formFieldRepository = formFieldRepository;
@@ -48,7 +47,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log kèm theo Label và Field để dễ dàng truy vết
                 _logger.LogError(ex, "Lỗi khi tạo FormField mới. Label: {Label}, Field: {Field}", request.label, request.field);
                 throw;
             }
@@ -163,7 +161,6 @@ namespace THUCTAP.Services
             }
             catch (Exception ex)
             {
-                // 👉 Ghi log tên file Excel bị lỗi
                 _logger.LogError(ex, "Lỗi nghiêm trọng khi Import file Excel dữ liệu FormField. Tên file: {FileName}", file?.FileName ?? "Không xác định");
                 throw;
             }

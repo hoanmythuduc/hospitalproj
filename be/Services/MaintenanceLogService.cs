@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
@@ -15,9 +15,8 @@ namespace THUCTAP.Services
     {
         private readonly IMaintenanceLogRepository _repository;
         private readonly AppDbContext _context; 
-        private readonly ILogger<MaintenanceLogService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<MaintenanceLogService> _logger;
 
-        // 👉 Tiêm ILogger vào Constructor
         public MaintenanceLogService(IMaintenanceLogRepository repository, AppDbContext context, ILogger<MaintenanceLogService> logger)
         {
             _repository = repository;

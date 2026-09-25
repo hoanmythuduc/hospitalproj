@@ -9,16 +9,15 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
     public class MenuService : IMenuService
     {
         private readonly AppDbContext _context;
-        private readonly ILogger<MenuService> _logger; // 👉 Khai báo Logger
+        private readonly ILogger<MenuService> _logger; 
 
-        // 👉 Tiêm ILogger vào Constructor
         public MenuService(AppDbContext context, ILogger<MenuService> logger)
         {
             _context = context;
