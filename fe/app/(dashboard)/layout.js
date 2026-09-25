@@ -241,7 +241,7 @@ export default function DashboardLayout({ children }) {
       if (!userId) return;
 
       try {
-        const response = await dynamicApi.getById('UserAccount', userId, "userCode");
+        const response = await dynamicApi.getById('UserAccount', userId, "id");
         if (!response.error && response.data) {
           const apiPayload = response.data.data || response.data;
           const itemsList = Array.isArray(apiPayload) ? apiPayload : apiPayload.items;

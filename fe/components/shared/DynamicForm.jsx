@@ -178,8 +178,6 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
   const currentUserName = typeof window !== 'undefined' ? localStorage.getItem('userName') : ''; 
   const [inspector, setInspector] = useState(''); 
   const [approver, setApprover] = useState('');
-  const isMyReview = inspector === currentUserName;
-  const isMyApprove = approver === currentUserName; 
   const isFormDisabled = (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') 
     ? isReviewed 
     : (moduleName === 'Maintenance Schedule' ? isApproved : false);
@@ -286,13 +284,19 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
     }
 
     const rawStatus = sourceData.statusName || sourceData.status || '';
-    const currentStatus = String(rawStatus).toLowerCase().replace(/\s+/g, '');
+    const currentStatus = String(rawStatus).toLowerCase().trim();
     setRecordStatus(currentStatus);
 
     if (moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') {
-        const isDoneInspect = currentStatus === 'pendingreview' || currentStatus === 'completed' || !!sourceData.isInspected;
-        const isDoneReview = currentStatus === 'completed' || !!sourceData.isReviewed;
-
+        const isDoneInspect = currentStatus === 'pendingreview' || 
+                              currentStatus === 'completed' || 
+                              currentStatus === 'approved' ||
+                              currentStatus === 'rejected' || 
+                              !!sourceData.isInspected;
+        const isDoneReview = currentStatus === 'completed' || 
+                             currentStatus === 'approved' || 
+                             currentStatus === 'rejected' ||
+                             !!sourceData.isReviewed;
         setIsReviewed(isDoneInspect); 
         setIsApproved(isDoneReview);  
         setInspector(sourceData.inspectorName || ''); 
@@ -1003,7 +1007,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
               </button>
 
               {/* review/inspect */}
-              {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') && canReview && !isApproved && (!isReviewed || isMyReview) && (
+              {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log') && canReview && !isApproved && (
                 <button
                   onClick={handleReviewReport}
                   disabled={isProcessingFile}
@@ -1016,8 +1020,8 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
               {/* approve/reject/undo */}
               {(moduleName === 'Equipment Usage' || moduleName === 'Maintenance Log' || moduleName === 'Maintenance Schedule') && canApprove && (
                 <Fragment>
-                  {((moduleName === 'Maintenance Schedule' && recordStatus === 'pendingapproval') || 
-                    (moduleName !== 'Maintenance Schedule' && recordStatus === 'pendingreview')) && (
+                  {((moduleName === 'Maintenance Schedule' && !isApproved) || 
+                    (moduleName !== 'Maintenance Schedule' && !isApproved && isReviewed)) && (
                     <div className="flex items-center gap-2">
                       <button
                         onClick={() => handleApproveReport('reject')}
@@ -1035,7 +1039,7 @@ export default function DynamicForm({ schema, initialData, onClose, onSave }) {
                       </button>
                     </div>
                   )}
-                  {(recordStatus === 'approved' || recordStatus === 'completed') && isMyApprove && (
+                  {isApproved && (
                     <button
                       onClick={() => handleApproveReport('undo')}
                       disabled={isProcessingFile}
