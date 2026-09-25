@@ -38,6 +38,8 @@ namespace THUCTAP.Models
         [ForeignKey("reviewerId")]
         public User? reviewer { get; set; }
         public DateTime? reviewDate { get; set; }
+        public string? inspectorDetail { get; set; }
+        public string? reviewerDetail { get; set; }
 
         // Móc nối 1 - n với bảng chi tiết ngày
         public ICollection<WaterSystemDailyLog> dailyLogs { get; set; } = new List<WaterSystemDailyLog>();

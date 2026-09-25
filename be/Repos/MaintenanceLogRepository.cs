@@ -68,6 +68,8 @@ namespace THUCTAP.Repos
                     query = query.Where(x => x.logDate <= filter.toDate.Value);
                 if (filter.status.HasValue && filter.status > 0)
                     query = query.Where(x => (int)x.status == filter.status);
+                if (!string.IsNullOrWhiteSpace(filter.equipmentCode))
+                   { query = query.Where(x => x.equipment.productCategory.equipmentCode.Contains(filter.equipmentCode));}
             }
 
             var pagedRawData = await query

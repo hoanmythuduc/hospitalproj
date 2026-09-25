@@ -21,7 +21,8 @@ namespace THUCTAP.Mappers
                 year = entity.year,
                 weekOfMonth = entity.weekOfMonth,
                 statusName = entity.status.ToString(),
-
+                inspectorDetail = entity.inspectorDetail ?? string.Empty,
+                reviewerDetail = entity.reviewerDetail ?? string.Empty,
                 preparerName = entity.preparer?.userName ?? string.Empty,
                 inspectorName = entity.inspector?.userName ?? string.Empty,
                 reviewerName = entity.reviewer?.userName ?? string.Empty,
@@ -50,7 +51,7 @@ namespace THUCTAP.Mappers
         {
             return new EquipmentUsageLog
             {
-                equipmentId = request.equipmentId,
+                
                 year = request.year,
                 month = request.month,
                 weekOfMonth = request.weekOfMonth,

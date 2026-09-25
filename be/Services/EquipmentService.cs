@@ -1,57 +1,99 @@
 ﻿using THUCTAP.Interfaces;
 using THUCTAP.Mappers;
 using THUCTAP.ViewModels;
+using Microsoft.Extensions.Logging; 
 
 namespace THUCTAP.Services
 {
     public class EquipmentService : IEquipmentService
     {
         private readonly IEquipmentRepository _repository;
+        private readonly ILogger<EquipmentService> _logger; 
 
-        public EquipmentService(IEquipmentRepository repository)
+        public EquipmentService(IEquipmentRepository repository, ILogger<EquipmentService> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         public async Task<PagedResult<EquipmentResponseDto>> GetAllAsync(EquipmentFilterRequest filter)
         {
-            return await _repository.GetAllAsync(filter);
+            try
+            {
+                return await _repository.GetAllAsync(filter);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi lấy danh sách Equipment (Thiết bị) từ cơ sở dữ liệu");
+                throw;
+            }
         }
 
         public async Task<EquipmentResponseDto> CreateAsync(EquipmentRequest request)
         {
-            var entity = request.ToEquipment();
-            await _repository.CreateAsync(entity);
-            return entity.ToEquipmentResponse();
+            try
+            {
+                var entity = request.ToEquipment();
+                await _repository.CreateAsync(entity);
+                return entity.ToEquipmentResponse();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi tạo mới Equipment (Thiết bị)");
+                throw;
+            }
         }
 
         public async Task<EquipmentResponseDto?> UpdateAsync(int id, EquipmentRequest request)
         {
-            var entity = await _repository.GetByIdAsync(id);
-            if (entity == null) return null;
+            try
+            {
+                var entity = await _repository.GetByIdAsync(id);
+                if (entity == null) return null;
 
-            entity.UpdateEquipment(request);
-            await _repository.UpdateAsync(entity);
+                entity.UpdateEquipment(request);
+                await _repository.UpdateAsync(entity);
 
-            return entity.ToEquipmentResponse();
+                return entity.ToEquipmentResponse();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi cập nhật Equipment (Thiết bị) có ID: {Id}", id);
+                throw;
+            }
         }
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var entity = await _repository.GetByIdAsync(id);
-            if (entity == null) return false;
+            try
+            {
+                var entity = await _repository.GetByIdAsync(id);
+                if (entity == null) return false;
 
-            await _repository.DeleteAsync(entity);
-            return true;
+                await _repository.DeleteAsync(entity);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi xóa Equipment (Thiết bị) có ID: {Id}", id);
+                throw;
+            }
         }
+        
         public async Task<EquipmentResponseDto?> GetByIdAsync(int id)
         {
-            // Gọi Repository để lấy dữ liệu thô (đã include danh sách con)
-            var entity = await _repository.GetByIdAsync(id);
-            if (entity == null) return null;
+            try
+            {
+                var entity = await _repository.GetByIdAsync(id);
+                if (entity == null) return null;
 
-            // Biến đổi entity thành DTO (tự động đẻ ra các dấu "X" nhờ Mapper)
-            return entity.ToEquipmentResponse();
+                return entity.ToEquipmentResponse();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi lấy thông tin chi tiết Equipment (Thiết bị) có ID: {Id}", id);
+                throw;
+            }
         }
     }
 }

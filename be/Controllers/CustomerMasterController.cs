@@ -8,7 +8,7 @@ namespace THUCTAP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class CustomerMasterController : ControllerBase
     {
         private readonly ICustomerMasterService _service;

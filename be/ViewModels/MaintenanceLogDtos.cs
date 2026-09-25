@@ -1,18 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace THUCTAP.ViewModels
 {
     public class MaintenanceLogFilterRequest : PagingRequestBase
     {
         public int? equipmentId { get; set; }
+        public string? equipmentCode { get; set; }
         public DateTime? fromDate { get; set; }
         public DateTime? toDate { get; set; }
         public int? status { get; set; }
     }
     public class MaintenanceLogRequest
     {
-        public int equipmentId { get; set; }
+        [Required(ErrorMessage = "Mã thiết bị không được để trống!")]
+        public string equipmentCode { get; set; } = string.Empty;
         public DateTime logDate { get; set; }
         public bool isDaily { get; set; }
         public bool isWeekly { get; set; }
@@ -28,11 +31,15 @@ namespace THUCTAP.ViewModels
     public class InspectLogRequest
     {
         public int inspectorId { get; set; }
+        public bool isApproved { get; set; }
+        public string? detail { get; set; }
     }
 
     public class ReviewLogRequest
     {
         public int reviewerId { get; set; }
+        public bool isApproved { get; set; }
+        public string? detail { get; set; }
     }
 
     public class MaintenanceLogResponseDto
@@ -57,6 +64,8 @@ namespace THUCTAP.ViewModels
         public DateTime? inspectionDate { get; set; }
         public string reviewerName { get; set; } = string.Empty;
         public DateTime? reviewDate { get; set; }
+        public string inspectorDetail { get; set; } = string.Empty;
+        public string reviewerDetail { get; set; } = string.Empty;
 
     }
 

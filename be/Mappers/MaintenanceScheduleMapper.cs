@@ -9,7 +9,7 @@ namespace THUCTAP.Mappers
         {
             return new EquipmentMaintenanceSchedule
             {
-                equipmentId = request.equipmentId,
+                
                 year = request.year,
                 task = request.task,
                 note = request.note,
@@ -40,7 +40,7 @@ namespace THUCTAP.Mappers
                 equipmentId = entity.equipmentId,
                 equipmentCode = productCat?.equipmentCode ?? string.Empty,
                 equipmentName = productCat?.equipmentName ?? string.Empty,
-
+                detail = entity.detail ?? string.Empty,
                 year = entity.year,
                 task = entity.task,
                 note = entity.note,
@@ -66,7 +66,7 @@ namespace THUCTAP.Mappers
 
         public static void UpdateEntity(this EquipmentMaintenanceSchedule entity, MaintenanceScheduleRequest request)
         {
-            entity.equipmentId = request.equipmentId;
+            
             entity.year = request.year;
             entity.task = request.task;
             entity.note = request.note;

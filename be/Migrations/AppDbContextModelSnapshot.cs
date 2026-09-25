@@ -800,7 +800,7 @@ namespace THUCTAP.Migrations
                             id = 4,
                             createdAt = new DateTime(2026, 8, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -821,7 +821,7 @@ namespace THUCTAP.Migrations
                             id = 5,
                             createdAt = new DateTime(2026, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -842,7 +842,7 @@ namespace THUCTAP.Migrations
                             id = 6,
                             createdAt = new DateTime(2026, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -884,7 +884,7 @@ namespace THUCTAP.Migrations
                             id = 8,
                             createdAt = new DateTime(2026, 8, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -903,7 +903,7 @@ namespace THUCTAP.Migrations
                             id = 9,
                             createdAt = new DateTime(2026, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -961,7 +961,7 @@ namespace THUCTAP.Migrations
                             id = 12,
                             createdAt = new DateTime(2026, 8, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -980,7 +980,7 @@ namespace THUCTAP.Migrations
                             id = 13,
                             createdAt = new DateTime(2026, 8, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 1,
-                            executorId = 3,
+                            executorId = 2,
                             inspectionDate = new DateTime(2026, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             inspectorId = 1,
                             isActive = true,
@@ -1280,7 +1280,7 @@ namespace THUCTAP.Migrations
                             fromDate = new DateTime(2026, 9, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isActive = true,
                             updatedAt = new DateTime(2026, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            userId = 3,
+                            userId = 2,
                             userName = "admin02"
                         },
                         new
@@ -1313,7 +1313,7 @@ namespace THUCTAP.Migrations
                             fromDate = new DateTime(2026, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isActive = true,
                             updatedAt = new DateTime(2026, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            userId = 4,
+                            userId = 1,
                             userName = "Nguyễn Văn An"
                         },
                         new
@@ -1335,7 +1335,7 @@ namespace THUCTAP.Migrations
                             fromDate = new DateTime(2026, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isActive = true,
                             updatedAt = new DateTime(2026, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            userId = 3,
+                            userId = 2,
                             userName = "admin02"
                         },
                         new
@@ -1346,7 +1346,7 @@ namespace THUCTAP.Migrations
                             fromDate = new DateTime(2026, 9, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             isActive = true,
                             updatedAt = new DateTime(2026, 8, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            userId = 4,
+                            userId = 1,
                             userName = "Nguyễn Văn An"
                         });
                 });
@@ -2144,7 +2144,7 @@ namespace THUCTAP.Migrations
                         {
                             id = 3,
                             createdAt = new DateTime(2026, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            customerId = 4,
+                            customerId = 1,
                             estimatedTotal = 2700000m,
                             isActive = true,
                             orderDate = new DateTime(2026, 8, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2166,7 +2166,7 @@ namespace THUCTAP.Migrations
                         {
                             id = 5,
                             createdAt = new DateTime(2026, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            customerId = 3,
+                            customerId = 2,
                             estimatedTotal = 2900000m,
                             isActive = true,
                             orderDate = new DateTime(2026, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2907,7 +2907,7 @@ namespace THUCTAP.Migrations
                         new
                         {
                             id = 1,
-                            allowedRange = "",
+                            allowedRange = "< 1,0",
                             createdAt = new DateTime(2026, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             equipmentId = 4,
                             inspectionDate = new DateTime(2026, 8, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -2918,7 +2918,7 @@ namespace THUCTAP.Migrations
                             reviewDate = new DateTime(2026, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             reviewerId = 1,
                             status = 3,
-                            trackingTime = "",
+                            trackingTime = "08:00",
                             updatedAt = new DateTime(2026, 9, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             year = 2026
                         });

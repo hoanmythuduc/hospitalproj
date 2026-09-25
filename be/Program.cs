@@ -9,17 +9,24 @@ using THUCTAP.Repos;
 using THUCTAP.Services;
 using Microsoft.OpenApi.Models;
 using Serilog;
-
+using Serilog.Sinks.Elasticsearch; // 👉 Bổ sung thư viện Elasticsearch
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information() 
     .WriteTo.Console()          
     .WriteTo.File("Logs/hospital-log-.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri("http://localhost:9200"))
+    {
+        AutoRegisterTemplate = true,
+        IndexFormat = "hospital-logs-{0:yyyy.MM.dd}",
+        NumberOfReplicas = 1,
+        NumberOfShards = 2
+    })
     .CreateLogger();
 
 try
 {
-    Log.Information("Hospital is running...");
+    Log.Information("Hospital is running with ELK Stack...");
 
     var builder = WebApplication.CreateBuilder(args);
     builder.Host.UseSerilog();
@@ -135,7 +142,6 @@ try
     builder.Services.AddHttpContextAccessor();
 
     var app = builder.Build();
-
 
    //if (app.Environment.IsDevelopment())
     

@@ -19,6 +19,8 @@ namespace THUCTAP.Mappers
                 location = entity.equipment?.productCategory?.location ?? string.Empty,
                 allowedRange = entity.allowedRange,
                 trackingTime = entity.trackingTime,
+                inspectorDetail = entity.inspectorDetail ?? string.Empty,
+                reviewerDetail = entity.reviewerDetail ?? string.Empty,
                 preparerName = entity.preparer?.userName ?? string.Empty,
                 inspectorName = entity.inspector?.userName ?? string.Empty,
                 reviewerName = entity.reviewer?.userName ?? string.Empty,

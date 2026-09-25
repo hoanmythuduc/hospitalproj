@@ -37,6 +37,10 @@ namespace THUCTAP.Repos
                     query = query.Where(x => (int)x.status == filter.status);
                 if (filter.id > 0)
                     query = query.Where(x => x.id == filter.id);
+                if (!string.IsNullOrWhiteSpace(filter.equipmentCode))
+                {
+                    query = query.Where(x => x.equipment.productCategory.equipmentCode.Contains(filter.equipmentCode));
+                }
             }
 
             var pagedRawData = await query

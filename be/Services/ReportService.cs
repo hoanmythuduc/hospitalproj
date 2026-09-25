@@ -11,6 +11,7 @@ using THUCTAP.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using System.Collections.Generic;
 using THUCTAP.Models;
+using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
 
 namespace THUCTAP.Services
 {
@@ -18,274 +19,325 @@ namespace THUCTAP.Services
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly ILogger<ReportService> _logger; // 👉 Khai báo Logger
 
-        public ReportService(AppDbContext context, IWebHostEnvironment env)
+        // 👉 Tiêm ILogger vào Constructor
+        public ReportService(AppDbContext context, IWebHostEnvironment env, ILogger<ReportService> logger)
         {
             _context = context;
             _env = env;
+            _logger = logger;
         }
 
         public async Task<List<Dictionary<string, object>>> GetDynamicReportAsync(DynamicReportRequest request)
         {
-            var resultList = new List<Dictionary<string, object>>();
-            string columns = string.IsNullOrWhiteSpace(request.selectColumns) ? "*" : request.selectColumns;
-            string sql = $"SELECT {columns} FROM {request.tableName}";
-
-            if (!string.IsNullOrWhiteSpace(request.whereCondition))
+            try
             {
-                sql += $" WHERE {request.whereCondition}";
-            }
+                var resultList = new List<Dictionary<string, object>>();
+                string columns = string.IsNullOrWhiteSpace(request.selectColumns) ? "*" : request.selectColumns;
+                string sql = $"SELECT {columns} FROM {request.tableName}";
 
-            using (var connection = _context.Database.GetDbConnection())
-            {
-                await connection.OpenAsync();
-                using (var command = connection.CreateCommand())
+                if (!string.IsNullOrWhiteSpace(request.whereCondition))
                 {
-                    command.CommandText = sql;
-                    command.CommandType = CommandType.Text;
+                    sql += $" WHERE {request.whereCondition}";
+                }
 
-                    using (var reader = await command.ExecuteReaderAsync())
+                using (var connection = _context.Database.GetDbConnection())
+                {
+                    await connection.OpenAsync();
+                    using (var command = connection.CreateCommand())
                     {
-                        while (await reader.ReadAsync())
+                        command.CommandText = sql;
+                        command.CommandType = CommandType.Text;
+
+                        using (var reader = await command.ExecuteReaderAsync())
                         {
-                            var row = new Dictionary<string, object>();
-                            for (int i = 0; i < reader.FieldCount; i++)
+                            while (await reader.ReadAsync())
                             {
-                                row.Add(reader.GetName(i), reader.IsDBNull(i) ? "" : reader.GetValue(i));
+                                var row = new Dictionary<string, object>();
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    row.Add(reader.GetName(i), reader.IsDBNull(i) ? "" : reader.GetValue(i));
+                                }
+                                resultList.Add(row);
                             }
-                            resultList.Add(row);
                         }
                     }
                 }
+                return resultList;
             }
-            return resultList;
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi chạy Dynamic Report. Bảng: {TableName}, Điều kiện: {WhereCondition}", request.tableName, request.whereCondition);
+                throw;
+            }
         }
 
         public async Task<byte[]> GetTemplateBytesAsync(string? base64Template, string templateName)
         {
-            if (!string.IsNullOrWhiteSpace(base64Template))
+            try
             {
-                var cleanBase64 = base64Template.Contains(",") ? base64Template.Split(',')[1] : base64Template;
-                return Convert.FromBase64String(cleanBase64);
-            }
+                if (!string.IsNullOrWhiteSpace(base64Template))
+                {
+                    var cleanBase64 = base64Template.Contains(",") ? base64Template.Split(',')[1] : base64Template;
+                    return Convert.FromBase64String(cleanBase64);
+                }
 
-            if (string.IsNullOrWhiteSpace(templateName))
+                if (string.IsNullOrWhiteSpace(templateName))
+                {
+                    throw new Exception("Vui lòng cung cấp chuỗi Base64 hoặc tên file mẫu (templateName)!");
+                }
+
+                string serverTemplatePath = Path.Combine(_env.ContentRootPath, "Templates", templateName);
+
+                if (!File.Exists(serverTemplatePath))
+                {
+                    throw new Exception($"Không tìm thấy file mẫu '{templateName}' trên máy chủ. Vui lòng kiểm tra lại thư mục Templates!");
+                }
+
+                return await File.ReadAllBytesAsync(serverTemplatePath);
+            }
+            catch (Exception ex)
             {
-                throw new Exception("Vui lòng cung cấp chuỗi Base64 hoặc tên file mẫu (templateName)!");
+                _logger.LogError(ex, "Lỗi khi đọc file mẫu Word hoặc xử lý chuỗi Base64. Tên Template: {TemplateName}", templateName);
+                throw;
             }
-
-            string serverTemplatePath = Path.Combine(_env.ContentRootPath, "Templates", templateName);
-
-            if (!File.Exists(serverTemplatePath))
-            {
-                throw new Exception($"Không tìm thấy file mẫu '{templateName}' trên máy chủ. Vui lòng kiểm tra lại thư mục Templates!");
-            }
-
-            return await File.ReadAllBytesAsync(serverTemplatePath);
         }
 
         public async Task<string> GenerateReportBase64Async(DynamicReportRequest request)
         {
-            var reportData = await GetDynamicReportAsync(request);
-
-            if (reportData == null || reportData.Count == 0)
+            try
             {
-                throw new Exception("Không tìm thấy dữ liệu để xuất báo cáo!");
+                var reportData = await GetDynamicReportAsync(request);
+
+                if (reportData == null || reportData.Count == 0)
+                {
+                    throw new Exception("Không tìm thấy dữ liệu để xuất báo cáo!");
+                }
+                var dataToFill = reportData.FirstOrDefault();
+
+                byte[] templateBytes = await GetTemplateBytesAsync(request.base64Template, request.templateName);
+
+                using (var outputStream = new MemoryStream())
+                {
+                    MiniWord.SaveAsByTemplate(outputStream, templateBytes, dataToFill);
+
+                    return Convert.ToBase64String(outputStream.ToArray());
+                }
             }
-            var dataToFill = reportData.FirstOrDefault();
-
-            byte[] templateBytes = await GetTemplateBytesAsync(request.base64Template, request.templateName);
-
-            using (var outputStream = new MemoryStream())
+            catch (Exception ex)
             {
-                MiniWord.SaveAsByTemplate(outputStream, templateBytes, dataToFill);
-
-                return Convert.ToBase64String(outputStream.ToArray());
+                _logger.LogError(ex, "Lỗi khi tạo file báo cáo Word động (GenerateReportBase64). Template: {TemplateName}", request.templateName);
+                throw;
             }
         }
+        
         public async Task<MaintenanceScheduleExportWord> GetYearlyPlanDataAsync(int year)
         {
-            var schedules = await _context.EquipmentMaintenanceSchedule
-                .Include(x => x.equipment).ThenInclude(e => e.productCategory)
-                .Include(x => x.preparer)
-                .Include(x => x.approver)
-               
-                .Where(x => x.isActive == true && x.year == year && x.status == MaintenanceScheduleStatus.Approved)
-                .OrderBy(x => x.equipment.productCategory.equipmentName)
-                .ToListAsync();
-
-            // Nếu không có kế hoạch nào được duyệt trong năm đó
-            if (!schedules.Any())
+            try
             {
-                throw new Exception($"Không có kế hoạch bảo trì nào được phê duyệt trong năm {year}.");
-            }
+                var schedules = await _context.EquipmentMaintenanceSchedule
+                    .Include(x => x.equipment).ThenInclude(e => e.productCategory)
+                    .Include(x => x.preparer)
+                    .Include(x => x.approver)
+                    .Where(x => x.isActive == true && x.year == year && x.status == MaintenanceScheduleStatus.Approved)
+                    .OrderBy(x => x.equipment.productCategory.equipmentName)
+                    .ToListAsync();
 
-            var firstRow = schedules.FirstOrDefault();
-
-            var reportData = new MaintenanceScheduleExportWord
-            {
-                year = year,
-                day = DateTime.Now.Day.ToString("D2"),
-                month = DateTime.Now.Month.ToString("D2"),
-                yearNow = DateTime.Now.Year.ToString(),
-
-                preparerName = firstRow?.preparer?.userName ?? "",
-                approverName = firstRow?.approver?.userName ?? "",
-
-                item = new List<Dictionary<string, object>>()
-            };
-
-            int index = 1;
-            foreach (var sch in schedules)
-            {
-                var category = sch.equipment?.productCategory;
-
-                var dictItem = new Dictionary<string, object>
+                // Nếu không có kế hoạch nào được duyệt trong năm đó
+                if (!schedules.Any())
                 {
-                    { "stt", index++ },
-                    { "equipmentName", category?.equipmentName ?? "" },
-                    { "equipmentCode", category?.equipmentCode ?? "" },
-                    { "location", category?.location ?? "" },
-                    { "Task", sch.task }, 
-                    { "note", sch.note }
+                    throw new Exception($"Không có kế hoạch bảo trì nào được phê duyệt trong năm {year}.");
+                }
+
+                var firstRow = schedules.FirstOrDefault();
+
+                var reportData = new MaintenanceScheduleExportWord
+                {
+                    year = year,
+                    day = DateTime.Now.Day.ToString("D2"),
+                    month = DateTime.Now.Month.ToString("D2"),
+                    yearNow = DateTime.Now.Year.ToString(),
+
+                    preparerName = firstRow?.preparer?.userName ?? "",
+                    approverName = firstRow?.approver?.userName ?? "",
+
+                    item = new List<Dictionary<string, object>>()
                 };
 
-                dictItem.Add("m1", sch.m1 ? "X" : "");
-                dictItem.Add("m2", sch.m2 ? "X" : "");
-                dictItem.Add("m3", sch.m3 ? "X" : "");
-                dictItem.Add("m4", sch.m4 ? "X" : "");
-                dictItem.Add("m5", sch.m5 ? "X" : "");
-                dictItem.Add("m6", sch.m6 ? "X" : "");
-                dictItem.Add("m7", sch.m7 ? "X" : "");
-                dictItem.Add("m8", sch.m8 ? "X" : "");
-                dictItem.Add("m9", sch.m9 ? "X" : "");
-                dictItem.Add("m10", sch.m10 ? "X" : "");
-                dictItem.Add("m11", sch.m11 ? "X" : "");
-                dictItem.Add("m12", sch.m12 ? "X" : "");
+                int index = 1;
+                foreach (var sch in schedules)
+                {
+                    var category = sch.equipment?.productCategory;
 
-                reportData.item.Add(dictItem);
+                    var dictItem = new Dictionary<string, object>
+                    {
+                        { "stt", index++ },
+                        { "equipmentName", category?.equipmentName ?? "" },
+                        { "equipmentCode", category?.equipmentCode ?? "" },
+                        { "location", category?.location ?? "" },
+                        { "Task", sch.task }, 
+                        { "note", sch.note }
+                    };
+
+                    dictItem.Add("m1", sch.m1 ? "X" : "");
+                    dictItem.Add("m2", sch.m2 ? "X" : "");
+                    dictItem.Add("m3", sch.m3 ? "X" : "");
+                    dictItem.Add("m4", sch.m4 ? "X" : "");
+                    dictItem.Add("m5", sch.m5 ? "X" : "");
+                    dictItem.Add("m6", sch.m6 ? "X" : "");
+                    dictItem.Add("m7", sch.m7 ? "X" : "");
+                    dictItem.Add("m8", sch.m8 ? "X" : "");
+                    dictItem.Add("m9", sch.m9 ? "X" : "");
+                    dictItem.Add("m10", sch.m10 ? "X" : "");
+                    dictItem.Add("m11", sch.m11 ? "X" : "");
+                    dictItem.Add("m12", sch.m12 ? "X" : "");
+
+                    reportData.item.Add(dictItem);
+                }
+
+                return reportData;
             }
-
-            return reportData;
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi xuất Báo cáo Kế hoạch bảo trì năm {Year}", year);
+                throw;
+            }
         }
+
         public async Task<WaterSystemLogExportWord> GetWaterSystemLogDataAsync(int logId)
         {
-            var log = await _context.WaterSystemLog
-                .Include(x => x.equipment).ThenInclude(e => e.productCategory)
-                .Include(x => x.inspector)
-                .Include(x => x.reviewer)
-                .Include(x => x.dailyLogs).ThenInclude(d => d.tracker)
-                .FirstOrDefaultAsync(x => x.id == logId && x.status == WaterLogStatus.Completed);
-
-            if (log == null)
+            try
             {
-                throw new Exception("Không tìm thấy phiếu theo dõi hoặc phiếu chưa được duyệt hoàn tất.");
-            }
+                var log = await _context.WaterSystemLog
+                    .Include(x => x.equipment).ThenInclude(e => e.productCategory)
+                    .Include(x => x.inspector)
+                    .Include(x => x.reviewer)
+                    .Include(x => x.dailyLogs).ThenInclude(d => d.tracker)
+                    .FirstOrDefaultAsync(x => x.id == logId && x.status == WaterLogStatus.Completed);
 
-            var category = log.equipment?.productCategory;
-
-            // DÙNG TÊN MỚI Ở ĐÂY
-            var reportData = new WaterSystemLogExportWord
-            {
-                equipmentCode = category?.equipmentCode ?? "",
-                allowedRange = log.allowedRange ?? "",
-                trackingTime = log.trackingTime ?? "",
-                location = category?.location ?? "",
-                month = log.month.ToString("D2"),
-                year = log.year.ToString(),
-                inspectionDate = log.inspectionDate?.ToString("dd/MM/yyyy") ?? "..../..../........",
-                inspectorName = log.inspector?.userName ?? "",
-                reviewDate = log.reviewDate?.ToString("dd/MM/yyyy") ?? "..../..../........",
-                reviewerName = log.reviewer?.userName ?? "",
-                item = new List<Dictionary<string, object>>()
-            };
-
-            for (int i = 1; i <= 16; i++)
-            {
-                int leftDay = i;
-                int rightDay = i + 16;
-
-                var leftData = log.dailyLogs.FirstOrDefault(d => d.day == leftDay);
-                var rightData = log.dailyLogs.FirstOrDefault(d => d.day == rightDay);
-
-                var dictItem = new Dictionary<string, object>
+                if (log == null)
                 {
-                    { "dayL", leftDay },
-                    { "valL", leftData?.usValue ?? "" },
-                    { "userL", leftData?.tracker?.userName ?? "" },
+                    throw new Exception("Không tìm thấy phiếu theo dõi hoặc phiếu chưa được duyệt hoàn tất.");
+                }
 
-                    { "dayR", rightDay <= DateTime.DaysInMonth(log.year, log.month) ? rightDay.ToString() : "" },
-                    { "valR", rightData?.usValue ?? "" },
-                    { "userR", rightData?.tracker?.userName ?? "" }
+                var category = log.equipment?.productCategory;
+
+                var reportData = new WaterSystemLogExportWord
+                {
+                    equipmentCode = category?.equipmentCode ?? "",
+                    allowedRange = log.allowedRange ?? "",
+                    trackingTime = log.trackingTime ?? "",
+                    location = category?.location ?? "",
+                    month = log.month.ToString("D2"),
+                    year = log.year.ToString(),
+                    inspectionDate = log.inspectionDate?.ToString("dd/MM/yyyy") ?? "..../..../........",
+                    inspectorName = log.inspector?.userName ?? "",
+                    reviewDate = log.reviewDate?.ToString("dd/MM/yyyy") ?? "..../..../........",
+                    reviewerName = log.reviewer?.userName ?? "",
+                    item = new List<Dictionary<string, object>>()
                 };
 
-                reportData.item.Add(dictItem);
-            }
+                for (int i = 1; i <= 16; i++)
+                {
+                    int leftDay = i;
+                    int rightDay = i + 16;
 
-            return reportData;
+                    var leftData = log.dailyLogs.FirstOrDefault(d => d.day == leftDay);
+                    var rightData = log.dailyLogs.FirstOrDefault(d => d.day == rightDay);
+
+                    var dictItem = new Dictionary<string, object>
+                    {
+                        { "dayL", leftDay },
+                        { "valL", leftData?.usValue ?? "" },
+                        { "userL", leftData?.tracker?.userName ?? "" },
+
+                        { "dayR", rightDay <= DateTime.DaysInMonth(log.year, log.month) ? rightDay.ToString() : "" },
+                        { "valR", rightData?.usValue ?? "" },
+                        { "userR", rightData?.tracker?.userName ?? "" }
+                    };
+
+                    reportData.item.Add(dictItem);
+                }
+
+                return reportData;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi xuất Báo cáo Nhật ký hệ thống nước ID: {LogId}", logId);
+                throw;
+            }
         }
+        
         public async Task<Dictionary<string, object>> GetEquipmentUsageLogDataAsync(int logId)
         {
-            var log = await _context.EquipmentUsageLog
-                .Include(x => x.equipment).ThenInclude(e => e.productCategory)
-                .Include(x => x.preparer)
-                .Include(x => x.inspector)
-                .Include(x => x.reviewer)
-                .Include(x => x.dailyLogs)
-                .FirstOrDefaultAsync(x => x.id == logId && x.status == UsageLogStatus.Completed);
-
-            if (log == null)
+            try
             {
-                throw new Exception("Không tìm thấy phiếu theo dõi hoặc phiếu chưa được duyệt hoàn tất.");
+                var log = await _context.EquipmentUsageLog
+                    .Include(x => x.equipment).ThenInclude(e => e.productCategory)
+                    .Include(x => x.preparer)
+                    .Include(x => x.inspector)
+                    .Include(x => x.reviewer)
+                    .Include(x => x.dailyLogs)
+                    .FirstOrDefaultAsync(x => x.id == logId && x.status == UsageLogStatus.Completed);
+
+                if (log == null)
+                {
+                    throw new Exception("Không tìm thấy phiếu theo dõi hoặc phiếu chưa được duyệt hoàn tất.");
+                }
+
+                var category = log.equipment?.productCategory;
+
+                var reportData = new Dictionary<string, object>
+                {
+                    { "equipmentName", category?.equipmentName ?? "" },
+                    { "modelManufacturer", $"{category?.model} / {category?.manufacturer}" },
+                    { "equipmentCode", category?.equipmentCode ?? "" },
+                    { "location", category?.location ?? "" },
+                    { "month", log.month.ToString("D2") },
+                    { "year", log.year.ToString() },
+                    { "weekOfMonth", log.weekOfMonth },
+
+                    { "preparerName", log.preparer?.userName ?? "" },
+                    { "inspectionDate", log.inspectionDate?.ToString("dd/MM/yyyy") ?? "……/……/……" },
+                    { "inspectorName", log.inspector?.userName ?? "" },
+                    { "reviewDate", log.reviewDate?.ToString("dd/MM/yyyy") ?? "……/……/……" },
+                    { "reviewerName", log.reviewer?.userName ?? "" }
+                };
+
+                for (int i = 2; i <= 8; i++)
+                {
+                    string prefix = $"d{i}"; 
+                    var dailyLog = log.dailyLogs.FirstOrDefault(d => d.dayOfWeek == i);
+
+                    reportData.Add($"{prefix}_date", dailyLog != null ? $"Ngày {dailyLog.logDate:dd/MM}" : "Ngày ………");
+
+                    reportData.Add($"{prefix}_s1", dailyLog?.shift1 ?? "");
+                    reportData.Add($"{prefix}_s2", dailyLog?.shift2 ?? "");
+                    reportData.Add($"{prefix}_s3", dailyLog?.shift3 ?? "");
+                    reportData.Add($"{prefix}_s4", dailyLog?.shift4 ?? "");
+                    reportData.Add($"{prefix}_s5", dailyLog?.shift5 ?? "");
+
+                    reportData.Add($"{prefix}_usage", dailyLog?.usageCount ?? "");
+                    reportData.Add($"{prefix}_call", dailyLog?.maintenanceCallTime ?? "");
+
+                    reportData.Add($"{prefix}_deconD", dailyLog?.dailyDecon ?? "");
+                    reportData.Add($"{prefix}_deconP", dailyLog?.preMaintenanceDecon ?? "");
+
+                    reportData.Add($"{prefix}_normalY", dailyLog?.isNormal == true ? "☑" : "☐");
+                    reportData.Add($"{prefix}_normalN", dailyLog?.isNormal == false ? "☑" : "☐");
+
+                    reportData.Add($"{prefix}_qcY", dailyLog?.qcResult == true ? "☑" : "☐");
+                    reportData.Add($"{prefix}_qcN", dailyLog?.qcResult == false ? "☑" : "☐");
+                }
+
+                return reportData;
             }
-
-            var category = log.equipment?.productCategory;
-
-            var reportData = new Dictionary<string, object>
+            catch (Exception ex)
             {
-                { "equipmentName", category?.equipmentName ?? "" },
-                { "modelManufacturer", $"{category?.model} / {category?.manufacturer}" },
-                { "equipmentCode", category?.equipmentCode ?? "" },
-                { "location", category?.location ?? "" },
-                { "month", log.month.ToString("D2") },
-                { "year", log.year.ToString() },
-                { "weekOfMonth", log.weekOfMonth },
-
-                { "preparerName", log.preparer?.userName ?? "" },
-                { "inspectionDate", log.inspectionDate?.ToString("dd/MM/yyyy") ?? "……/……/……" },
-                { "inspectorName", log.inspector?.userName ?? "" },
-                { "reviewDate", log.reviewDate?.ToString("dd/MM/yyyy") ?? "……/……/……" },
-                { "reviewerName", log.reviewer?.userName ?? "" }
-            };
-
-            for (int i = 2; i <= 8; i++)
-            {
-                string prefix = $"d{i}"; 
-                var dailyLog = log.dailyLogs.FirstOrDefault(d => d.dayOfWeek == i);
-
-                reportData.Add($"{prefix}_date", dailyLog != null ? $"Ngày {dailyLog.logDate:dd/MM}" : "Ngày ………");
-
-                reportData.Add($"{prefix}_s1", dailyLog?.shift1 ?? "");
-                reportData.Add($"{prefix}_s2", dailyLog?.shift2 ?? "");
-                reportData.Add($"{prefix}_s3", dailyLog?.shift3 ?? "");
-                reportData.Add($"{prefix}_s4", dailyLog?.shift4 ?? "");
-                reportData.Add($"{prefix}_s5", dailyLog?.shift5 ?? "");
-
-                reportData.Add($"{prefix}_usage", dailyLog?.usageCount ?? "");
-                reportData.Add($"{prefix}_call", dailyLog?.maintenanceCallTime ?? "");
-
-                reportData.Add($"{prefix}_deconD", dailyLog?.dailyDecon ?? "");
-                reportData.Add($"{prefix}_deconP", dailyLog?.preMaintenanceDecon ?? "");
-
-                reportData.Add($"{prefix}_normalY", dailyLog?.isNormal == true ? "☑" : "☐");
-                reportData.Add($"{prefix}_normalN", dailyLog?.isNormal == false ? "☑" : "☐");
-
-                reportData.Add($"{prefix}_qcY", dailyLog?.qcResult == true ? "☑" : "☐");
-                reportData.Add($"{prefix}_qcN", dailyLog?.qcResult == false ? "☑" : "☐");
+                _logger.LogError(ex, "Lỗi khi xuất Báo cáo Nhật ký sử dụng thiết bị ID: {LogId}", logId);
+                throw;
             }
-
-            return reportData;
         }
-
     }
 }

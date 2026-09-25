@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace THUCTAP.ViewModels
 {
@@ -7,6 +8,7 @@ namespace THUCTAP.ViewModels
     {
         public int id { get; set; }
         public int? equipmentId { get; set; }
+        public string? equipmentCode { get; set; }
         public int? month { get; set; }
         public int? year { get; set; }
         public int? weekOfMonth { get; set; }
@@ -15,7 +17,8 @@ namespace THUCTAP.ViewModels
 
     public class SaveUsageDailyLogRequest
     {
-        public int equipmentId { get; set; }
+        [Required(ErrorMessage = "Mã thiết bị không được để trống!")]
+        public string equipmentCode { get; set; } = string.Empty;
         public int month { get; set; }
         public int year { get; set; }
         public int weekOfMonth { get; set; }
@@ -39,10 +42,18 @@ namespace THUCTAP.ViewModels
         public bool? qcResult { get; set; }
     }
 
-    public class ProcessUsageLogRequest
+    public class InspectUsageLogRequest
     {
-        public int userId { get; set; }
+        public int inspectorId { get; set; }
         public bool isApproved { get; set; }
+        public string? detail { get; set; }
+    }
+
+    public class ReviewUsageLogRequest
+    {
+        public int reviewerId { get; set; }
+        public bool isApproved { get; set; }
+        public string? detail { get; set; }
     }
 
     public class EquipmentUsageDailyLogResponse
@@ -78,6 +89,8 @@ namespace THUCTAP.ViewModels
         public string preparerName { get; set; } = string.Empty;
         public string inspectorName { get; set; } = string.Empty;
         public string reviewerName { get; set; } = string.Empty;
+        public string inspectorDetail { get; set; } = string.Empty;
+        public string reviewerDetail { get; set; } = string.Empty;
 
         public List<EquipmentUsageDailyLogResponse> dailyLogs { get; set; } = new List<EquipmentUsageDailyLogResponse>();
     }

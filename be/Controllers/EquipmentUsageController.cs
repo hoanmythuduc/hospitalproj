@@ -46,7 +46,7 @@ namespace THUCTAP.Controllers
         }
 
         [HttpPut("{id}/inspect")]
-        public async Task<IActionResult> Inspect(int id, [FromBody] ProcessUsageLogRequest request)
+        public async Task<IActionResult> Inspect(int id, [FromBody] InspectUsageLogRequest request)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace THUCTAP.Controllers
         }
 
         [HttpPut("{id}/review")]
-        public async Task<IActionResult> Review(int id, [FromBody] ProcessUsageLogRequest request)
+        public async Task<IActionResult> Review(int id, [FromBody] ReviewUsageLogRequest request)
         {
             try
             {

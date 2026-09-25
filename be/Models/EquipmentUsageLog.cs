@@ -37,6 +37,8 @@ namespace THUCTAP.Models
         [ForeignKey("reviewerId")]
         public User? reviewer { get; set; }
         public DateTime? reviewDate { get; set; }
+        public string? inspectorDetail { get; set; }
+        public string? reviewerDetail { get; set; }
 
         public ICollection<EquipmentUsageDailyLog> dailyLogs { get; set; } = new List<EquipmentUsageDailyLog>();
     }

@@ -9,6 +9,7 @@ namespace THUCTAP.Data
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppAction>().HasData(
+                
                 new AppAction { id = 1, menuId = 6, label = "View", code = "VIEW", endpoint = "/api/users", method = "GET" },
                 new AppAction { id = 2, menuId = 6, label = "Create", code = "CREATE", endpoint = "/api/users", method = "POST" },
                 new AppAction { id = 3, menuId = 6, label = "Update", code = "EDIT", endpoint = "/api/users/{id}", method = "PUT" },
@@ -16,7 +17,87 @@ namespace THUCTAP.Data
                 new AppAction { id = 5, menuId = 7, label = "View", code = "VIEW", endpoint = "/api/groups", method = "GET" },
                 new AppAction { id = 6, menuId = 7, label = "Create", code = "CREATE", endpoint = "/api/groups", method = "POST" },
                 new AppAction { id = 7, menuId = 7, label = "Update", code = "EDIT", endpoint = "/api/groups/{id}", method = "PUT" },
-                new AppAction { id = 8, menuId = 7, label = "Delete", code = "DELETE", endpoint = "/api/groups/{id}", method = "DELETE" }
+                new AppAction { id = 8, menuId = 7, label = "Delete", code = "DELETE", endpoint = "/api/groups/{id}", method = "DELETE" },
+
+                // Dữ liệu mới bổ sung
+                new AppAction { id = 9, menuId = 15, label = "Export Word", code = "EXPORT", endpoint = "/api/report/maintenance-plan/export-word", method = "POST" },
+                new AppAction { id = 12, menuId = 12, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 13, menuId = 12, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 14, menuId = 12, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 15, menuId = 13, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 16, menuId = 13, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 17, menuId = 13, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 18, menuId = 12, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 19, menuId = 13, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 20, menuId = 14, label = "View", code = "VIEW", endpoint = "", method = "" },
+
+                new AppAction { id = 21, menuId = 6, label = "", code = "", endpoint = "", method = "", isActive = false }, // Dữ liệu đã ẩn
+
+                new AppAction { id = 22, menuId = 15, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 23, menuId = 16, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 24, menuId = 16, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 25, menuId = 15, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 26, menuId = 15, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 27, menuId = 16, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 28, menuId = 16, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 29, menuId = 15, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+
+                new AppAction { id = 30, menuId = 18, label = "Xem danh sách khiếu nại", code = "READ_TICKET", endpoint = "/api/tickets", method = "GET" },
+                new AppAction { id = 31, menuId = 18, label = "Tạo khiếu nại mới", code = "CREATE_TICKET", endpoint = "/api/tickets", method = "POST" },
+                new AppAction { id = 32, menuId = 18, label = "Cập nhật khiếu nại", code = "UPDATE_TICKET", endpoint = "/api/tickets/{id}", method = "PUT" },
+                new AppAction { id = 33, menuId = 18, label = "Xóa khiếu nại", code = "DELETE_TICKET", endpoint = "/api/tickets/{id}", method = "DELETE" },
+
+                new AppAction { id = 34, menuId = 32, label = "", code = "", endpoint = "", method = "", isActive = false },
+
+                new AppAction { id = 35, menuId = 32, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 36, menuId = 32, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 37, menuId = 32, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 38, menuId = 32, label = "Create", code = "CREATE", endpoint = "", method = "" },
+
+                new AppAction { id = 39, menuId = 33, label = "", code = "", endpoint = "", method = "", isActive = false },
+
+                new AppAction { id = 40, menuId = 33, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 41, menuId = 33, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 42, menuId = 33, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 43, menuId = 33, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 44, menuId = 10, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 45, menuId = 11, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 46, menuId = 10, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 47, menuId = 10, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 48, menuId = 10, label = "Create", code = "CREATE", endpoint = "", method = "" },
+
+                new AppAction { id = 49, menuId = 12, label = "string", code = "string", endpoint = "", method = "", isActive = false },
+                new AppAction { id = 51, menuId = 12, label = "striiiiiing", code = "striiiiiing", endpoint = "", method = "", isActive = false },
+                new AppAction { id = 52, menuId = 12, label = "stridsadasdng", code = "strdsadassding", endpoint = "", method = "", isActive = false },
+                new AppAction { id = 53, menuId = 10, label = "string", code = "abc", endpoint = "", method = "", isActive = false },
+                new AppAction { id = 54, menuId = 10, label = "abctest", code = "abctest", endpoint = "abc/123", method = "abc/1234", isActive = false },
+                new AppAction { id = 55, menuId = 10, label = "abc", code = "abc", endpoint = "", method = "", isActive = false },
+
+                new AppAction { id = 56, menuId = 38, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 57, menuId = 38, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 58, menuId = 38, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 59, menuId = 38, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 60, menuId = 39, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 61, menuId = 39, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 62, menuId = 39, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 63, menuId = 39, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 64, menuId = 41, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 65, menuId = 41, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 66, menuId = 41, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 67, menuId = 41, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 68, menuId = 43, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 69, menuId = 43, label = "Create", code = "CREATE", endpoint = "", method = "" },
+                new AppAction { id = 70, menuId = 43, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 71, menuId = 43, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+
+                new AppAction { id = 72, menuId = 38, label = "Review", code = "REVIEW", endpoint = "", method = "" },
+                new AppAction { id = 73, menuId = 38, label = "Approve", code = "APPROVE", endpoint = "", method = "" },
+                new AppAction { id = 74, menuId = 39, label = "Approve", code = "APPROVE", endpoint = "", method = "" },
+
+                new AppAction { id = 75, menuId = 44, label = "View", code = "VIEW", endpoint = "", method = "" },
+                new AppAction { id = 76, menuId = 44, label = "Delete", code = "DELETE", endpoint = "", method = "" },
+                new AppAction { id = 77, menuId = 44, label = "Update", code = "EDIT", endpoint = "", method = "" },
+                new AppAction { id = 78, menuId = 44, label = "Create", code = "CREATE", endpoint = "", method = "" }
             );
 
             modelBuilder.Entity<Menu>().HasData(
@@ -146,14 +227,17 @@ namespace THUCTAP.Data
                 new CustomerCategory { id = 2, groupName = "Khách mua sỉ", discount = 10.0m, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 11) },
                 new CustomerCategory { id = 3, groupName = "Khách vãng lai", discount = 0.0m, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 11) },
                 new CustomerCategory { id = 4, groupName = "Khách hàng thân thiết", discount = 5.0m, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 11) },
-                new CustomerCategory { id = 5, groupName = "Đối tác chiến lược", discount = 20.0m, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 11) }
+                new CustomerCategory { id = 5, groupName = "Đối tác chiến lược", discount = 20.0m, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 11) },
+                new CustomerCategory { id = 6, groupName = "string", discount = 100.0m, isActive = false, createdAt = new DateTime(2026, 8, 11, 15, 34, 25), updatedAt = new DateTime(2026, 9, 16, 15, 45, 43) },
+                new CustomerCategory { id = 7, groupName = "test", discount = 10.0m, isActive = false, createdAt = new DateTime(2026, 8, 11, 15, 36, 14), updatedAt = new DateTime(2026, 9, 15, 10, 9, 16) },
+                new CustomerCategory { id = 8, groupName = "Khách hàng mới", discount = 20.0m, isActive = true, createdAt = new DateTime(2026, 9, 23, 9, 16, 22), updatedAt = new DateTime(2026, 9, 23, 9, 16, 22) },
+                new CustomerCategory { id = 9, groupName = "Khách hàng lâu năm", discount = 15.0m, isActive = true, createdAt = new DateTime(2026, 9, 23, 9, 17, 27), updatedAt = new DateTime(2026, 9, 23, 9, 17, 27) },
+                new CustomerCategory { id = 10, groupName = "nhân viên công ty", discount = 10.0m, isActive = true, createdAt = new DateTime(2026, 9, 23, 9, 17, 27), updatedAt = new DateTime(2026, 9, 23, 9, 17, 27) }
             );
 
             modelBuilder.Entity<User>().HasData(
                 new User { id = 1, userName = "admin", userCode = "NV001", password = "123", email = "admin@test.com", department = "Ban Giám Đốc" },
-                new User { id = 2, userName = "bacsi01", userCode = "BS001", password = "123", email = "bs@test.com", department = "Khoa Nội" },
-                new User { id = 3, userName = "admin02", userCode = "NV002", password = "123", email = "admin02@test.com", department = "Phòng Vật tư" },
-                new User { id = 4, userName = "nguyenvanan", userCode = "NV003", password = "123", email = "an.nv@test.com", department = "Phòng Kỹ thuật" }
+                new User { id = 2, userName = "bacsi01", userCode = "BS001", password = "123", email = "bs@test.com", department = "Khoa Nội" }
             );
 
             modelBuilder.Entity<Group>().HasData(
@@ -172,10 +256,17 @@ namespace THUCTAP.Data
                 new CustomerMaster { id = 2, supplierName = "Công ty TBYT ABC", supplierAddress = "Quận 1, TP.HCM", engineerInCharge = "Nguyễn Văn A", supplierPhone = "0909123456", supplierEmail = "contact@abc.com", categoryId = 2 }
             );
             modelBuilder.Entity<Equipment>().HasData(
-                new Equipment { id = 1, productCategoryId = 1, isActive = true, createdAt = new DateTime(2026, 8, 26), updatedAt = new DateTime(2026, 8, 26) },
-                new Equipment { id = 2, productCategoryId = 2, isActive = true, createdAt = new DateTime(2026, 8, 26), updatedAt = new DateTime(2026, 8, 26) },
-                new Equipment { id = 3, productCategoryId = 3, isActive = true, createdAt = new DateTime(2026, 8, 26), updatedAt = new DateTime(2026, 8, 26) },
-                new Equipment { id = 4, productCategoryId = 4, isActive = true, createdAt = new DateTime(2026, 8, 26), updatedAt = new DateTime(2026, 8, 26) }
+             
+                new Equipment { id = 1, productCategoryId = 1, isActive = true, createdAt = new DateTime(2026, 8, 27, 9, 38, 6), updatedAt = new DateTime(2026, 9, 17, 15, 22, 49), updatedBy = "System" },
+                new Equipment { id = 2, productCategoryId = 2, isActive = true, createdAt = new DateTime(2026, 8, 27, 9, 38, 6), updatedAt = new DateTime(2026, 8, 27, 9, 38, 6) },
+                new Equipment { id = 3, productCategoryId = 3, isActive = true, createdAt = new DateTime(2026, 8, 27, 9, 38, 6), updatedAt = new DateTime(2026, 9, 17, 15, 20, 24), updatedBy = "System" },
+                new Equipment { id = 6, productCategoryId = 4, isActive = true, createdAt = new DateTime(2026, 8, 26, 0, 0, 0), updatedAt = new DateTime(2026, 9, 17, 15, 14, 21), updatedBy = "System" },
+                new Equipment { id = 8, productCategoryId = 1, isActive = true, createdAt = new DateTime(2026, 9, 17, 13, 58, 39), createdBy = "11", updatedAt = new DateTime(2026, 9, 17, 14, 31, 38), updatedBy = "11" },
+
+                new Equipment { id = 4, productCategoryId = 4, isActive = false, createdAt = new DateTime(2026, 8, 26, 0, 0, 0), updatedAt = new DateTime(2026, 9, 17, 14, 7, 47), updatedBy = "11" },
+                new Equipment { id = 9, productCategoryId = 1, isActive = false, createdAt = new DateTime(2026, 9, 17, 13, 59, 6), createdBy = "11", updatedAt = new DateTime(2026, 9, 17, 14, 5, 5), updatedBy = "11" },
+                new Equipment { id = 10, productCategoryId = 2, isActive = false, createdAt = new DateTime(2026, 9, 17, 14, 4, 41), createdBy = "11", updatedAt = new DateTime(2026, 9, 17, 14, 5, 4), updatedBy = "11" },
+                new Equipment { id = 12, productCategoryId = 4, isActive = false, createdAt = new DateTime(2026, 9, 17, 14, 24, 16), createdBy = "System", updatedAt = new DateTime(2026, 9, 17, 15, 8, 12), updatedBy = "11" }
             );
             modelBuilder.Entity<EquipmentManager>().HasData(
 
@@ -270,26 +361,24 @@ namespace THUCTAP.Data
                 }
             );
             modelBuilder.Entity<EquipmentMaintenanceLog>().HasData(
+   
+            new EquipmentMaintenanceLog { id = 1, equipmentId = 1, logDate = new DateTime(2026, 8, 1), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Máy hoạt động bình thường", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectorDetail = "Dữ liệu hợp lệ", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Đã duyệt", isActive = true, createdAt = new DateTime(2026, 8, 1), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 2, equipmentId = 1, logDate = new DateTime(2026, 8, 2), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Vệ sinh buồng mẫu", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectorDetail = "Đã kiểm tra", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Đồng ý", isActive = true, createdAt = new DateTime(2026, 8, 2), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 3, equipmentId = 1, logDate = new DateTime(2026, 8, 3), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectorDetail = "Kiểm tra OK", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Duyệt", isActive = true, createdAt = new DateTime(2026, 8, 3), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 4, equipmentId = 1, logDate = new DateTime(2026, 8, 4), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Chạy mẫu test OK", status = MaintenanceLogStatus.Completed, executorId = 3, inspectorId = 1, inspectorDetail = "Đã xác nhận", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Xác nhận duyệt", isActive = true, createdAt = new DateTime(2026, 8, 4), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 5, equipmentId = 1, logDate = new DateTime(2026, 8, 5), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.Completed, executorId = 3, inspectorId = 1, inspectorDetail = "Hợp lệ", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Duyệt", isActive = true, createdAt = new DateTime(2026, 8, 5), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 6, equipmentId = 1, logDate = new DateTime(2026, 8, 6), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.Completed, executorId = 3, inspectorId = 1, inspectorDetail = "Đạt yêu cầu", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Đã xem", isActive = true, createdAt = new DateTime(2026, 8, 6), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 7, equipmentId = 1, logDate = new DateTime(2026, 8, 7), isDaily = true, isWeekly = true, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Bảo dưỡng cuối tuần, xả sương", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectorDetail = "Tốt", inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), reviewerDetail = "Đồng ý duyệt", isActive = true, createdAt = new DateTime(2026, 8, 7), updatedAt = new DateTime(2026, 8, 9) },
+            new EquipmentMaintenanceLog { id = 8, equipmentId = 1, logDate = new DateTime(2026, 8, 8), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectorDetail = "Đã kiểm tra, chờ GĐ duyệt", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 8), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 9, equipmentId = 1, logDate = new DateTime(2026, 8, 9), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectorDetail = "Kiểm tra đạt", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 9), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 10, equipmentId = 1, logDate = new DateTime(2026, 8, 10), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = true, note = "Lỗi bo mạch, đã gọi kỹ sư", status = MaintenanceLogStatus.PendingReview, executorId = 2, inspectorId = 1, inspectorDetail = "Ghi chú đầy đủ", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, relatedMaintenanceId = 2, isActive = true, createdAt = new DateTime(2026, 8, 10), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 11, equipmentId = 1, logDate = new DateTime(2026, 8, 11), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Máy đã sửa xong, chạy ổn", status = MaintenanceLogStatus.PendingReview, executorId = 2, inspectorId = 1, inspectorDetail = "Máy ổn định", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 12, equipmentId = 1, logDate = new DateTime(2026, 8, 12), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectorDetail = "OK", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 12), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 13, equipmentId = 1, logDate = new DateTime(2026, 8, 13), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectorDetail = "OK", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 13), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 14, equipmentId = 1, logDate = new DateTime(2026, 8, 14), isDaily = true, isWeekly = true, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Bảo dưỡng cuối tuần", status = MaintenanceLogStatus.PendingReview, executorId = 2, inspectorId = 1, inspectorDetail = "Bảo dưỡng đạt yêu cầu", inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 14), updatedAt = new DateTime(2026, 8, 15) },
+            new EquipmentMaintenanceLog { id = 15, equipmentId = 1, logDate = new DateTime(2026, 8, 15), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Khởi động đầu ca tốt", status = MaintenanceLogStatus.PendingInspection, executorId = 2, inspectorId = null, inspectorDetail = null, inspectionDate = null, reviewerId = null, reviewDate = null, reviewerDetail = null, isActive = true, createdAt = new DateTime(2026, 8, 15), updatedAt = new DateTime(2026, 8, 15) }
+        );
 
-                new EquipmentMaintenanceLog { id = 1, equipmentId = 1, logDate = new DateTime(2026, 8, 1), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Máy hoạt động bình thường", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 1), updatedAt = new DateTime(2026, 8, 9) },
-                new EquipmentMaintenanceLog { id = 2, equipmentId = 1, logDate = new DateTime(2026, 8, 2), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Vệ sinh buồng mẫu", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 2), updatedAt = new DateTime(2026, 8, 9) },
-                new EquipmentMaintenanceLog { id = 3, equipmentId = 1, logDate = new DateTime(2026, 8, 3), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 3), updatedAt = new DateTime(2026, 8, 9) },
-                new EquipmentMaintenanceLog { id = 4, equipmentId = 1, logDate = new DateTime(2026, 8, 4), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Chạy mẫu test OK", status = MaintenanceLogStatus.Completed, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 4), updatedAt = new DateTime(2026, 8, 9) },
-                new EquipmentMaintenanceLog { id = 5, equipmentId = 1, logDate = new DateTime(2026, 8, 5), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.Completed, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 5), updatedAt = new DateTime(2026, 8, 9) },
-                new EquipmentMaintenanceLog { id = 6, equipmentId = 1, logDate = new DateTime(2026, 8, 6), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.Completed, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 6), updatedAt = new DateTime(2026, 8, 9) },
-                new EquipmentMaintenanceLog { id = 7, equipmentId = 1, logDate = new DateTime(2026, 8, 7), isDaily = true, isWeekly = true, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Bảo dưỡng cuối tuần, xả sương", status = MaintenanceLogStatus.Completed, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 8), reviewerId = 1, reviewDate = new DateTime(2026, 8, 9), isActive = true, createdAt = new DateTime(2026, 8, 7), updatedAt = new DateTime(2026, 8, 9) },
-
-                new EquipmentMaintenanceLog { id = 8, equipmentId = 1, logDate = new DateTime(2026, 8, 8), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 8), updatedAt = new DateTime(2026, 8, 15) },
-                new EquipmentMaintenanceLog { id = 9, equipmentId = 1, logDate = new DateTime(2026, 8, 9), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 9), updatedAt = new DateTime(2026, 8, 15) },
-
-                new EquipmentMaintenanceLog { id = 10, equipmentId = 1, logDate = new DateTime(2026, 8, 10), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = true, note = "Lỗi bo mạch, đã gọi kỹ sư", status = MaintenanceLogStatus.PendingReview, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, relatedMaintenanceId = 2, isActive = true, createdAt = new DateTime(2026, 8, 10), updatedAt = new DateTime(2026, 8, 15) },
-                new EquipmentMaintenanceLog { id = 11, equipmentId = 1, logDate = new DateTime(2026, 8, 11), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Máy đã sửa xong, chạy ổn", status = MaintenanceLogStatus.PendingReview, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 11), updatedAt = new DateTime(2026, 8, 15) },
-                new EquipmentMaintenanceLog { id = 12, equipmentId = 1, logDate = new DateTime(2026, 8, 12), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 12), updatedAt = new DateTime(2026, 8, 15) },
-                new EquipmentMaintenanceLog { id = 13, equipmentId = 1, logDate = new DateTime(2026, 8, 13), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "", status = MaintenanceLogStatus.PendingReview, executorId = 3, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 13), updatedAt = new DateTime(2026, 8, 15) },
-                new EquipmentMaintenanceLog { id = 14, equipmentId = 1, logDate = new DateTime(2026, 8, 14), isDaily = true, isWeekly = true, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Bảo dưỡng cuối tuần", status = MaintenanceLogStatus.PendingReview, executorId = 2, inspectorId = 1, inspectionDate = new DateTime(2026, 8, 15), reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 14), updatedAt = new DateTime(2026, 8, 15) },
-
-                new EquipmentMaintenanceLog { id = 15, equipmentId = 1, logDate = new DateTime(2026, 8, 15), isDaily = true, isWeekly = false, isMonthly = false, isQuarterly = false, isAsNeeded = false, note = "Khởi động đầu ca tốt", status = MaintenanceLogStatus.PendingInspection, executorId = 2, inspectorId = null, inspectionDate = null, reviewerId = null, reviewDate = null, isActive = true, createdAt = new DateTime(2026, 8, 15), updatedAt = new DateTime(2026, 8, 15) }
-            );
             modelBuilder.Entity<EquipmentMaintenanceSchedule>().HasData(
                 new EquipmentMaintenanceSchedule
                 {
@@ -310,9 +399,10 @@ namespace THUCTAP.Data
                     m10 = false,
                     m11 = false,
                     m12 = true,
-                    status = MaintenanceScheduleStatus.Approved, // Trạng thái Đã duyệt
+                    status = MaintenanceScheduleStatus.Approved,
                     preparerId = 2,
                     approverId = 1,
+                    detail = "Lịch trình này phù hợp với khuyến cáo của hãng, đồng ý triển khai",
                     isActive = true,
                     createdAt = new DateTime(2026, 8, 26),
                     updatedAt = new DateTime(2026, 8, 26)
@@ -339,6 +429,7 @@ namespace THUCTAP.Data
                     status = MaintenanceScheduleStatus.Approved,
                     preparerId = 2,
                     approverId = 1,
+                    detail = "Đã xem xét và duyệt", 
                     isActive = true,
                     createdAt = new DateTime(2026, 8, 26),
                     updatedAt = new DateTime(2026, 8, 26)
@@ -365,11 +456,13 @@ namespace THUCTAP.Data
                     status = MaintenanceScheduleStatus.Approved,
                     preparerId = 2,
                     approverId = 1,
+                    detail = "Xác nhận lịch bảo dưỡng thiết bị OXY", 
                     isActive = true,
                     createdAt = new DateTime(2026, 8, 26),
                     updatedAt = new DateTime(2026, 8, 26)
                 }
             );
+
             modelBuilder.Entity<WaterSystemLog>().HasData(
                 new WaterSystemLog
                 {
@@ -379,10 +472,14 @@ namespace THUCTAP.Data
                     year = 2026,
                     status = WaterLogStatus.Completed,
                     preparerId = 2,
+                    allowedRange = "< 1,0",
+                    trackingTime = "08:00",
                     inspectorId = 1,
                     inspectionDate = new DateTime(2026, 8, 31),
+                    inspectorDetail = "Các chỉ số đo đạt ngưỡng an toàn", 
                     reviewerId = 1,
                     reviewDate = new DateTime(2026, 9, 1),
+                    reviewerDetail = "Đã xem xét và phê duyệt",
                     isActive = true,
                     createdAt = new DateTime(2026, 8, 1),
                     updatedAt = new DateTime(2026, 9, 1)
@@ -413,26 +510,26 @@ namespace THUCTAP.Data
                 new Order { id = 5, orderNumber = "ORD-2026-005", orderDate = new DateTime(2026, 8, 20), customerId = 3, estimatedTotal = 2900000m, isActive = true, createdAt = new DateTime(2026, 8, 20), updatedAt = new DateTime(2026, 8, 20) }
             );
             modelBuilder.Entity<EquipmentUsageLog>().HasData(
-                new EquipmentUsageLog
-                {
-                    id = 1,
-                    equipmentId = 1,
-                    month = 8,
-                    year = 2026,
-                    weekOfMonth = 1, 
-                    status = UsageLogStatus.Completed, 
-
-                    preparerId = 2,  
-                    inspectorId = 1, 
-                    inspectionDate = new DateTime(2026, 8, 8),
-                    reviewerId = 1, 
-                    reviewDate = new DateTime(2026, 8, 9),
-
-                    isActive = true,
-                    createdAt = new DateTime(2026, 8, 1),
-                    updatedAt = new DateTime(2026, 8, 9)
-                }
-            );
+            new EquipmentUsageLog
+            {
+                id = 1,
+                equipmentId = 1,
+                month = 8,
+                year = 2026,
+                weekOfMonth = 1,
+                status = UsageLogStatus.Completed,
+                preparerId = 2,
+                inspectorId = 1, 
+                inspectionDate = new DateTime(2026, 8, 8),
+                inspectorDetail = "Nhật ký ghi chép đầy đủ các ca trực", 
+                reviewerId = 1,
+                reviewDate = new DateTime(2026, 8, 9),
+                reviewerDetail = "Đã duyệt và lưu trữ hồ sơ", 
+                isActive = true,
+                createdAt = new DateTime(2026, 8, 1),
+                updatedAt = new DateTime(2026, 8, 9)
+            }
+        );
 
             var usageDailyLogs = new List<EquipmentUsageDailyLog>();
             DateTime startDate = new DateTime(2026, 8, 3); 

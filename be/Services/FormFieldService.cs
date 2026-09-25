@@ -4,124 +4,169 @@ using THUCTAP.Interfaces;
 using THUCTAP.Mappers;
 using THUCTAP.Models;
 using THUCTAP.ViewModels;
-
+using Microsoft.Extensions.Logging; // 👉 Bổ sung thư viện Logging
 
 namespace THUCTAP.Services
 {
     public class FormFieldService : IFormFieldService
     {
         private readonly IFormFieldRepository _formFieldRepository;
+        private readonly ILogger<FormFieldService> _logger; // 👉 Khai báo Logger
 
-        public FormFieldService(IFormFieldRepository formFieldRepository)
+        // 👉 Tiêm ILogger vào Constructor
+        public FormFieldService(IFormFieldRepository formFieldRepository, ILogger<FormFieldService> logger)
         {
             _formFieldRepository = formFieldRepository;
+            _logger = logger;
         }
         
-        public async Task<FormField>CreateFormFieldAsync(FormFieldRequest request)
+        public async Task<FormField> CreateFormFieldAsync(FormFieldRequest request)
         {
-            var newField = new FormField
+            try
             {
-                label = request.label,
-                field = request.field,
-                entityName = request.entityName,
-                type = request.type,
-                colSpan = request.colSpan,
-                option = request.option,
-                subField = request.subField,
-                tagField = request.tagField,
-                isSearchAble = request.isSearchAble,
-                isShowInForm = request.isShowInForm,
-                isShowInList = request.isShowInList,
-                tabName = request.tabName,
-                endPoint = request.endPoint,
-                sortOrder = request.sortOrder,
-                menuId = request.menuId
-            };
+                var newField = new FormField
+                {
+                    label = request.label,
+                    field = request.field,
+                    entityName = request.entityName,
+                    type = request.type,
+                    colSpan = request.colSpan,
+                    option = request.option,
+                    subField = request.subField,
+                    tagField = request.tagField,
+                    isSearchAble = request.isSearchAble,
+                    isShowInForm = request.isShowInForm,
+                    isShowInList = request.isShowInList,
+                    tabName = request.tabName,
+                    endPoint = request.endPoint,
+                    sortOrder = request.sortOrder,
+                    menuId = request.menuId
+                };
 
-
-            await _formFieldRepository.CreateFormFieldAsync(newField);
-            return newField;
+                await _formFieldRepository.CreateFormFieldAsync(newField);
+                return newField;
+            }
+            catch (Exception ex)
+            {
+                // 👉 Ghi log kèm theo Label và Field để dễ dàng truy vết
+                _logger.LogError(ex, "Lỗi khi tạo FormField mới. Label: {Label}, Field: {Field}", request.label, request.field);
+                throw;
+            }
         }
 
-        public async Task<FormField>UpdateFormFieldAsync(int id, FormFieldRequest request)
+        public async Task<FormField> UpdateFormFieldAsync(int id, FormFieldRequest request)
         {
-            var field = await _formFieldRepository.GetFormFieldByIdAsync(id);
-            if (field == null) return null;
+            try
+            {
+                var field = await _formFieldRepository.GetFormFieldByIdAsync(id);
+                if (field == null) return null;
 
-            field.UpdateFormField(request);
+                field.UpdateFormField(request);
 
-            await _formFieldRepository.UpdateFormFieldAsync(field);
-            return field;
+                await _formFieldRepository.UpdateFormFieldAsync(field);
+                return field;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi cập nhật FormField có ID: {Id}", id);
+                throw;
+            }
         }
 
-        public async Task<bool>DeleteFormFieldAsync(int id)
+        public async Task<bool> DeleteFormFieldAsync(int id)
         {
-            var field = await _formFieldRepository.GetFormFieldByIdAsync(id);
-            if (field == null) return false;
+            try
+            {
+                var field = await _formFieldRepository.GetFormFieldByIdAsync(id);
+                if (field == null) return false;
 
-            await _formFieldRepository.DeleteFormFieldAsync(field);
-            return true;
+                await _formFieldRepository.DeleteFormFieldAsync(field);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi xóa FormField có ID: {Id}", id);
+                throw;
+            }
         }
 
-        public async Task<PagedResult<FormFieldResponse>>GetAllFieldsAsync(FormFieldFilterRequest filter)
+        public async Task<PagedResult<FormFieldResponse>> GetAllFieldsAsync(FormFieldFilterRequest filter)
         {
-            return await _formFieldRepository.GetAllFieldsAsync(filter);
+            try
+            {
+                return await _formFieldRepository.GetAllFieldsAsync(filter);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Lỗi khi lấy danh sách FormField từ cơ sở dữ liệu");
+                throw;
+            }
         }
+
         public async Task<int> ImportExcelAsync(IFormFile file)
         {
-            if (file == null || file.Length == 0)
-                throw new Exception("Vui lòng chọn file Excel!");
-
-            if (Path.GetExtension(file.FileName).ToLower() != ".xlsx")
-                throw new Exception("Chỉ hỗ trợ file định dạng Excel (.xlsx)!");
-
-            using var stream = new MemoryStream();
-            await file.CopyToAsync(stream);
-            stream.Position = 0;
-
-            // Mapping vào đúng khuôn của FormFieldRequest
-            var importedData = stream.Query<FormFieldRequest>().ToList();
-
-            if (!importedData.Any())
-                throw new Exception("File Excel không có dữ liệu!");
-
-            var errorList = new List<string>();
-
-            // Quét lỗi (Validation)
-            for (int i = 0; i < importedData.Count; i++)
+            try
             {
-                var item = importedData[i];
-                var validationContext = new ValidationContext(item);
-                var validationResults = new List<ValidationResult>();
+                if (file == null || file.Length == 0)
+                    throw new Exception("Vui lòng chọn file Excel!");
 
-                if (string.IsNullOrWhiteSpace(item.field) && string.IsNullOrWhiteSpace(item.entityName))
+                if (Path.GetExtension(file.FileName).ToLower() != ".xlsx")
+                    throw new Exception("Chỉ hỗ trợ file định dạng Excel (.xlsx)!");
+
+                using var stream = new MemoryStream();
+                await file.CopyToAsync(stream);
+                stream.Position = 0;
+
+                // Mapping vào đúng khuôn của FormFieldRequest
+                var importedData = stream.Query<FormFieldRequest>().ToList();
+
+                if (!importedData.Any())
+                    throw new Exception("File Excel không có dữ liệu!");
+
+                var errorList = new List<string>();
+
+                // Quét lỗi (Validation)
+                for (int i = 0; i < importedData.Count; i++)
                 {
-                    continue;
+                    var item = importedData[i];
+                    var validationContext = new ValidationContext(item);
+                    var validationResults = new List<ValidationResult>();
+
+                    if (string.IsNullOrWhiteSpace(item.field) && string.IsNullOrWhiteSpace(item.entityName))
+                    {
+                        continue;
+                    }
+
+                    bool isValid = Validator.TryValidateObject(item, validationContext, validationResults, true);
+
+                    if (!isValid)
+                    {
+                        var errors = string.Join(" | ", validationResults.Select(r => r.ErrorMessage));
+                        errorList.Add($"Dòng {i + 2}: {errors}");
+                    }
                 }
 
-                bool isValid = Validator.TryValidateObject(item, validationContext, validationResults, true);
-
-                if (!isValid)
+                if (errorList.Any())
                 {
-                    var errors = string.Join(" | ", validationResults.Select(r => r.ErrorMessage));
-                    errorList.Add($"Dòng {i + 2}: {errors}");
+                    throw new Exception("Lỗi dữ liệu Excel:\n" + string.Join("\n", errorList));
                 }
-            }
 
-            if (errorList.Any())
+                int count = 0;
+
+                foreach (var item in importedData)
+                {
+                    await CreateFormFieldAsync(item);
+                    count++;
+                }
+
+                return count;
+            }
+            catch (Exception ex)
             {
-                throw new Exception("Lỗi dữ liệu Excel:\n" + string.Join("\n", errorList));
+                // 👉 Ghi log tên file Excel bị lỗi
+                _logger.LogError(ex, "Lỗi nghiêm trọng khi Import file Excel dữ liệu FormField. Tên file: {FileName}", file?.FileName ?? "Không xác định");
+                throw;
             }
-
-            int count = 0;
-
-            foreach (var item in importedData)
-            {
-                await CreateFormFieldAsync(item);
-                count++;
-            }
-
-            return count;
         }
     }
 }

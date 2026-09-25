@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using THUCTAP.Models; // Giả sử bạn để enum MaintenanceScheduleStatus ở đây
 
 namespace THUCTAP.ViewModels
@@ -18,7 +19,8 @@ namespace THUCTAP.ViewModels
     }
     public class MaintenanceScheduleRequest
     {
-        public int equipmentId { get; set; }
+        [Required(ErrorMessage = "Mã thiết bị không được để trống!")]
+        public string equipmentCode { get; set; } = string.Empty;
         public int year { get; set; }
         public string task { get; set; } = string.Empty;
         public string note { get; set; } = string.Empty;
@@ -43,12 +45,14 @@ namespace THUCTAP.ViewModels
     {
         public int approverId { get; set; }
         public bool isApproved { get; set; } // true: Duyệt, false: Từ chối
+        public string? detail { get; set; }
     }
 
     public class MaintenanceScheduleFilterRequest : PagingRequestBase
     {
         
         public int? equipmentId { get; set; }
+        public string? equipmentCode { get; set; }
         public int? year { get; set; }
         public int? status { get; set; }
         
@@ -82,5 +86,6 @@ namespace THUCTAP.ViewModels
         public string statusName { get; set; } = string.Empty;
         public string preparerName { get; set; } = string.Empty;
         public string approverName { get; set; } = string.Empty;
+        public string? detail { get; set; }
     }
 }

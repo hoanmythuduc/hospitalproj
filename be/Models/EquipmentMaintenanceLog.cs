@@ -14,6 +14,7 @@ namespace THUCTAP.Models
         public int equipmentId { get; set; }
         [ForeignKey("equipmentId")]
         public Equipment? equipment { get; set; }
+     
 
         public DateTime logDate { get; set; }
 
@@ -42,5 +43,7 @@ namespace THUCTAP.Models
         public int? relatedMaintenanceId { get; set; }
         [ForeignKey("relatedMaintenanceId")]
         public EquipmentMaintenance? relatedMaintenance { get; set; }
+        public string? inspectorDetail { get; set; }
+        public string? reviewerDetail { get; set; }
     }
 }

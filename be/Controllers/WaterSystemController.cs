@@ -8,6 +8,7 @@ namespace THUCTAP.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class WaterSystemController : ControllerBase
     {
         private readonly IWaterSystemService _service;
@@ -49,7 +50,7 @@ namespace THUCTAP.Controllers
         }
 
         [HttpPut("{id}/inspect")]
-        public async Task<IActionResult> Inspect(int id, [FromBody] ProcessWaterLogRequest request)
+        public async Task<IActionResult> Inspect(int id, [FromBody] InspectWaterLogRequest request)
         {
             try
             {
@@ -65,7 +66,7 @@ namespace THUCTAP.Controllers
         }
 
         [HttpPut("{id}/review")]
-        public async Task<IActionResult> Review(int id, [FromBody] ProcessWaterLogRequest request)
+        public async Task<IActionResult> Review(int id, [FromBody] ReviewWaterLogRequest request)
         {
             try
             {
